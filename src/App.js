@@ -11,9 +11,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 class App extends React.Component {
   constructor() {
     super();
-    if (localStorage.getItem("users") === null) {
-      localStorage.setItem("users", JSON.stringify({})); 
-    };
+    // here for testing purposes
+    localStorage.clear("currentUser");
   };
   render() {
     return (

@@ -11,11 +11,10 @@ export default class RegisterModal extends React.Component {
     this.registerModal = React.createRef();
     // this.setState
     this.state = {
-      visible: true,
+      visible: false,
       confirmLoading: false,
       modalText: '',
-      cancelRedirect: false,
-      loginRedirect: false,
+      profileRedirect: false
     };
   }
 
@@ -28,7 +27,7 @@ export default class RegisterModal extends React.Component {
   };
 
   handleCancel = () => {
-    this.setState({visible: false, cancelRedirect: true});
+    this.setState({visible: false});
   };
 
   handleError = () => {
@@ -41,30 +40,29 @@ export default class RegisterModal extends React.Component {
         }, 3000);
   };
 
-  handleSuccess = () => {
+  handleSuccess = (username) => {
         setTimeout(() => {
             this.setState({
-                modalText: "Success! Redirecting you to login page!",
+                modalText: "Success! Logging you in!",
                 visible: true, 
                 confirmLoading:false
             });
         }, 2000);
-        // redirect to login page after a few seconds
+        // redirect to user page after a few seconds
         setTimeout(() => {
             this.setState({
-                loginRedirect: true
+                profileRedirect: true
             });
+            localStorage.setItem('currentUser', username);
         }, 6000);
   };
 
   render() {
     // if an user is already logged in, redirect them to profile page
-    if (localStorage.getItem("currentUser")) {
+    if (localStorage.getItem("currentUser") || this.state.profileRedirect) {
+        console.log(localStorage.getItem("currentUser"));
+        console.log(this.state.profileRedirect);
         return <Redirect to='/user_profile' />
-    }else if (this.state.cancelRedirect) { // if the user cancels the modal, redirect to home.
-        return <Redirect to='/home' />
-    }else if (this.state.loginRedirect) { // successful registration. redirect to login.
-        return <Redirect to='/login' />
     };
 
     return (
