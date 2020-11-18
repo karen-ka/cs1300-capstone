@@ -2,25 +2,36 @@ import React from 'react';
 import Navbar from './component/navbar.js';
 import Home from './page/home.js';
 import About from './page/about.js';
+import RegisterModal from './component/registerModal.jsx';
+
 import './App.css';
 import { Checkbox, Button } from 'antd';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-function App() {
-  return (
-    <div>
+class App extends React.Component {
+  constructor() {
+    super();
+    if (localStorage.getItem("users") === null) {
+      localStorage.setItem("users", JSON.stringify({})); 
+    };
+  };
+  render() {
+    return (
+      <div>
 
-    <BrowserRouter>
-      <div className="App">
-        {/* <Navbar /> */}
-        <Switch>
-          <Route path="/" exact component={Home}/>
-          <Route path="/about" component={About}/>
-        </Switch>
+      <BrowserRouter>
+        <div className="App">
+          {/* <Navbar /> */}
+          <Switch>
+            <Route path="/" exact component={Home}/>
+            <Route path="/about" component={About}/>
+            <Route path="/register" component={RegisterModal}/>
+          </Switch>
+        </div>
+      </BrowserRouter>
       </div>
-    </BrowserRouter>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
