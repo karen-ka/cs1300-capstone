@@ -25,8 +25,8 @@ export default class Navbar extends React.Component {
       <div>
       <LoginModal ref={this.loginModal}></LoginModal>
       <></>
-      <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal" style={{float: 'right'}}>
-        <Menu.Item key="mail" >
+      <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal" style={{float: 'right', height: '5vh', alignContent: 'middle', display: 'flex', lineHeight: '5vh'}}>
+        <Menu.Item key="mail" style={{alignItems: 'center'}}>
           Navigation One
         </Menu.Item>
         <Menu.Item key="login">
