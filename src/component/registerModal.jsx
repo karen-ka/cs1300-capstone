@@ -54,7 +54,7 @@ export default class RegisterModal extends React.Component {
                 profileRedirect: true
             });
             localStorage.setItem('currentUser', username);
-        }, 6000);
+        }, 3000);
   };
 
   render() {

@@ -4,13 +4,6 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
 
 export default class RegisterForm extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.loginModal = React.createRef();
-//   }
-//   state = {
-//     current: 'mail',
-//   };
 
   onFinish = values => {
     const username = values['username'];
@@ -23,7 +16,6 @@ export default class RegisterForm extends React.Component {
     };
     fetch('/register', requestOptions)
     .then((response) => {
-        console.log(response);
         if (response.status === 200) {
             this.props.handleSuccess(username);
         } else {
