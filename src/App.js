@@ -13,7 +13,7 @@ class App extends React.Component {
   constructor() {
     super();
     // here for testing purposes
-    localStorage.clear("currentUser");
+    // localStorage.clear("currentUser");
   };
   render() {
     return (
