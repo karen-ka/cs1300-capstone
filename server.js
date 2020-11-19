@@ -15,10 +15,40 @@ connectToDB = async () => {
 };
 connectToDB();
 
+const Schema = mongoose.Schema;
+const User = new Schema({
+  username: String,
+  password: String,
+  games: [String],
+});
+const UserModel = mongoose.model('User', User);
 // server
 const app = express();
 
 app.use(express.static(path.join(__dirname, "/build")));
+app.use(express.json());
+
+app.post("/register/", (req, res) => {
+    const user = req.body.username;
+    const password = req.body.password;
+    UserModel.exists({username:user})
+    .then((result) => {
+        // username already exists 
+        if (result === true) {
+            res.status(400);
+            res.send("Error. User exists");
+        }
+        else {
+            UserModel.create({ username: user, password:password  })
+            .then((response) => {
+                res.status(200);
+                res.send("Success! User created");
+            });
+        };
+    }).catch((err) => {
+        res.send(err);
+    })
+});
 
 app.get("*", (_, res) => {
     res.sendFile(path.join(__dirname + "/build/index.html"));

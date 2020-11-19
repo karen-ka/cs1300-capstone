@@ -16,19 +16,20 @@ export default class RegisterForm extends React.Component {
     const username = values['username'];
     const password = values['password'];
     // replace with mongo call
-    if (true) {
-        // replace with mongo call
-
-        // userData[username] = {
-        //     "password": password, 
-        //     "games": []
-        // };
-        // localStorage.setItem('users', JSON.stringify(userData));
-
-        this.props.handleSuccess(username);
-    } else {
-        this.props.handleError();
+    let requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: username, password:password })
     };
+    fetch('/register', requestOptions)
+    .then((response) => {
+        console.log(response);
+        if (response.status === 200) {
+            this.props.handleSuccess(username);
+        } else {
+            this.props.handleError();
+        }
+    });
   };
 
   render() {
