@@ -35,9 +35,7 @@ export default class LoginModal extends React.Component {
   render() {
     return (
       <>
-      {/* <Button type="primary" onClick={showModal}>
-        Open Modal with async logic
-      </Button> */}
+
       <Modal
         title="Title"
         visible={this.state.visible}
