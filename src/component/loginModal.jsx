@@ -12,7 +12,7 @@ export default class LoginModal extends React.Component {
     // this.setState
     this.state = {
       visible: false,
-      confirmLoading: false,
+      loading: false,
       modalText: '',
       profileRedirect: false
     };
@@ -23,7 +23,7 @@ export default class LoginModal extends React.Component {
   };
 
   handleOk = () => {
-    this.setState({modalText: 'Logging you in...', confirmLoading: true});
+    this.setState({modalText: 'Logging you in...', loading: true});
   };
 
   handleCancel = () => {
@@ -35,7 +35,7 @@ export default class LoginModal extends React.Component {
             this.setState({
                 modalText: "Username/Password doesn't match or doesn't exist. Try again.",
                 visible: true, 
-                confirmLoading:false
+                loading:false
             });
         }, 3000);
   };
@@ -45,7 +45,7 @@ export default class LoginModal extends React.Component {
             this.setState({
                 modalText: "Success! Logging you in!",
                 visible: true, 
-                confirmLoading:false
+                loading:false
             });
         }, 2000);
         // redirect to user page after a few seconds
@@ -68,10 +68,9 @@ export default class LoginModal extends React.Component {
         title="Log In"
         visible={this.state.visible}
         onOk={this.handleOk}
-        confirmLoading={this.state.confirmLoading}
         onCancel={this.handleCancel}
         footer={[
-            <Button form="loginForm" key="submit" htmlType="submit" onClick={this.handleOk}>
+            <Button form="loginForm" key="submit" htmlType="submit" onClick={this.handleOk} loading={this.state.loading}>
                 Log In
             </Button>
         ]}
