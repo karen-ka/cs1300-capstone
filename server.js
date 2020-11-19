@@ -31,6 +31,7 @@ app.use(express.json());
 app.post("/register/", (req, res) => {
     const user = req.body.username;
     const password = req.body.password;
+    console.log(user, password);
     UserModel.exists({username:user})
     .then((result) => {
         // username already exists 
@@ -47,7 +48,26 @@ app.post("/register/", (req, res) => {
         };
     }).catch((err) => {
         res.send(err);
-    })
+    });
+});
+
+app.post("/login/", (req,res) => {
+    const user = req.body.username;
+    const password = req.body.password;
+    UserModel.findOne({username:user, password:password})
+    .then((result) => {
+        // username/password doesn't exist
+        if (result === null) {
+            res.status(400);
+            res.send("Error. User doesn't exist/user and password don't match");
+        }
+        else {
+            res.status(200);
+            res.send("User exists! Logging you in!");
+        };
+    }).catch((err) => {
+        res.send(err);
+    });
 });
 
 app.get("*", (_, res) => {
