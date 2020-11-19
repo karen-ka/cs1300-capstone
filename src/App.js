@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './component/navbar.js';
 import Home from './page/home.js';
 import About from './page/about.js';
+import Search from './page/search.js';
 import RegisterModal from './component/registerModal.jsx';
 
 import './App.css';
@@ -24,6 +25,7 @@ class App extends React.Component {
           <Switch>
             <Route path="/" exact component={Home}/>
             <Route path="/about" component={About}/>
+            <Route path="/search" component={Search}/>
             <Route path="/register" component={RegisterModal}/>
           </Switch>
         </div>
