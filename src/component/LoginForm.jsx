@@ -2,24 +2,32 @@ import React from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
-import LoginModal from './loginModal'
 
 export default class LoginForm extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.loginModal = React.createRef();
-//   }
-//   state = {
-//     current: 'mail',
-//   };
 
   onFinish = values => {
-    console.log('Received values of form: ', values);
+    const username = values['username'];
+    const password = values['password'];
+    // replace with mongo call
+    let requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: username, password:password })
+    };
+    fetch('/login', requestOptions)
+    .then((response) => {
+        if (response.status === 200) {
+            this.props.handleSuccess(username);
+        } else {
+            this.props.handleError();
+        };
+    });
   };
 
   render() {
     return (
         <Form
+        id="loginForm"
         name="normal_login"
         className="login-form"
         initialValues={{ remember: true }}
@@ -40,14 +48,6 @@ export default class LoginForm extends React.Component {
             type="password"
             placeholder="Password"
           />
-        </Form.Item>
-  
-        <Form.Item>
-          <Button type="primary" htmlType="submit" className="login-form-button">
-            Log in
-          </Button>
-          <br></br>
-          Or <a href="">register now</a>
         </Form.Item>
       </Form>
     );

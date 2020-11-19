@@ -16,6 +16,8 @@ connectToDB = async () => {
 connectToDB();
 
 const Schema = mongoose.Schema;
+
+// move models to new file as constants
 const User = new Schema({
   username: String,
   password: String,
@@ -31,7 +33,6 @@ app.use(express.json());
 app.post("/register/", (req, res) => {
     const user = req.body.username;
     const password = req.body.password;
-    console.log(user, password);
     UserModel.exists({username:user})
     .then((result) => {
         // username already exists 

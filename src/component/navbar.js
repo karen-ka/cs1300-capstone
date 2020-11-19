@@ -19,6 +19,7 @@ export default class Navbar extends React.Component {
     console.log('click ', e);
     this.setState({ current: e.key });
     if(e.key === "login") {
+      console.log('haha');
       this.loginModal.current.showModal();
     } else if (e.key === "register") {
       this.registerModal.current.showModal();
@@ -32,6 +33,8 @@ export default class Navbar extends React.Component {
     // add in some form of redirect if user logged out?
     return (
       <div>
+        <LoginModal ref={this.loginModal}></LoginModal>
+        <RegisterModal ref={this.registerModal}></RegisterModal>
         <></>
         <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal" style={{float: 'right', height: '5vh', alignContent: 'middle', display: 'flex', lineHeight: '5vh'}}>
           <Menu.Item key="mail" style={{alignItems: 'center'}}>

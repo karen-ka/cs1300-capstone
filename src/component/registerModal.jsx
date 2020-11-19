@@ -58,8 +58,8 @@ export default class RegisterModal extends React.Component {
   };
 
   render() {
-    // if an user is already logged in, redirect them to profile page
-    if (localStorage.getItem("currentUser") || this.state.profileRedirect) {
+    // Redirect to profile page after logging in
+    if (this.state.profileRedirect) {
         return <Redirect to='/user_profile' />
     };
 
