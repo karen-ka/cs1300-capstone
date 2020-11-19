@@ -28,7 +28,7 @@ export default class RegisterForm extends React.Component {
             this.props.handleSuccess(username);
         } else {
             this.props.handleError();
-        }
+        };
     });
   };
 
