@@ -90,7 +90,7 @@ app.post("/addGame/", (req, res) => {
     });
 });
 
-app.get("/getGames", (req, res) => {
+app.post("/getGames", (req, res) => {
     const user = req.body.username;
     UserModel.findOne({username:user})
     .then((result) => {
