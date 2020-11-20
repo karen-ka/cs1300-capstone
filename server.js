@@ -21,7 +21,7 @@ const Schema = mongoose.Schema;
 const User = new Schema({
   username: String,
   password: String,
-  games: [String],
+  games: [Number],
 });
 const UserModel = mongoose.model('User', User);
 // server
@@ -66,6 +66,41 @@ app.post("/login/", (req,res) => {
             res.status(200);
             res.send("User exists! Logging you in!");
         };
+    }).catch((err) => {
+        res.send(err);
+    });
+});
+
+app.post("/addGame/", (req, res) => {
+    const user = req.body.username;
+    const gameID = parseInt(req.body.gameID);
+    UserModel.findOneAndUpdate({username: user}, 
+    {
+        $push: {
+            games: gameID
+        }
+    },
+    {new: true}
+    )
+    .then((result) => {
+        res.status(200);
+        res.send(result);
+    }).catch((err) => {
+        res.send(err);
+    });
+});
+
+app.get("/getGames", (req, res) => {
+    const user = req.body.username;
+    UserModel.findOne({username:user})
+    .then((result) => {
+        if (result === null) {
+            res.status(400);
+            res.send("Username not found in database");
+        } else {
+            res.status(200);
+            res.send(result.games);
+        }
     }).catch((err) => {
         res.send(err);
     });
