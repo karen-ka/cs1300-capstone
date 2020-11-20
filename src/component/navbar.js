@@ -25,6 +25,7 @@ export default class Navbar extends React.Component {
       this.registerModal.current.showModal();
     } else if (e.key === "logout") {
       localStorage.clear("currentUser");
+      window.location.reload();
     };
   };
 
