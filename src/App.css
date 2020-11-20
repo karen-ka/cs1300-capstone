@@ -1,5 +1,9 @@
 /* @import '~antd/dist/antd.css'; */
 @import '~antd/dist/antd.dark.css';
+
+.ant-layout-header {
+  height: 5vh
+}
 .App {
   text-align: center;
 }

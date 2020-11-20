@@ -10,10 +10,7 @@ const { Header, Footer, Sider, Content } = Layout;
 function Home() {
   return (
     <Layout>
-      <Header
-        style={{
-          height: '5vh'
-        }}>
+      <Header>
           <Navbar></Navbar>
       </Header>
       {/* <Content><div style={{backgroundImage: `url('../img/dndwp.jpg'`}}></div></Content> */}
