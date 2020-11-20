@@ -14,7 +14,7 @@ export default class LoginModal extends React.Component {
       visible: false,
       loading: false,
       modalText: '',
-      // profileRedirect: false
+      profileRedirect: false
     };
   }
 
@@ -50,6 +50,9 @@ export default class LoginModal extends React.Component {
         }, 2000);
         // redirect to user page after a few seconds
         setTimeout(() => {
+            this.setState({
+              profileRedirect: true
+            });
             localStorage.setItem('currentUser', username);
             window.location.reload();
         }, 3000);
@@ -57,9 +60,9 @@ export default class LoginModal extends React.Component {
 
   render() {
     // Redirect to profile page after logging in
-    // if (this.state.profileRedirect) {
-    //     return <Redirect to='/user_profile' />
-    // };
+    if (this.state.profileRedirect) {
+        return <Redirect to='/search' />
+    };
 
     return (
       <Modal
