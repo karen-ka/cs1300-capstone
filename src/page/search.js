@@ -17,10 +17,11 @@ export default class Search extends React.Component {
   }
 
   componentDidMount() {
+    // if no user logged in, set username to "admin" which will show all games.
     let requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username: localStorage.getItem('currentUser')})
+      body: JSON.stringify({ username: localStorage.getItem('currentUser') ? localStorage.getItem('currentUser') : "admin"})
     };
     fetch('/getGames', requestOptions)
     .then((response) => {
