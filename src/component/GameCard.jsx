@@ -1,14 +1,23 @@
 import React from 'react';
 import { Card, Avatar, Button, Divider, Rate, Statistic } from 'antd';
-
+import LoginModal from './loginModal';
 const { Meta } = Card;
 
 export default class GameCard extends React.Component {
+    constructor(props) {
+        super(props);
+        this.loginModal = React.createRef();
+    }
 
+    handleClick = () => {
+        this.loginModal.current.showModal();
+    };
 
     render () {
+
         return (
             <div style={{display: 'flex', width: '50vw'}}>
+            <LoginModal ref={this.loginModal}></LoginModal>
             <Card
             style={{ width: 300, flex: 1.5 }}
             cover={ <img
@@ -27,7 +36,9 @@ export default class GameCard extends React.Component {
             <Card
             style={{ width: 100, flex: 1 }}
             actions={[
-                <Button type='primary' style={{justifyContent: 'center'}}>Book Now</Button>,
+                this.props.loggedIn ? 
+                <Button type='primary' style={{justifyContent: 'center'}}>Book Now!</Button> : 
+                <Button type='primary' onClick = {this.handleClick} style={{justifyContent: 'center'}}>Book Now!</Button>,
             ]}
             >
                 <div style={{display: 'flex'}}>
