@@ -27,7 +27,7 @@ export default class GameCard extends React.Component {
             <Card
             style={{ width: 100, flex: 1 }}
             actions={[
-                <Button type='primary' style={{justifyContent: 'center'}}>Book Now</Button>,
+                <Button type='primary' style={{justifyContent: 'center'}} disabled={!this.props.loggedIn}>{this.props.loggedIn ? "Book Now" : "Log in To Book"}</Button>,
             ]}
             >
                 <div style={{display: 'flex'}}>

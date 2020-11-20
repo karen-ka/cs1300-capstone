@@ -12,7 +12,8 @@ export default class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      possibleGames : []
+      possibleGames : [],
+      loggedIn: localStorage.getItem('currentUser') ? true : false
     };
   }
 
@@ -21,7 +22,7 @@ export default class Search extends React.Component {
     let requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username: localStorage.getItem('currentUser') ? localStorage.getItem('currentUser') : "admin"})
+      body: JSON.stringify({ username:  this.state.loggedIn ? localStorage.getItem('currentUser') : "admin"})
     };
     fetch('/getGames', requestOptions)
     .then((response) => {
@@ -41,7 +42,7 @@ export default class Search extends React.Component {
 
   createCards = item => {
     return (
-        <GameCard gd={gameinfo[item]} hd={hostData[gameinfo[item].hostid]} />
+        <GameCard gd={gameinfo[item]} hd={hostData[gameinfo[item].hostid]} loggedIn={this.state.loggedIn}/>
     );
   };
 
