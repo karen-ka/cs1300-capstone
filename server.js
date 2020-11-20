@@ -99,7 +99,7 @@ app.get("/getGames", (req, res) => {
             res.send("Username not found in database");
         } else {
             res.status(200);
-            res.send(result.games);
+            res.json(result.games);
         }
     }).catch((err) => {
         res.send(err);
