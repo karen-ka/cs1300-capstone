@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import GameCard from '../component/GameCard';
+import GameCard from './GameCard';
 import {gameinfo, hostData} from '../gameData.js'
 import Navbar from '../component/navbar.js';
 import { Layout } from 'antd';

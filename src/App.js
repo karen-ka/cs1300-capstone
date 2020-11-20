@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './component/navbar.js';
 import Home from './page/home.js';
 import About from './page/about.js';
-import Search from './page/search.js';
+import Search from './component/search.js';
 import User from './page/user.js';
 import RegisterModal from './component/registerModal.jsx';
 
