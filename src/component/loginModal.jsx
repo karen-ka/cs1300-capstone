@@ -9,12 +9,11 @@ export default class LoginModal extends React.Component {
   constructor(props) {
     super(props);
     this.loginModal = React.createRef();
-    // this.setState
     this.state = {
       visible: false,
       loading: false,
       modalText: '',
-      // profileRedirect: false
+      profileRedirect: false
     };
   }
 
@@ -51,16 +50,23 @@ export default class LoginModal extends React.Component {
         // redirect to user page after a few seconds
         setTimeout(() => {
             localStorage.setItem('currentUser', username);
-            window.location.reload();
+            // this means that if the user is in the search page, reload the page (there's weird router issues otherwise)
+            if (document.location.pathname === '/search') {
+              window.location.reload();
+            } else {
+              this.setState({
+                profileRedirect: true
+              })
+            }
         }, 3000);
   };
 
   render() {
-    // Redirect to profile page after logging in
-    // if (this.state.profileRedirect) {
-    //     return <Redirect to='/user_profile' />
-    // };
-
+    // Redirect to profile page after logging in for every other page (except for the search page)
+    if (this.state.profileRedirect) {
+        return <Redirect to='/search' />
+    };
+    console.log(document.location.pathname);
     return (
       <Modal
         title="Log In"
