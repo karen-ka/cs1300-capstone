@@ -18,26 +18,33 @@ export default class Search extends React.Component {
   }
 
   componentDidMount() {
-    // if no user logged in, set username to "admin" which will show all games.
-    let requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username:  this.loggedIn ? localStorage.getItem('currentUser') : "admin"})
-    };
-    fetch('/getGames', requestOptions)
-    .then((response) => {
-        if (response.status === 200) {
-            response.json().then((data) => {
-              this.setState({
-                possibleGames: Object.keys(gameinfo).filter((key,index) => 
-                    data.includes(parseInt(key)) == false
-                )
+    if (this.loggedIn) {
+      // if no user logged in, set username to "admin" which will show all games.
+      let requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username:  localStorage.getItem('currentUser')})
+      };
+      fetch('/getGames', requestOptions)
+      .then((response) => {
+          if (response.status === 200) {
+              response.json().then((data) => {
+                this.setState({
+                  possibleGames: Object.keys(gameinfo).filter((key,index) => 
+                      data.includes(parseInt(key)) == false
+                  )
+                });
               });
-            });
-        } else {
-            console.log(response);
-        };
-    });
+          } else {
+              console.log(response);
+          };
+      });
+    } else {
+      this.setState({
+        possibleGames: Object.keys(gameinfo)
+      });
+    }
+
   }
 
   createCards = item => {
