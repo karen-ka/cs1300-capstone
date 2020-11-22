@@ -11,7 +11,8 @@ export const gameinfo = {
         "datetime": "",
         "gametype": "DnD",
         "logo": './game_logos/dnd.png',
-        "location": "Zoom"
+        "location": "Zoom",
+        "gameID": 1
     },
 
     2 : {
@@ -26,7 +27,8 @@ export const gameinfo = {
         "datetime": "",
         "gametype": "Magic",
         "logo": './game_logos/magic.jpg',
-        "location": "Zoom"
+        "location": "Zoom",
+        "gameID": 2
     },
     3 : {
         "name" : "Advanced Magic: the Gathering",
@@ -40,7 +42,8 @@ export const gameinfo = {
         "datetime": "",
         "gametype": "Magic",
         "logo": './game_logos/magic.jpg',
-        "location": "Zoom"
+        "location": "Zoom",
+        "gameID": 3
     },
 }
 
