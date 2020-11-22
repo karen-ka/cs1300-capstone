@@ -45,6 +45,22 @@ export const gameinfo = {
         "location": "Zoom",
         "gameID": 3
     },
+
+    4 : {
+        "name" : "Pandemic",
+        "price": 25,
+        "day": "Tuesday",
+        "time": "2pm",
+        "difficulty": "Easy",
+        "info": "This game is suitable for casual players.",
+        "host" : "Tanvir",
+        "hostid": "420",
+        "datetime": "",
+        "gametype": "Pandemic",
+        "logo": './game_logos/pandemic.jpg',
+        "location": "Zoom",
+        "gameID": 3
+    },
 }
 
 export const hostData = {
