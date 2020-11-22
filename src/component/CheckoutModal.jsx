@@ -84,7 +84,7 @@ export default class CheckoutModal extends React.Component {
                     <br></br>
                     <div style={{ flex: 1 }}>
                     <><h3>Billing Information</h3><br></br>
-                    <CheckoutForm handleSuccess={this.handleSuccess} handleError={this.props.handleError} gameID={this.props.game ? this.props.game.gameID : null}></CheckoutForm></>
+                    <CheckoutForm handleSuccess={this.handleSuccess} handleError={this.props.handleError} gameID={this.props.game ? this.props.game.gameID : null} loading={this.state.loading}></CheckoutForm></>
                     </div>
                     <div style={{ flex: 1 }}>
                         <><h3>Your Order</h3></>
