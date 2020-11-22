@@ -5,6 +5,7 @@ import {gameinfo, hostData} from '../gameData.js'
 import Navbar from '../component/navbar.js';
 import { Row, Col, Layout } from 'antd';
 import CheckoutModal from './CheckoutModal'
+import FilterBar from './FilterBar'
 const { Header, Footer, Sider, Content } = Layout;
 
 
@@ -73,6 +74,7 @@ export default class Search extends React.Component {
                 <Navbar></Navbar>
             </Header>
             <Content>
+            <FilterBar></FilterBar>
               <CheckoutModal ref={this.checkoutModal} game={this.state.currGame}></CheckoutModal>
             <div>
           <h1>This is the search page.</h1>
