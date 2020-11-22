@@ -20,6 +20,45 @@ export default class GameCard extends React.Component {
     render() {
 
         return (
+            this.props.simple ? 
+                <div style={{ display: 'flex' }}>
+                <LoginModal ref={this.loginModal}></LoginModal>
+                <Card
+                    style={{ width: 300, flex: 1.5 }}
+                    cover={<img
+                        alt="example"
+                        // src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+                        src={`${this.props.gd.logo}`}
+                    ></img>}
+                >
+                    <Meta
+                        title={this.props.gd.name}
+                        description={this.props.gd.info}
+                    />
+                </Card>
+                <Card
+                    style={{ width: 100, flex: 1 }}
+                >
+                    <div style={{ display: 'flex' }}>
+                    <div style={{ flex: 1 }}>
+                            Hosted by
+                        </div>
+                        <div style={{ flex: 1 }}>
+                            <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                            <br></br>
+                            {this.props.gd.host}
+                            <br></br>
+                        </div>
+                    </div>
+                    <Divider />
+                    <div>
+                        <Statistic title="PRICE" value={this.props.gd.price} prefix={'USD'} />
+                        <Statistic title="LOCATION" value={this.props.gd.location} />
+                    </div>
+                </Card>
+            </div> :          
+            
+            
             <div style={{ display: 'flex', width: '50vw' }}>
                 <LoginModal ref={this.loginModal}></LoginModal>
                 <Card
@@ -30,12 +69,10 @@ export default class GameCard extends React.Component {
                         src={`${this.props.gd.logo}`}
                     ></img>}
                 >
-
                     <Meta
                         title={this.props.gd.name}
                         description={this.props.gd.info}
                     />
-
                 </Card>
                 <Card
                     style={{ width: 100, flex: 1 }}

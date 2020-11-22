@@ -51,7 +51,7 @@ export default class Search extends React.Component {
   }
 
   startCheckout = game => {
-    console.log('hi')
+    console.log('hihihi')
     this.setState({checkoutVisible: true, currGame: game});
     this.checkoutModal.current.showModal();
   }
