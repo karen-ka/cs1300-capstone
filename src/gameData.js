@@ -3,7 +3,7 @@ export const gameinfo = {
         "name" : "Beginner DnD",
         "price": 20,
         "day": "Monday/Wednesday",
-        "time": "9P.M",
+        "time": "9pm",
         "difficulty": "Easy",
         "info": "Welcome to DnD! This game is suitable for first-time players or those wanting to brush up their dragon slaying skills.",
         "host" : "Alex",
@@ -15,10 +15,10 @@ export const gameinfo = {
     },
 
     2 : {
-        "name" : "Intermediate Magic: the Gatering",
+        "name" : "Intermediate Magic: the Gathering",
         "price": 10,
         "day": "Tuesday/Thursday",
-        "time": "6P.M",
+        "time": "6pm",
         "difficulty": "Medium",
         "info": "Welcome to Magic! This game is suitable for intermediate players. We allow all decks/expansions.",
         "host" : "Brian",
@@ -29,10 +29,10 @@ export const gameinfo = {
         "location": "Zoom"
     },
     3 : {
-        "name" : "Advanced Magic: the Gatering",
+        "name" : "Advanced Magic: the Gathering",
         "price": 25,
         "day": "Tuesday/Saturday",
-        "time": "2P.M",
+        "time": "2pm",
         "difficulty": "Medium",
         "info": "This game is suitable for advanced players. We allow all decks/expansions. ",
         "host" : "Tanvir",

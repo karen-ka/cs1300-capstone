@@ -1,9 +1,8 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import { Modal, Input } from 'antd';
+import { Modal } from 'antd';
 import CheckoutForm from './CheckoutForm';
 import GameCard from './GameCard';
-const { TextArea } = Input;
 
 export default class CheckoutModal extends React.Component {
     constructor(props) {

@@ -1,6 +1,19 @@
 /* @import '~antd/dist/antd.css'; */
 @import '~antd/dist/antd.dark.css';
 
+
+.ant-card-meta-title {
+  font-size: 1.2rem;
+}
+
+.ant-statistic-content {
+  font-size: 1rem;
+  padding-bottom: 8px;
+}
+
+.ant-statistic {
+  text-align: left;
+}
 .ant-layout-header {
   height: 5vh
 }

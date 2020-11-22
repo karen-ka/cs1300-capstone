@@ -1,7 +1,5 @@
 import React from 'react';
 import { Form, Input, Button, Checkbox, DatePicker } from 'antd';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import { Menu } from 'antd';
 import NumericInput from './NumericInput.jsx'
 
 const layout = {
@@ -13,25 +11,6 @@ const layout = {
   };
 
 export default class CheckoutForm extends React.Component {
-
-//   onFinish = values => {
-//     const username = values['username'];
-//     const password = values['password'];
-//     // replace with mongo call
-//     let requestOptions = {
-//         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' },
-//         body: JSON.stringify({ username: username, password:password })
-//     };
-//     fetch('/login', requestOptions)
-//     .then((response) => {
-//         if (response.status === 200) {
-//             this.props.handleSuccess(username);
-//         } else {
-//             this.props.handleError();
-//         };
-//     });
-//   };
 
   render() {
     return (
