@@ -4,7 +4,7 @@ import GameCard from './GameCard';
 import {gameinfo, hostData} from '../gameData.js'
 import Navbar from '../component/navbar.js';
 import { Layout } from 'antd';
-
+import CheckoutModal from './CheckoutModal'
 const { Header, Footer, Sider, Content } = Layout;
 
 
@@ -13,8 +13,11 @@ export default class Search extends React.Component {
     super(props);
     this.state = {
       possibleGames : [],
+      checkoutVisible: false,
+      currGame: null,
     };
     this.loggedIn = localStorage.getItem('currentUser') ? true : false;
+    this.checkoutModal = React.createRef();
   }
 
   componentDidMount() {
@@ -47,9 +50,15 @@ export default class Search extends React.Component {
 
   }
 
+  startCheckout = game => {
+    console.log('hi')
+    this.setState({checkoutVisible: true, currGame: game});
+    this.checkoutModal.current.showModal();
+  }
+
   createCards = item => {
     return (
-        <GameCard gd={gameinfo[item]} hd={hostData[gameinfo[item].hostid]} loggedIn={this.loggedIn}/>
+        <GameCard gd={gameinfo[item]} hd={hostData[gameinfo[item].hostid]} loggedIn={this.loggedIn} onBook={game => this.startCheckout(game)}/>
     );
   };
 
@@ -60,6 +69,7 @@ export default class Search extends React.Component {
                 <Navbar></Navbar>
             </Header>
             <Content>
+              <CheckoutModal ref={this.checkoutModal} game={this.state.currGame}></CheckoutModal>
             <div>
           <h1>This is the search page.</h1>
           {
