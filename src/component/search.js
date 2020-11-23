@@ -16,6 +16,9 @@ export default class Search extends React.Component {
       possibleGames : [],
       checkoutVisible: false,
       currGame: null,
+      priceFilter: "All Prices",
+      gameFilter: "All Games",
+      filteredPossibleGames: []
     };
     this.loggedIn = localStorage.getItem('currentUser') ? true : false;
     this.checkoutModal = React.createRef();
@@ -36,7 +39,10 @@ export default class Search extends React.Component {
                 this.setState({
                   possibleGames: Object.keys(gameinfo).filter((key,index) => 
                       data.includes(parseInt(key)) == false
-                  )
+                  ),
+                  filteredPossibleGames: Object.keys(gameinfo).filter((key,index) => 
+                      data.includes(parseInt(key)) == false
+                  ),
                 });
               });
           } else {
@@ -45,7 +51,8 @@ export default class Search extends React.Component {
       });
     } else {
       this.setState({
-        possibleGames: Object.keys(gameinfo)
+        possibleGames: Object.keys(gameinfo),
+        filteredPossibleGames: Object.keys(gameinfo)
       });
     }
 
@@ -67,6 +74,34 @@ export default class Search extends React.Component {
     );
   };
 
+  handlePriceFilter = (value) => {
+    this.setState({
+      priceFilter: value
+    }, this.handleFilter);
+  }
+
+  handleGameFilter = (value) => {
+    this.setState({
+      gameFilter: value 
+    }, this.handleFilter);
+  }
+
+  handleFilter = () => {
+    let possibleGames = this.state.possibleGames;
+    if (this.state.priceFilter != "All Prices") {
+      possibleGames = possibleGames.filter(item => 
+        gameinfo[item].price < parseInt(this.state.priceFilter)
+      );
+    };
+    if (this.state.gameFilter != "All Games") {
+      possibleGames = possibleGames.filter(item => 
+        gameinfo[item].gametype == this.state.gameFilter
+      );
+    };
+    this.setState({
+      filteredPossibleGames: possibleGames
+    });
+  }
   render() {
       return (
         <Layout>
@@ -74,12 +109,12 @@ export default class Search extends React.Component {
                 <Navbar></Navbar>
             </Header>
             <Content>
-            <FilterBar></FilterBar>
+            <FilterBar handleGameFilter={this.handleGameFilter} handlePriceFilter={this.handlePriceFilter}></FilterBar>
               <CheckoutModal ref={this.checkoutModal} game={this.state.currGame}></CheckoutModal>
             <div>
           <h1>This is the search page.</h1>
           {
-                this.state.possibleGames.map(this.createCards)
+                this.state.filteredPossibleGames.map(this.createCards)
           }
         </div>
             </Content>

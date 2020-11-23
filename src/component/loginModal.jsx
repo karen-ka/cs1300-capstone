@@ -66,7 +66,6 @@ export default class LoginModal extends React.Component {
     if (this.state.profileRedirect) {
         return <Redirect to='/search' />
     };
-    console.log(document.location.pathname);
     return (
       <Modal
         title="Log In"
