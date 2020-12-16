@@ -52,7 +52,7 @@ export default class Navbar extends React.Component {
               Login
             </Menu.Item>
             <Menu.Item key="register">
-              Register
+              Sign Up
             </Menu.Item></>)}
         </Menu>
       </div>

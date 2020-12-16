@@ -8,7 +8,9 @@ import CheckoutModal from './CheckoutModal'
 import FilterBar from './FilterBar'
 const { Header, Footer, Sider, Content } = Layout;
 
-
+/**
+ * Why is this a component? I forgot why...
+ */
 export default class Search extends React.Component {
   constructor(props) {
     super(props);

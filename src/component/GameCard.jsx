@@ -17,6 +17,10 @@ export default class GameCard extends React.Component {
         this.props.onBook(this.props.gd);
     }
 
+    handleGameCardClick = () => {
+        console.log('placeholder');
+    }
+
     /**
      * ref for future me: this.props.simple: true if shown on checkout screen, false otherwise. we could probably combine and move the bool logic down, but ehh.
      * === You should most likely make changes in BOTH modals ===
@@ -25,6 +29,7 @@ export default class GameCard extends React.Component {
 
         return (
             this.props.simple ?
+            // SIMPLE GAME CARD
                 <div style={{ display: 'flex' }}>
                     <LoginModal ref={this.loginModal}></LoginModal>
                     <Card
@@ -63,8 +68,8 @@ export default class GameCard extends React.Component {
                         </>
                     </Card>
                 </div> :
-
-                <div style={{ display: 'flex', width: '60vw' }}>
+                // COMPLEX GAME CARD
+                <div style={{ display: 'flex', width: '60vw' }} onClick={this.handleGameCardClick}>
                     <LoginModal ref={this.loginModal}></LoginModal>
                     <Card
                         style={{ width: 300, flex: 1.3 }}

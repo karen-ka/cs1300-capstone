@@ -73,7 +73,7 @@ export default class LoginModal extends React.Component {
         onOk={this.handleOk}
         onCancel={this.handleCancel}
         footer={[
-            <Button form="loginForm" key="submit" htmlType="submit" onClick={this.handleOk} loading={this.state.loading}>
+            <Button type="primary" form="loginForm" key="submit" htmlType="submit" onClick={this.handleOk} loading={this.state.loading}>
                 Log In
             </Button>
         ]}

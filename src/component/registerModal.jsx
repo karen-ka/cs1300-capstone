@@ -70,13 +70,13 @@ export default class RegisterModal extends React.Component {
 
     return (
       <Modal
-        title="Register Now"
+        title="Registration Form"
         visible={this.state.visible}
         onOk={this.handleOk}
         onCancel={this.handleCancel}
         footer={[
-            <Button form="registerForm" key="submit" htmlType="submit" onClick={this.handleOk} loading={this.state.loading}>
-                Register
+            <Button type="primary" form="registerForm" key="submit" htmlType="submit" onClick={this.handleOk} loading={this.state.loading}>
+                Sign Up
             </Button>
         ]}
       >
