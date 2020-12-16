@@ -33,11 +33,13 @@ export default class Navbar extends React.Component {
     const { current } = this.state;
     // add in some form of redirect if user logged out?
     return (
-      <div>
+      <div style={{height: '7vh'}}>
         <LoginModal ref={this.loginModal}></LoginModal>
         <RegisterModal ref={this.registerModal}></RegisterModal>
         <></>
-        <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal" style={{float: 'right', height: '5vh', alignContent: 'middle', display: 'flex', lineHeight: '5vh'}}>
+        <img src={`./logo-transparent.png`} style={{float: 'left', height: '6vh', width: 'auto', paddingTop: '0.5vh'}}></img>
+
+        <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal" style={{float: 'right', height: '7vh', alignContent: 'middle', display: 'flex', lineHeight: '7vh'}}>
           <Menu.Item key="mail" style={{alignItems: 'center'}}>
             Navigation One
           </Menu.Item>

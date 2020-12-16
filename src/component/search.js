@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 import GameCard from './GameCard';
 import {gameinfo, hostData} from '../gameData.js'
-import Navbar from '../component/navbar.js';
+import Navbar from './navbar.js';
 import { Row, Col, Layout } from 'antd';
 import CheckoutModal from './CheckoutModal'
 import FilterBar from './FilterBar'
@@ -77,7 +77,12 @@ export default class Search extends React.Component {
             <FilterBar></FilterBar>
               <CheckoutModal ref={this.checkoutModal} game={this.state.currGame}></CheckoutModal>
             <div>
-          <h1>This is the search page.</h1>
+              <div style={{textAlign: 'left', width: '50%', margin: 'auto', padding: '3vh 0 3vh 0'}}> 
+              <h1>Find the best game for your needs.</h1>
+          <p>
+          We’ve got you covered. Whether you’re new or a pro, choose from a game hosted by one of our experienced Dungeons & Dragons hosts! On StartPlaying.Games, you’ll find the perfect game that fits your playing style.
+          </p>
+              </div>
           {
                 this.state.possibleGames.map(this.createCards)
           }

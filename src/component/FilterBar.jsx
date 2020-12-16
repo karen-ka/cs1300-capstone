@@ -28,6 +28,7 @@ export default class FilterBar extends React.Component {
         className="site-page-header"
         title={<>
         <Space>
+          Filters:
         <Button shape="round" type="solid">Time</Button>
             <Button shape="round" type="solid">Price</Button>
             <Button shape="round" type="solid">Location</Button>

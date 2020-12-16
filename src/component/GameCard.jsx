@@ -17,6 +17,10 @@ export default class GameCard extends React.Component {
         this.props.onBook(this.props.gd);
     }
 
+    /**
+     * ref for future me: this.props.simple: true if shown on checkout screen, false otherwise. we could probably combine and move the bool logic down, but ehh.
+     * === You should most likely make changes in BOTH modals ===
+     */
     render() {
 
         return (
@@ -60,7 +64,7 @@ export default class GameCard extends React.Component {
                     </Card>
                 </div> :
 
-                <div style={{ display: 'flex', width: '70vw' }}>
+                <div style={{ display: 'flex', width: '60vw' }}>
                     <LoginModal ref={this.loginModal}></LoginModal>
                     <Card
                         style={{ width: 300, flex: 1.3 }}
@@ -79,8 +83,8 @@ export default class GameCard extends React.Component {
                         style={{ width: 100, flex: 1 }}
                         actions={[
                             this.props.loggedIn ?
-                                <Button type='primary' onClick={this.handleLoggedInClick} style={{ justifyContent: 'center' }}>Book Now!</Button> :
-                                <Button type='primary' onClick={this.handleLoggedOutClick} style={{ justifyContent: 'center' }}>Book Now!</Button>,
+                                <Button type='primary' onClick={this.handleLoggedInClick} style={{ justifyContent: 'center' }}>Book Now</Button> :
+                                <Button type='primary' onClick={this.handleLoggedOutClick} style={{ justifyContent: 'center' }}>Book Now</Button>,
                         ]}
                     >
                         <div style={{ display: 'flex' }}>
@@ -93,6 +97,7 @@ export default class GameCard extends React.Component {
                             </div>
                             <div style={{ flex: 1 }}>
                                 <br></br>
+                                <b>Intro: </b>
                                 {this.props.hd.intro}
                             </div>
                         </div>
