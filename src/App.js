@@ -7,7 +7,7 @@ import GameDetail from './component/GameDetailPage.jsx'
 import User from './page/user.js';
 import RegisterModal from './component/registerModal.jsx';
 
-import './App.css';
+import './App.less';
 import { Checkbox, Button } from 'antd';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 

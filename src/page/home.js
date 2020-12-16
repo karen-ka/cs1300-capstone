@@ -3,7 +3,7 @@ import Navbar from '../component/navbar.js';
 import { Layout, Button } from 'antd';
 import background from '../img/dndwp.jpg'
 import { Link } from 'react-router-dom';
-import '../App.css';
+import '../App.less';
 
 const { Header, Footer, Sider, Content } = Layout;
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import '../App.less';
 import GameCard from './GameCard';
 import {gameinfo, hostData} from '../gameData.js'
 import Navbar from './navbar.js';
