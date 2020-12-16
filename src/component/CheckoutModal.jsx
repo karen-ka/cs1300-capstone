@@ -26,8 +26,8 @@ export default class CheckoutModal extends React.Component {
         this.setState({ visible: true })
     };
 
-    handleOk = () => {
-        this.setState({ modalText: 'Logging you in...', loading: true });
+    handleSubmit = () => {
+        this.setState({ modalText: 'Processing.....', loading: true });
     };
 
     handleCancel = () => {
@@ -35,17 +35,29 @@ export default class CheckoutModal extends React.Component {
     };
 
     handleError = () => {
+        this.handleSubmit();
         setTimeout(() => {
             this.setState({
-                modalText: "Username/Password doesn't match or doesn't exist. Try again.",
+                modalText: "Error processing payment. Please try again",
                 visible: true,
                 loading: false
             });
         }, 3000);
     };
 
-    handleSuccess = (username) => {
-        console.log('hi')
+    handleSuccess = () => {
+        this.handleSubmit();
+        setTimeout(() => {
+            this.setState({
+                modalText: "Success! Adding game to your profile.",
+                visible: true, 
+                loading:false
+            });
+        }, 2000);
+        // reload page after a few seconds
+        setTimeout(() => {
+            window.location.reload();
+        }, 3000);
     };
 
     next = e => {
@@ -66,11 +78,13 @@ export default class CheckoutModal extends React.Component {
                 title="Checkout"
                 visible={this.state.visible}
                 onCancel={this.handleCancel}
+                footer={[]}
             >
                 <div className="steps-content" style={{ display: 'flex', paddingTop: '3vh'}}>
                     <br></br>
                     <div style={{ flex: 1 }}>
-                    <><h3>Billing Information</h3><br></br><CheckoutForm></CheckoutForm></>
+                    <><h3>Billing Information</h3><br></br>
+                    <CheckoutForm handleSuccess={this.handleSuccess} handleError={this.props.handleError} gameID={this.props.game ? this.props.game.gameID : null} loading={this.state.loading}></CheckoutForm></>
                     </div>
                     <div style={{ flex: 1 }}>
                         <><h3>Your Order</h3></>

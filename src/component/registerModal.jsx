@@ -50,17 +50,22 @@ export default class RegisterModal extends React.Component {
         }, 2000);
         // redirect to user page after a few seconds
         setTimeout(() => {
-            this.setState({
-                profileRedirect: true
-            });
             localStorage.setItem('currentUser', username);
+            // this means that if the user is in the search page, reload the page (there's weird router issues otherwise)
+            if (document.location.pathname === '/search') {
+              window.location.reload();
+            } else {
+              this.setState({
+                profileRedirect: true
+              })
+            }
         }, 3000);
   };
 
   render() {
     // Redirect to profile page after logging in
     if (this.state.profileRedirect) {
-        return <Redirect to='/user_profile' />
+        return <Redirect to='/search' />
     };
 
     return (

@@ -11,7 +11,8 @@ export const gameinfo = {
         "datetime": "",
         "gametype": "DnD",
         "logo": './game_logos/dnd.png',
-        "location": "Zoom"
+        "location": "Zoom",
+        "gameID": 1
     },
 
     2 : {
@@ -26,7 +27,8 @@ export const gameinfo = {
         "datetime": "",
         "gametype": "Magic",
         "logo": './game_logos/magic.jpg',
-        "location": "Zoom"
+        "location": "Zoom",
+        "gameID": 2
     },
     3 : {
         "name" : "Advanced Magic: the Gathering",
@@ -40,7 +42,24 @@ export const gameinfo = {
         "datetime": "",
         "gametype": "Magic",
         "logo": './game_logos/magic.jpg',
-        "location": "Zoom"
+        "location": "Zoom",
+        "gameID": 3
+    },
+
+    4 : {
+        "name" : "Pandemic",
+        "price": 25,
+        "day": "Tuesday",
+        "time": "2pm",
+        "difficulty": "Easy",
+        "info": "This game is suitable for casual players.",
+        "host" : "Tanvir",
+        "hostid": "420",
+        "datetime": "",
+        "gametype": "Pandemic",
+        "logo": './game_logos/pandemic.jpg',
+        "location": "Zoom",
+        "gameID": 3
     },
 }
 

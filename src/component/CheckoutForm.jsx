@@ -11,6 +11,21 @@ const layout = {
   };
 
 export default class CheckoutForm extends React.Component {
+  onFinish = (values) => {
+    let requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: localStorage.getItem('currentUser'), gameID:this.props.gameID })
+    };
+    fetch('/addGame', requestOptions)
+    .then((response) => {
+        if (response.status === 200) {
+            this.props.handleSuccess();
+        } else {
+            this.props.handleError();
+        };
+    });
+  };
 
   render() {
     return (
@@ -20,7 +35,7 @@ export default class CheckoutForm extends React.Component {
         name="checkoutform"
         className="checkoutform"
         initialValues={{ remember: true }}
-        // onFinish={this.onFinish}
+        onFinish={this.onFinish}
       >
         <Form.Item
           name="Card number"
@@ -54,7 +69,7 @@ export default class CheckoutForm extends React.Component {
 
 
         <Form.Item {...tailLayout}>
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" htmlType="submit" loading={this.props.loading}>
           Submit
         </Button>
       </Form.Item>
