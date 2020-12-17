@@ -4,7 +4,7 @@ A very basic list of things left to do, [wireframes for reference](https://www.f
 - [ ] Add game search page.
 - [ ] Add host detail page.
 - [ ] Finish game detail page.
-- [ ] Make logo clickable, should redirect to home page. (User dashboard if logged in, otherwise home page if logged out)
+- [x] Make logo clickable, should redirect to home page. (User dashboard if logged in, otherwise home page if logged out)
 
 # Working on the Front End:
 
