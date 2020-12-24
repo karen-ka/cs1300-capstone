@@ -6,16 +6,16 @@ A very basic list of things left to do, [wireframes for reference](https://www.f
 - [ ] Finish game detail page.
 - [x] Make logo clickable, should redirect to home page. (User dashboard if logged in, otherwise home page if logged out)
 
-# Working on the Front End:
+# Installing (First Time Only)
 
-Run `npm start` and edit files as usual.
+Run `npm install` to download all required dependencies.
 
-# Working on the Back End:
+# Working Locally (Dev)
 
-Run `npm run-script build` first to build the React App. Then run `node server.js`
+Run `node server.js` to startup the backend and `npm start` to startup the
+front-end. The front-end supports hot-reloading.
+
+# Deploying Application (Prod)
+
+Run `npm run-script build` to build the React App. Then run `node server.js`
 to start the server.
-
-# IMPORTANT:
-
-The server and react dev server run on different port. If you want to run both
-at the same time, you will need to edit the port number in `server.js`
