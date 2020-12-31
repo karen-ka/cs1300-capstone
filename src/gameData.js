@@ -10,7 +10,7 @@ export const gameinfo = {
     "hostid": 123,
     "datetime": "",
     "gametype": "DnD",
-    "logo": './game_logos/dnd.png',
+    "logo": '/game_logos/dnd.png',
     "location": "Zoom",
     "gameID": 1
   },
@@ -25,7 +25,7 @@ export const gameinfo = {
     "hostid": 111,
     "datetime": "",
     "gametype": "Magic",
-    "logo": './game_logos/magic.jpg',
+    "logo": '/game_logos/magic.jpg',
     "location": "Zoom",
     "gameID": 2
   },
@@ -40,7 +40,7 @@ export const gameinfo = {
     "hostid": 420,
     "datetime": "",
     "gametype": "Magic",
-    "logo": './game_logos/magic.jpg',
+    "logo": '/game_logos/magic.jpg',
     "location": "Zoom",
     "gameID": 3
   },
@@ -55,7 +55,7 @@ export const gameinfo = {
     "hostid": 420,
     "datetime": "",
     "gametype": "Pandemic",
-    "logo": './game_logos/pandemic.jpg',
+    "logo": '/game_logos/pandemic.jpg',
     "location": "Zoom",
     "gameID": 4
   },

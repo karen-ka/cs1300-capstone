@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Avatar, Space, Typography } from 'antd';
+import { Card, Avatar, Space, Typography, Rate, Statistic } from 'antd';
 
 const { Title, Paragraph } = Typography;
 
@@ -8,27 +8,22 @@ const HostCard = (props) => {
     <Card>
       <Space direction="vertical">
         <Avatar size={256} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/>
-        <Title>First Last</Title>
+        <Title>{props.hd.name}</Title>
         <Title level={3} align="start">About Me</Title>
         <Paragraph align="start">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          {props.hd.about}
         </Paragraph>
         <Title level={3} align="start">Statistics</Title>
-        <Paragraph align="start">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </Paragraph>
+        <div align="start">
+          <Rate disabled defaultValue={props.hd.rating} style={{ fontSize: 20, marginRight: 24 }}/>
+          {props.hd.rating}
+        </div>
+        <Paragraph align="start">{`${props.hd.numberOfGames} games hosted`}</Paragraph>
         <Title level={3} align="start">Hosts</Title>
         <Paragraph align="start">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          <ul>
+            {props.hd.gamesHosted.map(game => <li>{game}</li>)}
+          </ul>
         </Paragraph>
       </Space>
     </Card>
