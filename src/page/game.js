@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Row, Col, Card, Typography, Button } from 'antd';
+import { Layout, Row, Col, Card, Typography, Button, Statistic } from 'antd';
 import Navbar from '../component/navbar.js';
 import HostCard from '../component/HostCard.jsx'
 
@@ -25,30 +25,14 @@ const Game = (props) => {
               <Title>{gd.name}</Title>
               <img src={gd.logo} width={600}/>
               <Paragraph>{gd.info}</Paragraph>
-              <Row>
-                <Col span={12}>
-                  <Paragraph>
-                    Price:
-                    <br/>
-                    {`USD ${gd.price}`}
-                  </Paragraph>
-                  <Paragraph>
-                    Day:
-                    <br/>
-                    {gd.day}
-                  </Paragraph>
+              <Row justify="space-around">
+                <Col span={6}>
+                  <Statistic title="Price" value={gd.price} prefix={'USD'} />
+                  <Statistic title="Day" value={gd.day} />
                 </Col>
-                <Col span={12}>
-                  <Paragraph>
-                    Location:
-                    <br/>
-                    {gd.location}
-                  </Paragraph>
-                  <Paragraph>
-                    Time:
-                    <br/>
-                    {gd.time}
-                  </Paragraph>
+                <Col span={6}>
+                  <Statistic title="Location" value={gd.location} />
+                  <Statistic title="Time" value={gd.time} />
                 </Col>
               </Row>
             </Card>
