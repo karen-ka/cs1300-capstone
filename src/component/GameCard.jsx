@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Row, Col, Card, Avatar, Button, Divider, Rate, Statistic } from 'antd';
 import LoginModal from './loginModal';
+
 const { Meta } = Card;
 
 export default class GameCard extends React.Component {
@@ -90,6 +92,9 @@ export default class GameCard extends React.Component {
                             this.props.loggedIn ?
                                 <Button type='primary' onClick={this.handleLoggedInClick} style={{ justifyContent: 'center' }}>Book Now</Button> :
                                 <Button type='primary' onClick={this.handleLoggedOutClick} style={{ justifyContent: 'center' }}>Book Now</Button>,
+                            <Link to={`/game/${this.props.gd.gameID}`}>
+                                <Button>More Info</Button>
+                            </Link>
                         ]}
                     >
                         <div style={{ display: 'flex' }}>

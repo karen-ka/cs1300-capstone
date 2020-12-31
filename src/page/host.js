@@ -43,7 +43,7 @@ const Host = (props) => {
                   </p>
                 }
               />
-                            <Comment
+              <Comment
                 align="start"
                 author={<a>Han Solo</a>}
                 avatar={
@@ -60,7 +60,7 @@ const Host = (props) => {
                   </p>
                 }
               />
-                            <Comment
+              <Comment
                 align="start"
                 author={<a>Han Solo</a>}
                 avatar={
@@ -77,7 +77,7 @@ const Host = (props) => {
                   </p>
                 }
               />
-                            <Comment
+              <Comment
                 align="start"
                 author={<a>Han Solo</a>}
                 avatar={

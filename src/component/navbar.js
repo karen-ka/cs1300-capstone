@@ -3,7 +3,7 @@ import { Menu } from 'antd';
 import LoginModal from './loginModal'
 import RegisterModal from './registerModal'
 import { Link } from 'react-router-dom'
-import { useHistory } from 'react-router'
+import logo from '../img/logo-transparent.png'
 
 export default class Navbar extends React.Component {
   constructor(props) {
@@ -38,7 +38,7 @@ export default class Navbar extends React.Component {
         <LoginModal ref={this.loginModal}></LoginModal>
         <RegisterModal ref={this.registerModal}></RegisterModal>
         <Link to={url}>
-          <img src={`./logo-transparent.png`} style={{float: 'left', height: '6vh', width: 'auto', paddingTop: '0.5vh'}}/>
+          <img src={logo} style={{float: 'left', height: '6vh', width: 'auto', paddingTop: '0.5vh'}}/>
         </Link>
         <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal" style={{float: 'right', height: '7vh', alignContent: 'middle', display: 'flex', lineHeight: '7vh'}}>
           <Menu.Item key="mail" style={{alignItems: 'center'}}>
