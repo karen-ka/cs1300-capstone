@@ -3,7 +3,8 @@ A very basic list of things left to do, [wireframes for reference](https://www.f
 - [ ] Add user dashboard page.
 - [ ] Add host search page.
 - [ ] Add host profile page.
-- [ ] Add game info/detail page.
+- [x] Add game info/detail page.
+- [ ] Add booking functionality to game info/detail page.
 - [ ] Fix existing navbar.
 - [x] Make logo clickable, should redirect to home page. (User dashboard if logged in, otherwise home page if logged out)
 
