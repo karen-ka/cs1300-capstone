@@ -76,9 +76,9 @@ export default class CheckoutModal extends React.Component {
 
     render() {
         console.log(this.props)
-        // Redirect to profile page after logging in for every other page (except for the search page)
+        // Redirect to user page after checking out
         if (this.state.profileRedirect) {
-            return <Redirect to='/profile' />
+            return <Redirect to='/user' />
         };
 
         return (
