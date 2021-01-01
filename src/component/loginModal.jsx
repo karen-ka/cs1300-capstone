@@ -50,8 +50,8 @@ export default class LoginModal extends React.Component {
         // redirect to user page after a few seconds
         setTimeout(() => {
             localStorage.setItem('currentUser', username);
-            // this means that if the user is in the search page, reload the page (there's weird router issues otherwise)
-            if (document.location.pathname === '/search') {
+            // this means that if the user is in the search page or the game page, reload the page (there's weird router issues otherwise)
+            if (document.location.pathname === '/search' || document.location.pathname.includes('/game')) {
               window.location.reload();
             } else {
               this.setState({
@@ -63,6 +63,7 @@ export default class LoginModal extends React.Component {
 
   render() {
     // Redirect to profile page after logging in for every other page (except for the search page)
+    // Current just does to search
     if (this.state.profileRedirect) {
         return <Redirect to='/search' />
     };

@@ -3,6 +3,7 @@ import 'antd/dist/antd.css';
 import { Modal } from 'antd';
 import CheckoutForm from './CheckoutForm';
 import GameCard from './GameCard';
+import { Redirect } from 'react-router-dom';
 
 export default class CheckoutModal extends React.Component {
     constructor(props) {
@@ -56,7 +57,11 @@ export default class CheckoutModal extends React.Component {
         }, 2000);
         // reload page after a few seconds
         setTimeout(() => {
-            window.location.reload();
+            // change to redirect to user profile after booking a game
+            // window.location.reload();
+            this.setState({
+                profileRedirect: true
+            });
         }, 3000);
     };
 
@@ -71,6 +76,11 @@ export default class CheckoutModal extends React.Component {
 
     render() {
         console.log(this.props)
+        // Redirect to profile page after logging in for every other page (except for the search page)
+        if (this.state.profileRedirect) {
+            return <Redirect to='/profile' />
+        };
+
         return (
             <Modal
                 width={'80vw'}
