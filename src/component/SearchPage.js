@@ -3,10 +3,12 @@ import '../App.less';
 import GameCard from './GameCard';
 import {gameinfo, hostData} from '../gameData.js'
 import Navbar from './navbar.js';
-import { Row, Col, Layout } from 'antd';
+import { Row, Col, Layout, Typography } from 'antd';
 import CheckoutModal from './CheckoutModal'
 import FilterBar from './FilterBar'
 const { Header, Footer, Sider, Content } = Layout;
+const { Title } = Typography;
+
 
 /**
  * Why is this a component? I forgot why...
@@ -117,11 +119,17 @@ export default class Search extends React.Component {
               <div style={{textAlign: 'left', width: '50%', margin: 'auto', padding: '3vh 0 3vh 0'}}> 
               <h1>Find the best game for your needs.</h1>
           <p>
-          We’ve got you covered. Whether you’re new or a pro, choose from a game hosted by one of our experienced Dungeons & Dragons hosts! On StartPlaying.Games, you’ll find the perfect game that fits your playing style.
+            We’ve got you covered. Whether you’re new or a pro, choose from a game hosted by one of our experienced Dungeons & Dragons hosts! On StartPlaying.Games, you’ll find the perfect game that fits your playing style.
           </p>
               </div>
           {
-                this.state.filteredPossibleGames.map(this.createCards)
+                this.state.filteredPossibleGames.length>0 ? 
+                this.state.filteredPossibleGames.map(this.createCards) :
+                <Row gutter={[16, 48]} align='middle' width='100%' justify='center'>
+                  <Col>
+                    <Title level={3}>No games left! Please come back later to see if there's more games being hosted!</Title>
+                  </Col>
+                </Row>
           }
         </div>
             </Content>

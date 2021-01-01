@@ -51,7 +51,7 @@ export default class LoginModal extends React.Component {
         setTimeout(() => {
             localStorage.setItem('currentUser', username);
             // this means that if the user is in the search page or the game page, reload the page (there's weird router issues otherwise)
-            if (document.location.pathname === '/search' || document.location.pathname.includes('/game')) {
+            if (document.location.pathname === '/search' || document.location.pathname.includes("/game")) {
               window.location.reload();
             } else {
               this.setState({
