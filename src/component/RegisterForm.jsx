@@ -10,23 +10,23 @@ export default class RegisterForm extends React.Component {
     const password = values['password'];
     // replace with mongo call
     let requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username: username, password:password })
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: username, password: password })
     };
     fetch('/register', requestOptions)
-    .then((response) => {
+      .then((response) => {
         if (response.status === 200) {
-            this.props.handleSuccess(username);
+          this.props.handleSuccess(username);
         } else {
-            this.props.handleError();
+          this.props.handleError();
         };
-    });
+      });
   };
 
   render() {
     return (
-        <Form
+      <Form
         id="registerForm"
         name="normal_register"
         className="register-form"
@@ -34,20 +34,31 @@ export default class RegisterForm extends React.Component {
         onFinish={this.onFinish}
       >
         <Form.Item
+          name="name"
+          rules={[{ required: true, message: 'Please input your name.' }]}
+        >
+          <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Name" />
+        </Form.Item>
+        <Form.Item
           name="username"
-          rules={[{ required: true, message: 'Please input your Username!' }]}
+          rules={[{ required: true, message: 'Please input your username.' }]}
         >
           <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
         </Form.Item>
         <Form.Item
           name="password"
-          rules={[{ required: true, message: 'Please input your Password!' }]}
+          rules={[{ required: true, message: 'Please input your password.' }]}
         >
           <Input
             prefix={<LockOutlined className="site-form-item-icon" />}
             type="password"
             placeholder="Password"
           />
+        </Form.Item>
+
+        <Form.Item name="offers">
+          <Checkbox>Yes, I would like to receive promotional offers and updates from StartPlaying.Games.</Checkbox>
+
         </Form.Item>
         {/* <Form.Item>
           <a className="login-form-forgot" href="">
