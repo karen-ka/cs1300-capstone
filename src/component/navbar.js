@@ -5,6 +5,9 @@ import RegisterModal from './registerModal'
 import { Link } from 'react-router-dom'
 import logo from '../img/logo-transparent.png'
 
+import { Avatar } from 'antd';
+import { AntDesignOutlined } from '@ant-design/icons';
+
 export default class Navbar extends React.Component {
   constructor(props) {
     super(props);
@@ -40,14 +43,20 @@ export default class Navbar extends React.Component {
         <Link to={url}>
           <img src={logo} style={{float: 'left', height: '6vh', width: 'auto', paddingTop: '0.5vh'}}/>
         </Link>
-        <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal" style={{float: 'right', height: '7vh', alignContent: 'middle', display: 'flex', lineHeight: '7vh'}}>
+        <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal" style={{float: 'right', height: '5vh', alignContent: 'middle', display: 'flex', lineHeight: '7vh', backgroundColor: 'transparent'}}>
           <Menu.Item key="mail" style={{alignItems: 'center'}}>
             Navigation One
           </Menu.Item>
           {localStorage.getItem("currentUser") !== null ? 
+          (<>
             <Menu.Item key="logout">
               Logout
             </Menu.Item>
+              {/* <Avatar
+              size={40}
+              icon={<AntDesignOutlined />}
+            /> */}
+            </>)
             :
             (<><Menu.Item key="login">
               Login

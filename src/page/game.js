@@ -6,6 +6,7 @@ import LoginModal from '../component/loginModal';
 import CheckoutModal from '../component/CheckoutModal';
 
 import { gameinfo, hostData } from '../gameData';
+import { text } from 'express';
 
 const { Title, Paragraph } = Typography;
 const { Header, Content } = Layout;
@@ -71,10 +72,14 @@ export default class Game extends React.Component {
         <Content>
         <Row gutter={24} justify="center" style={{ marginTop: 36 }}>
             <Col span={15}>
-              <Card>
+              <Card
+              cover={<img src={gd.logo} width={300}/>}>
                 <Title>{gd.name}</Title>
-                <img src={gd.logo} width={600}/>
-                <Paragraph>{gd.info}</Paragraph>
+                {/* <img src={gd.logo} width={600}/> */}
+
+                <br></br>
+
+                <Paragraph style={{textAlign: 'left'}}>{gd.info}</Paragraph>
                 <Row justify="space-around">
                   <Col span={6}>
                     <Statistic title="Price" value={gd.price} prefix={'USD'} />

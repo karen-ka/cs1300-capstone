@@ -33,13 +33,13 @@ function Home() {
         </div>
         {/* <div><Button type='primary'>Explore</Button></div> */}
       </Content>
-      <Footer
+      {/* <Footer
         style={{
           height: '2vh',
           textAlign: 'center'
         }}>
         This is a Footer
-      </Footer>
+      </Footer> */}
     </Layout>
   );
 }
