@@ -1,9 +1,10 @@
 import React from 'react';
 import Navbar from '../component/navbar.js';
 import { Layout, Button } from 'antd';
-import background from '../img/dndwp.jpg'
+import background from '../img/wp.jpg'
 import { Link } from 'react-router-dom';
 import '../App.less';
+import '../Title.less';
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -11,36 +12,51 @@ function Home() {
   return (
     <Layout>
       <Header>
-          <Navbar></Navbar>
+        <Navbar></Navbar>
       </Header>
       {/* <Content><div style={{backgroundImage: `url('../img/dndwp.jpg'`}}></div></Content> */}
       <Content>
-        <div 
+        <div
           style={{
             // filter: 'brightness(50%)',
-            backgroundImage: `url(${background})`, 
-            height: '93vh', 
+            backgroundImage: `url(${background})`,
+            height: '93vh',
             backgroundSize: "cover",
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+            backgroundSize: '100% 100%',
           }}>
-            {/* <h1>StartPlaying.Games</h1>
+          {/* <h1>StartPlaying.Games</h1>
             <br></br> */}
+          <div class="break"></div>
+          <div class="break"></div>
+          <div class="Iam" style={{ display: 'flex' }}>
+
+            <p>StartPlaying.</p>
+            <b>
+              <div class="innerIam">
+                Games<br />
+                Dungeons & Dragons<br />
+                Magic: The Gathering<br />
+                and more<br />
+                Games
+              </div>
+            </b>
+
+          </div>
+          <div class="break"></div>
+          <div display="flex">
             <Link to="/search">
-              <Button type='primary' style={{justifyContent: 'center'}}>Explore</Button>
+              <Button type='primary' size={'large'} style={{ justifyContent: 'center' }}>Explore</Button>
             </Link>
+          </div>
+
         </div>
         {/* <div><Button type='primary'>Explore</Button></div> */}
       </Content>
-      {/* <Footer
-        style={{
-          height: '2vh',
-          textAlign: 'center'
-        }}>
-        This is a Footer
-      </Footer> */}
-    </Layout>
+    </Layout >
   );
 }
 
