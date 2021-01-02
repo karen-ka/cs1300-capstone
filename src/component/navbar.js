@@ -40,9 +40,9 @@ export default class Navbar extends React.Component {
         <Link to={url}>
           <img src={logo} style={{float: 'left', height: '6vh', width: 'auto', paddingTop: '0.5vh'}}/>
         </Link>
-        <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal" style={{float: 'right', height: '7vh', alignContent: 'middle', display: 'flex', lineHeight: '7vh'}}>
+        <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal" style={{float: 'right', height: '6vh', alignContent: 'middle', display: 'flex', lineHeight: '7vh', backgroundColor: 'transparent'}}>
           <Menu.Item key="mail" style={{alignItems: 'center'}}>
-            Navigation One
+            Home
           </Menu.Item>
           {localStorage.getItem("currentUser") !== null ? 
             <Menu.Item key="logout">

@@ -19,7 +19,7 @@ function Home() {
           style={{
             // filter: 'brightness(50%)',
             backgroundImage: `url(${background})`, 
-            height: '90vh', 
+            height: '93vh', 
             backgroundSize: "cover",
             display: 'flex',
             alignItems: 'center',
@@ -33,13 +33,13 @@ function Home() {
         </div>
         {/* <div><Button type='primary'>Explore</Button></div> */}
       </Content>
-      <Footer
+      {/* <Footer
         style={{
           height: '2vh',
           textAlign: 'center'
         }}>
         This is a Footer
-      </Footer>
+      </Footer> */}
     </Layout>
   );
 }

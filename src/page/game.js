@@ -68,13 +68,15 @@ export default class Game extends React.Component {
         <Header>
           <Navbar/>
         </Header>
-        <Content>
+        <Content style={{width: '80%', margin: 'auto'}}>
         <Row gutter={24} justify="center" style={{ marginTop: 36 }}>
             <Col span={15}>
-              <Card>
+              <Card
+              cover={<img src={gd.logo} width={600}/>}>
                 <Title>{gd.name}</Title>
-                <img src={gd.logo} width={600}/>
-                <Paragraph>{gd.info}</Paragraph>
+                <br></br>
+                <Paragraph style={{textAlign: 'left', width: '80%', margin: 'auto'}}>{gd.info}</Paragraph>
+                <br></br>
                 <Row justify="space-around">
                   <Col span={6}>
                     <Statistic title="Price" value={gd.price} prefix={'USD'} />
@@ -91,8 +93,8 @@ export default class Game extends React.Component {
               <Card style={{marginBottom: 24}}>
                 <Title align="start" level={2}>Reserve Your Seat</Title>
                 <Paragraph align="start">
-                  Price From:
-                  <br/>
+                  {/* Price:
+                  <br/> */}
                   {`USD ${gd.price} / player`}
                 </Paragraph>
                 <LoginModal ref={this.loginModal}></LoginModal>

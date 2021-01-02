@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Row, Col, Card, Avatar, Button, Divider, Rate, Statistic } from 'antd';
+import { Row, Col, Card, Avatar, Button, Divider, Rate, Statistic, Typography } from 'antd';
 import LoginModal from './loginModal';
 
 const { Meta } = Card;
+const { Paragraph, Title } = Typography;
+
 
 export default class GameCard extends React.Component {
     constructor(props) {
@@ -44,7 +46,7 @@ export default class GameCard extends React.Component {
                     >
                         <Meta
                             title={this.props.gd.name}
-                            description={this.props.gd.info}
+                            description={<Paragraph ellipsis={{ rows: 2}}>{this.props.gd.info}</Paragraph>}
                         />
                     </Card>
                     <Card
@@ -70,6 +72,8 @@ export default class GameCard extends React.Component {
                         </>
                     </Card>
                 </div> :
+
+
                 // COMPLEX GAME CARD
                 <div style={{ display: 'flex', width: '60vw' }} onClick={this.handleGameCardClick}>
                     <LoginModal ref={this.loginModal}></LoginModal>
@@ -83,7 +87,7 @@ export default class GameCard extends React.Component {
                     >
                         <Meta
                             title={this.props.gd.name}
-                            description={this.props.gd.info}
+                            description={<Paragraph ellipsis={{ rows: 2}}>{this.props.gd.info}</Paragraph>}
                         />
                     </Card>
                     <Card
@@ -97,8 +101,11 @@ export default class GameCard extends React.Component {
                             </Link>
                         ]}
                     >
+                        <Title level={4} style={{textAlign: 'center'}}>Hosted By</Title>
+
                         <div style={{ display: 'flex' }}>
                             <div style={{ flex: 1 }}>
+                                <br></br>
                                 <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
                                 <br></br>
                                 {this.props.hd.name}
