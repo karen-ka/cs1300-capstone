@@ -1,6 +1,6 @@
 # TODO:
 A very basic list of things left to do, [wireframes for reference](https://www.figma.com/file/DfjXAp0tvCbh9EX3XJ32bl/Iterative-Design-Final-Ver---DnD?node-id=53%3A933).
-- [ ] Add user dashboard page.
+- [x] Add user dashboard page.
 - [ ] Add host search page.
 - [x] Add host profile page.
 - [x] Add game info/detail page.
