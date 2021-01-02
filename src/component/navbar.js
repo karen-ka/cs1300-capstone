@@ -4,6 +4,7 @@ import LoginModal from './loginModal'
 import RegisterModal from './registerModal'
 import { Link } from 'react-router-dom'
 import logo from '../img/logo-transparent.png'
+import { Redirect } from 'react-router-dom';
 
 export default class Navbar extends React.Component {
   constructor(props) {
@@ -13,6 +14,7 @@ export default class Navbar extends React.Component {
   }
   state = {
     current: 'mail',
+    redirectHome: false
   };
 
   handleClick = e => {
@@ -26,12 +28,21 @@ export default class Navbar extends React.Component {
     } else if (e.key === "logout") {
       localStorage.clear("currentUser");
       window.location.reload();
+    } else if (e.key === "home") {
+      this.setState({redirectHome: true});
     };
   };
 
   render() {
     const { current } = this.state;
     const url = localStorage.getItem("currentUser") !== null ? "/user" : "/";
+    if (this.state.redirectHome) {
+      // can remove this to just not do anything if already at home. Currently reloads
+      if (window.location.pathname == '/') {
+        window.location.reload();
+      };
+      return <Redirect to='/'/>
+    }
     // add in some form of redirect if user logged out?
     return (
       <div style={{height: '7vh'}}>
@@ -41,7 +52,7 @@ export default class Navbar extends React.Component {
           <img src={logo} style={{float: 'left', height: '6vh', width: 'auto', paddingTop: '0.5vh'}}/>
         </Link>
         <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal" style={{float: 'right', height: '6vh', alignContent: 'middle', display: 'flex', lineHeight: '7vh', backgroundColor: 'transparent'}}>
-          <Menu.Item key="mail" style={{alignItems: 'center'}}>
+          <Menu.Item key="home" style={{alignItems: 'center'}}>
             Home
           </Menu.Item>
           {localStorage.getItem("currentUser") !== null ? 
