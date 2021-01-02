@@ -8,7 +8,7 @@ const { Paragraph, Title } = Typography;
 
 
 export default class GameCard extends React.Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.loginModal = React.createRef();
     }
@@ -33,7 +33,7 @@ export default class GameCard extends React.Component {
 
         return (
             this.props.simple ?
-            // SIMPLE GAME CARD
+                // SIMPLE GAME CARD
                 <div style={{ display: 'flex' }}>
                     <LoginModal ref={this.loginModal}></LoginModal>
                     <Card
@@ -46,7 +46,7 @@ export default class GameCard extends React.Component {
                     >
                         <Meta
                             title={this.props.gd.name}
-                            description={<Paragraph ellipsis={{ rows: 2}}>{this.props.gd.info}</Paragraph>}
+                            description={<Paragraph ellipsis={{ rows: 2 }}>{this.props.gd.info}</Paragraph>}
                         />
                     </Card>
                     <Card
@@ -87,7 +87,7 @@ export default class GameCard extends React.Component {
                     >
                         <Meta
                             title={this.props.gd.name}
-                            description={<Paragraph ellipsis={{ rows: 2}}>{this.props.gd.info}</Paragraph>}
+                            description={<Paragraph ellipsis={{ rows: 2 }}>{this.props.gd.info}</Paragraph>}
                         />
                     </Card>
                     <Card
@@ -101,7 +101,7 @@ export default class GameCard extends React.Component {
                             </Link>
                         ]}
                     >
-                        <Title level={4} style={{textAlign: 'center'}}>Hosted By</Title>
+                        <Title level={4} style={{ textAlign: 'center' }}>Hosted By</Title>
 
                         <div style={{ display: 'flex' }}>
                             <div style={{ flex: 1 }}>
@@ -130,7 +130,7 @@ export default class GameCard extends React.Component {
                             </Row>
                             <Row>
                                 <Col span={12}>
-                                    <Statistic title="Day" value={this.props.gd.day}/>
+                                    <Statistic title="Day" value={this.props.gd.day} />
                                 </Col>
                                 <Col span={12}>
                                     <Statistic title="Time" value={this.props.gd.time} />
