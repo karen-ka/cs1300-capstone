@@ -28,6 +28,7 @@ class App extends React.Component {
               <Route path="/user" component={User}/>
               <Route path="/register" component={RegisterModal}/>
               <Route path="/game/:id" component={Game}/>
+              <Route path="/host/:id" component={Host}/>
             </Switch>
           </div>
         </BrowserRouter>
