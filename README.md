@@ -2,7 +2,7 @@
 A very basic list of things left to do, [wireframes for reference](https://www.figma.com/file/DfjXAp0tvCbh9EX3XJ32bl/Iterative-Design-Final-Ver---DnD?node-id=53%3A933).
 - [ ] Add user dashboard page.
 - [ ] Add host search page.
-- [ ] Add host profile page.
+- [x] Add host profile page.
 - [x] Add game info/detail page.
 - [ ] Add booking functionality to game info/detail page.
 - [ ] Fix existing navbar.
