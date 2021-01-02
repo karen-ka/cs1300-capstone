@@ -67,7 +67,7 @@ export default class GameCard extends React.Component {
                         <>
                             <div>
                                 <Statistic valueStyle={{ fontSize: '.8rem' }} title="Price" value={this.props.gd.price} prefix={'USD'} />
-                                <Statistic title="Location" value={this.props.gd.location} />
+                                <Statistic title="Platform" value={this.props.gd.location} />
                             </div>
                         </>
                     </Card>
@@ -125,7 +125,7 @@ export default class GameCard extends React.Component {
                                     <Statistic title="Price" value={this.props.gd.price} prefix={'USD'} />
                                 </Col>
                                 <Col span={12}>
-                                    <Statistic title="Location" value={this.props.gd.location} />
+                                    <Statistic title="Platform" value={this.props.gd.location} />
                                 </Col>
                             </Row>
                             <Row>
