@@ -2,6 +2,7 @@ import React from 'react';
 import Home from './page/home.js';
 import About from './page/about.js';
 import Search from './component/SearchPage.js';
+import HostSearch from './page/hostsearch.js';
 import User from './page/user.js';
 import Host from './page/host.js';
 import Game from './page/game.js';
@@ -25,6 +26,7 @@ class App extends React.Component {
               <Route path="/" exact component={Home}/>
               <Route path="/about" component={About}/>
               <Route path="/search" component={Search}/>
+              <Route path="/hostsearch" component={HostSearch}/>
               <Route path="/user" component={User}/>
               <Route path="/register" component={RegisterModal}/>
               <Route path="/game/:id" component={Game}/>

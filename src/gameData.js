@@ -71,7 +71,8 @@ export const hostData = {
     "about": "Hey! I'm Alex. I first got into tabletop games back in the 90's, and now I try to share this experience with others on this platform.",
     "numberOfGames": 56,
     "gamesHosted": ["DnD"],
-    "style": "I try to add some humor to all my game sessions to help break the ice so if you are into corny jokes, please join my session!"
+    "style": "I try to add some humor to all my game sessions to help break the ice so if you are into corny jokes, please join my session!",
+    "hostid": 123
   },
   111: {
     "name": "Brian",
@@ -81,8 +82,9 @@ export const hostData = {
     "reviews": [1, 4, 5],
     "about": "I'm Brian, and I come from the small town of Columbus, Ohio where I grew up playing tabletop games everyday. Now, I try to host games online to get more people into this field!",
     "numberOfGames": 5,
-    "gamesHosted": ["DnD", "Magic: The Gathering"],
-    "style": "I personally try to make each of my games unique by adding in special traits to the games, such as adding in a hidden character."
+    "gamesHosted": ["Magic: The Gathering"],
+    "style": "I personally try to make each of my games unique by adding in special traits to the games, such as adding in a hidden character.",
+    "hostid": 111
   },
   420: {
     "name": "Tanvir",
@@ -92,8 +94,9 @@ export const hostData = {
     "reviews": [4, 5, 2],
     "about": "I'm Tanvir and I only recently got into tabletop games during the Corona pandemic. It's a great way to spend time with friends and family, and that's why I host games online to share the joy!",
     "numberOfGames": 23,
-    "gamesHosted": ["Magic: The Gathering", "DnD"],
-    "style": "For my games, I try to make sure to adjust the gameplay to suit the players, so I'm very receptive to feedback. By the end of the session, you may honestly not recognize the game we are playing compared to when we started!"
+    "gamesHosted": ["Magic: The Gathering", "Pandemic"],
+    "style": "For my games, I try to make sure to adjust the gameplay to suit the players, so I'm very receptive to feedback. By the end of the session, you may honestly not recognize the game we are playing compared to when we started!",
+    "hostid": 420
   },
 }
 

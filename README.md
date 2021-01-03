@@ -1,11 +1,11 @@
 # TODO:
 A very basic list of things left to do, [wireframes for reference](https://www.figma.com/file/DfjXAp0tvCbh9EX3XJ32bl/Iterative-Design-Final-Ver---DnD?node-id=53%3A933).
 - [x] Add user dashboard page.
-- [ ] Add host search page.
+- [x] Add host search page.
 - [x] Add host profile page.
 - [x] Add game info/detail page.
-- [ ] Add booking functionality to game info/detail page.
-- [ ] Fix existing navbar.
+- [x] Add booking functionality to game info/detail page.
+- [x] Fix existing navbar.
 - [x] Make logo clickable, should redirect to home page. (User dashboard if logged in, otherwise home page if logged out)
 
 # Installing (First Time Only)
