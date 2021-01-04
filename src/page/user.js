@@ -73,7 +73,14 @@ export default class Search extends React.Component {
               {this.state.registeredGames.map(this.createCards)} </>)
               :
               'bye'}
+            <br />
+            <br />
+            <br />
             {/* TODO: make another game card ver for this page ... */}
+
+            <Text style={{ fontSize: '1.5em' }}>Suggested Games</Text>
+
+
           </Content>
         </Layout>
       </div>
