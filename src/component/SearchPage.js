@@ -113,7 +113,7 @@ export default class Search extends React.Component {
                 <Navbar></Navbar>
             </Header>
             <Content>
-            <FilterBar handleGameFilter={this.handleGameFilter} handlePriceFilter={this.handlePriceFilter}></FilterBar>
+            <FilterBar page="Games" handleGameFilter={this.handleGameFilter} handlePriceFilter={this.handlePriceFilter}/>
               <CheckoutModal ref={this.checkoutModal} game={this.state.currGame}></CheckoutModal>
             <div>
               <div style={{textAlign: 'left', width: '50%', margin: 'auto', padding: '3vh 0 3vh 0'}}> 

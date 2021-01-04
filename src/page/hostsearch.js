@@ -16,13 +16,10 @@ export default class Search extends React.Component {
     }
   }
 
-
-  handlePriceFilter = (value) => {
-    console.log('hi')
+  handlePriceFilter = (_) => {
   }
 
-  handleGameFilter = (value) => {
-    console.log('hi')
+  handleGameFilter = (_) => {
   }
 
   render() {
@@ -32,8 +29,8 @@ export default class Search extends React.Component {
           <Navbar />
         </Header>
         <Content>
-          <FilterBar handleGameFilter={this.handleGameFilter} handlePriceFilter={this.handlePriceFilter}></FilterBar>
-          <br />
+          <FilterBar page="Hosts" handleGameFilter={this.handleGameFilter} handlePriceFilter={this.handlePriceFilter} />
+          <br/>
           <Space direction="vertical" size={"large"}>
             {this.HostCards}
           </Space>
@@ -41,6 +38,4 @@ export default class Search extends React.Component {
       </Layout>
     );
   }
-
 }
-
