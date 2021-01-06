@@ -4,7 +4,7 @@ import Navbar from '../component/navbar';
 import HostCard from '../component/HostCard';
 import FilterBar from '../component/FilterBar'
 import { hostData } from '../gameData';
-const { Header, Content } = Layout;
+const { Header, Content, Footer } = Layout;
 
 export default class Search extends React.Component {
   constructor (props) {
@@ -41,6 +41,7 @@ export default class Search extends React.Component {
             {this.HostCards}
           </Space>
         </Content>
+        <Footer></Footer>
       </Layout>
     );
   }

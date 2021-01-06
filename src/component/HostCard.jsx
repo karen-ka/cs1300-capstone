@@ -13,6 +13,7 @@ const HostCard = (props) => {
           <Col span={6} align="center">
             <Avatar size={96} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" style={{ marginBottom: '2vh' }} />
             {/* <Title level={4} align="start"></Title> */}
+            <br />
             <Rate disabled defaultValue={props.hd.rating} style={{ fontSize: 12 }} />
             <Paragraph>{`${props.hd.numberOfGames} games hosted`}</Paragraph>
 
@@ -46,26 +47,26 @@ const HostCard = (props) => {
       </Card>
       :
       <Card>
-        <Space direction="vertical">
+        <Col>
           <Avatar size={256} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
           <Title level={3}>{props.hd.name}</Title>
-          <Title level={4} align="start">About Me</Title>
+          {/* <Title level={4} align="start">About Me</Title>
           <Paragraph align="start">
             {props.hd.about}
-          </Paragraph>
+          </Paragraph> */}
           <Title level={4} align="start">Statistics</Title>
           <div align="start">
             <Rate disabled defaultValue={props.hd.rating} style={{ fontSize: 20, marginRight: 24 }} />
-            {props.hd.rating}
+            {props.hd.rating.toFixed(1)}
           </div>
           <Paragraph align="start">{`${props.hd.numberOfGames} games hosted`}</Paragraph>
           <Title level={4} align="start">Games Hosted</Title>
           <Paragraph align="start">
             <ul>
-              {props.hd.gamesHosted.map(game => <li>{game}</li>)}
+              {props.hd.gamesHosted.map(game => <Tag style={{ fontSize: '14px' }} color="default">{game}</Tag>)}
             </ul>
           </Paragraph>
-        </Space>
+        </Col>
       </Card>
   );
 }

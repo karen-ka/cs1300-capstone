@@ -6,7 +6,7 @@ import HostCard from '../component/HostCard.jsx'
 import { hostData, reviews } from '../gameData';
 
 const { Title, Paragraph } = Typography;
-const { Header, Content } = Layout;
+const { Header, Content, Footer } = Layout;
 
 const Host = (props) => {
   const hostID = props.match.params.id;
@@ -23,6 +23,13 @@ const Host = (props) => {
           </Col>
           <Col span={15}>
             <Card>
+              <Title style={{ textAlign: "left" }} level={3}>About Me</Title>
+              <Paragraph align="start">
+                {hd.about}
+              </Paragraph>
+            </Card>
+
+            <Card style={{ marginTop: 24 }}>
               <Title style={{ textAlign: "left" }} level={3}>My Hosting Style</Title>
               <Paragraph align="start">
                 {hd.style}
@@ -47,6 +54,7 @@ const Host = (props) => {
           </Col>
         </Row>
       </Content>
+      <Footer />
     </Layout>
   );
 }

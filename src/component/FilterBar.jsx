@@ -65,7 +65,7 @@ export default class FilterBar extends React.Component {
     return (
       <div>
         <PageHeader
-          style={{ backgroundColor: '#181818' }}
+          style={{ backgroundColor: '#181818', paddingLeft: "50px" }}
           className="site-page-header"
           title={currTitle}
         />
