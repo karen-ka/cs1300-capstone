@@ -70,12 +70,12 @@ export const hostData = {
     "reviews": [1, 2, 3],
     "about": "Hey! I'm Alex. I first got into tabletop games back in the 90's, and now I try to share this experience with others on this platform.",
     "numberOfGames": 56,
-    "gamesHosted": ["DnD"],
+    "gamesHosted": ["Dungeons & Dragons"],
     "style": "I try to add some humor to all my game sessions to help break the ice so if you are into corny jokes, please join my session!",
     "hostid": 123
   },
   111: {
-    "name": "Brian",
+    "name": "Brian Longggggname",
     "rating": 2.0,
     "numrating": 2,
     "intro": "I'm Brian, and I host DnD and Magic games. Join me for a jolly good time!",
@@ -122,3 +122,15 @@ export const reviews = {
     "review": "Great experience! Really took the time to make us all feel part of the experience, regardless of the remote setting."
   },
 }
+
+// export const gameTypes = {
+//   "Magic: The Gathering": {
+//     "color": ""
+//   },
+//   "Pandemic": {
+
+//   },
+//   "Dungeons & Dragons": {
+
+//   },
+// }
