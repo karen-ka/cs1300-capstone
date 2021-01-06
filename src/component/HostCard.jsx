@@ -20,7 +20,7 @@ const HostCard = (props) => {
             <Statistic title="About Me" value={props.hd.about} />
           </Col>
           <Col span={6}>
-            <Title level={3} align="start">I Host:</Title>
+            <Title level={3} align="start">Games Hosted:</Title>
             <Paragraph align="start">
               <ul>
                 {props.hd.gamesHosted.map(game => <li>{game}</li>)}
@@ -47,7 +47,7 @@ const HostCard = (props) => {
             {props.hd.rating}
           </div>
           <Paragraph align="start">{`${props.hd.numberOfGames} games hosted`}</Paragraph>
-          <Title level={3} align="start">Hosts</Title>
+          <Title level={3} align="start">Games Hosted</Title>
           <Paragraph align="start">
             <ul>
               {props.hd.gamesHosted.map(game => <li>{game}</li>)}

@@ -14,22 +14,22 @@ const Host = (props) => {
   return (
     <Layout>
       <Header>
-        <Navbar/>
+        <Navbar />
       </Header>
       <Content>
         <Row gutter={24} justify="center" style={{ marginTop: 36 }}>
           <Col span={7}>
-            <HostCard hd={hd}/>
+            <HostCard hd={hd} />
           </Col>
           <Col span={15}>
             <Card>
-              <Title>My Hosting Style</Title>
+              <Title style={{ textAlign: "left" }} level={3}>My Hosting Style</Title>
               <Paragraph align="start">
                 {hd.style}
               </Paragraph>
             </Card>
             <Card style={{ marginTop: 24 }}>
-              <Title>Reviews</Title>
+              <Title style={{ textAlign: "left" }} level={3}>Reviews</Title>
               {
                 hd.reviews.map((reviewID) => {
                   const review = reviews[reviewID];
@@ -37,7 +37,7 @@ const Host = (props) => {
                     <Comment
                       align="start"
                       author={review.name}
-                      avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/>}
+                      avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
                       content={review.review}
                     />
                   );
