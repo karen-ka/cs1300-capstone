@@ -8,10 +8,10 @@ import CheckoutModal from '../component/CheckoutModal';
 import { gameinfo, hostData } from '../gameData';
 
 const { Title, Paragraph } = Typography;
-const { Header, Content } = Layout;
+const { Header, Content, Footer } = Layout;
 
 export default class Game extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.gameID = props.match.params.id;
     this.gd = gameinfo[this.gameID];
@@ -31,27 +31,27 @@ export default class Game extends React.Component {
       let requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username:  localStorage.getItem('currentUser')})
+        body: JSON.stringify({ username: localStorage.getItem('currentUser') })
       };
       fetch('/getGames', requestOptions)
-      .then((response) => {
+        .then((response) => {
           if (response.status === 200) {
-              response.json().then((data) => {
-                if (data.includes(parseInt(this.gameID))) {
-                  this.setState({
-                    booked: true,
-                    text: "Already Booked"
-                  });
-                  console.log('haha');
-                }
-              });
+            response.json().then((data) => {
+              if (data.includes(parseInt(this.gameID))) {
+                this.setState({
+                  booked: true,
+                  text: "Already Booked"
+                });
+                console.log('haha');
+              }
+            });
           } else {
-              console.log(response);
+            console.log(response);
           };
-      });
+        });
     }
   }
-  
+
   handleClick = () => {
     if (this.loggedIn) {
       this.checkoutModal.current.showModal();
@@ -66,16 +66,16 @@ export default class Game extends React.Component {
     return (
       <Layout>
         <Header>
-          <Navbar/>
+          <Navbar />
         </Header>
-        <Content style={{width: '80%', margin: 'auto'}}>
-        <Row gutter={24} justify="center" style={{ marginTop: 36 }}>
+        <Content style={{ width: '80%', margin: 'auto' }}>
+          <Row gutter={24} justify="center" style={{ marginTop: 36 }}>
             <Col span={15}>
               <Card
-              cover={<img src={gd.logo} width={600}/>}>
+                cover={<img src={gd.logo} width={600} />}>
                 <Title>{gd.name}</Title>
                 <br></br>
-                <Paragraph style={{textAlign: 'left', width: '80%', margin: 'auto'}}>{gd.info}</Paragraph>
+                <Paragraph style={{ textAlign: 'left', width: '80%', margin: 'auto' }}>{gd.info}</Paragraph>
                 <br></br>
                 <Row justify="space-around">
                   <Col span={6}>
@@ -90,7 +90,7 @@ export default class Game extends React.Component {
               </Card>
             </Col>
             <Col span={7}>
-              <Card style={{marginBottom: 24}}>
+              <Card style={{ marginBottom: 24 }}>
                 <Title align="start" level={2}>Reserve Your Seat</Title>
                 <Paragraph align="start">
                   {/* Price:
@@ -101,11 +101,12 @@ export default class Game extends React.Component {
                 <CheckoutModal ref={this.checkoutModal} game={this.gd}></CheckoutModal>
 
                 <Button align="center" onClick={this.handleClick} type="primary" disabled={this.state.booked}>{this.state.text}</Button>
-                </Card>
-              <HostCard hd={hd}/>
+              </Card>
+              <HostCard hd={hd} onGameDetailPage={true} />
             </Col>
           </Row>
         </Content>
+        <Footer />
       </Layout>
     );
   }

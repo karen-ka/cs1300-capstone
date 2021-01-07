@@ -60,12 +60,25 @@ const HostCard = (props) => {
             {props.hd.rating.toFixed(1)}
           </div>
           <Paragraph align="start">{`${props.hd.numberOfGames} games hosted`}</Paragraph>
-          <Title level={4} align="start">Games Hosted</Title>
-          <Paragraph align="start">
-            <ul>
-              {props.hd.gamesHosted.map(game => <Tag style={{ fontSize: '14px' }} color="default">{game}</Tag>)}
-            </ul>
-          </Paragraph>
+
+          {props.onGameDetailPage ? <>
+
+            <Link to={`/host/${props.hd.hostid}`}>
+              <Button type="primary">Learn More</Button>
+            </Link>
+          </>
+            :
+
+            <><Title level={4} align="start">Games Hosted</Title>
+              <Paragraph align="start">
+                <ul>
+                  {props.hd.gamesHosted.map(game => <Tag style={{ fontSize: '14px' }} color="default">{game}</Tag>)}
+                </ul>
+              </Paragraph>
+
+              <Title level={4} align="start">Reviews</Title></>
+          }
+
         </Col>
       </Card>
   );
