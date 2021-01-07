@@ -75,7 +75,7 @@ export default class GameCard extends React.Component {
 
 
                 // COMPLEX GAME CARD
-                <div style={{ display: 'flex', width: '60vw' }} onClick={this.handleGameCardClick}>
+                <div style={{ display: 'flex', width: '60vw', minWidth: '500px' }} onClick={this.handleGameCardClick}>
                     <LoginModal ref={this.loginModal}></LoginModal>
                     <Card
                         style={{ width: 300, flex: 1.3 }}
@@ -87,7 +87,7 @@ export default class GameCard extends React.Component {
                     >
                         <Meta
                             title={this.props.gd.name}
-                            description={<Paragraph ellipsis={{ rows: 2 }}>{this.props.gd.info}</Paragraph>}
+                            description={<Paragraph ellipsis={{ rows: 3 }}>{this.props.gd.info}</Paragraph>}
                         />
                     </Card>
                     <Card
@@ -104,18 +104,17 @@ export default class GameCard extends React.Component {
                         <Title level={4} style={{ textAlign: 'center' }}>Hosted By</Title>
 
                         <div style={{ display: 'flex' }}>
-                            <div style={{ flex: 1 }}>
+                            <div style={{ flex: 0.5 }}>
                                 <br></br>
                                 <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
                                 <br></br>
                                 {this.props.hd.name}
                                 <br></br>
-                                <Rate disabled defaultValue={this.props.hd.rating} style={{ fontSize: 10 }} />
+                                <Rate disabled={true} defaultValue={this.props.hd.rating} style={{ fontSize: 10 }} />
                             </div>
                             <div style={{ flex: 1 }}>
                                 <br></br>
-                                <b>Intro: </b>
-                                {this.props.hd.intro}
+                                {<Paragraph style={{ textAlign: 'left' }} ellipsis={{ rows: 3 }}><><b>Intro: </b> {this.props.hd.intro}</></Paragraph>}
                             </div>
                         </div>
                         <Divider />

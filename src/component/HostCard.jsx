@@ -23,7 +23,12 @@ const HostCard = (props) => {
           </Col>
           <Col span={18}>
             <Title level={4} align="start">{props.hd.name}</Title>
-            <Statistic title="About" value={props.hd.about} />
+            {/* <Statistic title="About" value={props.hd.about} /> */}
+
+            <Text type="secondary" style={{ float: "left" }}>About</Text>
+            <br />
+            <Paragraph style={{ textAlign: "left" }} ellipsis={{ rows: 4 }}>{props.hd.about}</Paragraph>
+
             <Text type="secondary" style={{ float: "left" }}>Games Hosted</Text>
             <br />
             <div style={{ marginTop: '1vh', float: "left" }}>
