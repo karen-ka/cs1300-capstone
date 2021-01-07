@@ -50,7 +50,7 @@ export const gameinfo = {
     "day": "Tuesday",
     "time": "2pm",
     "difficulty": "Easy",
-    "info": "This game is suitable for casual players.",
+    "info": "This game is suitable for casual and new players - a perfect introduction to Pandemic!",
     "host": "Tanvir",
     "hostid": 420,
     "datetime": "",
@@ -58,6 +58,36 @@ export const gameinfo = {
     "logo": '/game_logos/pandemic.jpg',
     "location": "Zoom",
     "gameID": 4
+  },
+  5: {
+    "name": "Pandemic - Remastered",
+    "price": 25,
+    "day": "Tuesday",
+    "time": "2pm",
+    "difficulty": "Insane",
+    "info": "This game is suitable for experienced players.",
+    "host": "Alex",
+    "hostid": 123,
+    "datetime": "",
+    "gametype": "Pandemic",
+    "logo": '/game_logos/pandemic.jpg',
+    "location": "Skype",
+    "gameID": 5
+  },
+  6: {
+    "name": "CIT: Living Nightmare",
+    "price": 50,
+    "day": "Any",
+    "time": "9pm",
+    "difficulty": "Easy",
+    "info": "Turns out that weird smell in the sunlab wasn't just from dirty keyboards... this campaign is guaranteed to make you suffer and scarred for life.",
+    "host": "Tanvir",
+    "hostid": 420,
+    "datetime": "",
+    "gametype": "DnD",
+    "logo": '/game_logos/dnd.png',
+    "location": "Discord",
+    "gameID": 6
   },
 }
 
@@ -111,7 +141,7 @@ export const reviews = {
   },
   3: {
     "name": "Nerak",
-    "review": "The host was frankly not that welcoming to beginners. Didn't appreciate his snark comments regarding how slowly I'm picking up the game."
+    "review": "2/10 would not recommend"
   },
   4: {
     "name": "Patrick",
@@ -121,6 +151,10 @@ export const reviews = {
     "name": "Kevin",
     "review": "Great experience! Really took the time to make us all feel part of the experience, regardless of the remote setting."
   },
+  6: {
+    "name": "Karen",
+    "review": "10/10 would recommend"
+  }
 }
 
 // export const gameTypes = {

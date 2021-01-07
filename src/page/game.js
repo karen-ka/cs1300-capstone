@@ -73,7 +73,7 @@ export default class Game extends React.Component {
             <Col span={15}>
               <Card
                 cover={<img src={gd.logo} width={600} />}>
-                <Title>{gd.name}</Title>
+                <Title style={{ textAlign: 'left', width: '80%', margin: 'auto' }} level={3}>{gd.name}</Title>
                 <br></br>
                 <Paragraph style={{ textAlign: 'left', width: '80%', margin: 'auto' }}>{gd.info}</Paragraph>
                 <br></br>
@@ -91,7 +91,7 @@ export default class Game extends React.Component {
             </Col>
             <Col span={7}>
               <Card style={{ marginBottom: 24 }}>
-                <Title align="start" level={2}>Reserve Your Seat</Title>
+                <Title align="start" level={3}>Reserve Your Seat</Title>
                 <Paragraph align="start">
                   {/* Price:
                   <br/> */}

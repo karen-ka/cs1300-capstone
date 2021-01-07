@@ -4,7 +4,7 @@ import { Row, Col, Card, Avatar, Button, Divider, Rate, Statistic, Typography } 
 import LoginModal from './loginModal';
 
 const { Meta } = Card;
-const { Paragraph, Title } = Typography;
+const { Paragraph, Title, Text } = Typography;
 
 
 export default class GameCard extends React.Component {
@@ -75,7 +75,7 @@ export default class GameCard extends React.Component {
 
 
                 // COMPLEX GAME CARD
-                <div style={{ display: 'flex', width: '60vw', minWidth: '500px' }} onClick={this.handleGameCardClick}>
+                <div style={{ display: 'flex', width: '60vw', minWidth: '700px' }} onClick={this.handleGameCardClick}>
                     <LoginModal ref={this.loginModal}></LoginModal>
                     <Card
                         style={{ width: 300, flex: 1.3 }}
@@ -86,6 +86,7 @@ export default class GameCard extends React.Component {
                         ></img>}
                     >
                         <Meta
+                            style={{ textAlign: 'left' }}
                             title={this.props.gd.name}
                             description={<Paragraph ellipsis={{ rows: 3 }}>{this.props.gd.info}</Paragraph>}
                         />
@@ -101,20 +102,25 @@ export default class GameCard extends React.Component {
                             </Link>
                         ]}
                     >
-                        <Title level={4} style={{ textAlign: 'center' }}>Hosted By</Title>
 
                         <div style={{ display: 'flex' }}>
                             <div style={{ flex: 0.5 }}>
-                                <br></br>
-                                <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-                                <br></br>
-                                {this.props.hd.name}
+                                {/* <br></br> */}
+                                <Avatar size={75} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                                {/* <br></br>
+                                {this.props.hd.name} */}
                                 <br></br>
                                 <Rate disabled={true} defaultValue={this.props.hd.rating} style={{ fontSize: 10 }} />
+                                <Paragraph>{`${this.props.hd.numberOfGames} games`}</Paragraph>
                             </div>
                             <div style={{ flex: 1 }}>
-                                <br></br>
-                                {<Paragraph style={{ textAlign: 'left' }} ellipsis={{ rows: 3 }}><><b>Intro: </b> {this.props.hd.intro}</></Paragraph>}
+                                <Title level={4} style={{ textAlign: 'left' }}>{this.props.hd.name}</Title>
+                                {/* <Text type="secondary" style={{ textAlign: 'left' }}>EXPERIENCED HOST</Text> */}
+                                {/* {this.props.hd.name} */}
+                                {/* <br></br> */}
+                                <Text type="secondary" style={{ float: "left" }}>Intro</Text>
+                                <br />
+                                {<Paragraph style={{ textAlign: 'left' }} ellipsis={{ rows: 3 }}><> {this.props.hd.intro}</></Paragraph>}
                             </div>
                         </div>
                         <Divider />
