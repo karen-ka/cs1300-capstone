@@ -58,10 +58,10 @@ export default class CheckoutModal extends React.Component {
         // reload page after a few seconds
         setTimeout(() => {
             // change to redirect to user profile after booking a game
-            // window.location.reload();
-            this.setState({
-                profileRedirect: true
-            });
+            window.location.reload();
+            // this.setState({
+            //     profileRedirect: true
+            // });
         }, 3000);
     };
 
@@ -77,9 +77,9 @@ export default class CheckoutModal extends React.Component {
     render() {
         console.log(this.props)
         // Redirect to user page after checking out
-        if (this.state.profileRedirect) {
-            return <Redirect to='/user' />
-        };
+        // if (this.state.profileRedirect) {
+        //     return <Redirect to='/user' />
+        // };
 
         return (
             <Modal
