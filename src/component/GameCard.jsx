@@ -37,12 +37,13 @@ export default class GameCard extends React.Component {
                 <div style={{ display: 'flex' }}>
                     <LoginModal ref={this.loginModal}></LoginModal>
                     <Card
-                        style={{ width: 300, flex: 1.5 }}
-                        cover={<img
-                            alt="example"
-                            // src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-                            src={`${this.props.gd.logo}`}
-                        ></img>}
+                        style={{ width: 500, flex: 1.5 }}
+                        cover=
+                        {
+                            <img
+                                src={`${this.props.gd.logo}`}
+                            />
+                        }
                     >
                         <Meta
                             title={this.props.gd.name}
