@@ -4,6 +4,7 @@ import LoginModal from './loginModal'
 import RegisterModal from './registerModal'
 import { Link } from 'react-router-dom'
 import logo from '../img/logo-transparent.png'
+import user from '../img/user_icon.jpg'
 import { Redirect } from 'react-router-dom';
 
 export default class Navbar extends React.Component {
@@ -14,7 +15,10 @@ export default class Navbar extends React.Component {
   }
   state = {
     current: 'mail',
-    redirectHome: false
+    redirectHome: false,
+    redirectUser: false,
+    redirectGame: false,
+    redirectHost: false
   };
 
   handleClick = e => {
@@ -27,9 +31,19 @@ export default class Navbar extends React.Component {
       this.registerModal.current.showModal();
     } else if (e.key === "logout") {
       localStorage.clear("currentUser");
-      window.location.reload();
+      if (window.location.pathname == '/user') {
+        this.setState({redirectHome: true});
+      } else {
+        window.location.reload();
+      };
     } else if (e.key === "home") {
       this.setState({redirectHome: true});
+    }else if (e.key === "user") {
+      this.setState({redirectUser: true});
+    }else if (e.key === "game_search") {
+      this.setState({redirectGame: true});
+    }else if (e.key === "host_search") {
+      this.setState({redirectHost: true});
     };
   };
 
@@ -42,7 +56,23 @@ export default class Navbar extends React.Component {
         window.location.reload();
       };
       return <Redirect to='/'/>
-    }
+    } else if (this.state.redirectUser) {
+      if (window.location.pathname == '/user') {
+        window.location.reload();
+      };
+      return <Redirect to='/user'/>
+    }else if (this.state.redirectGame) {
+      if (window.location.pathname == '/search') {
+        window.location.reload();
+      };
+      return <Redirect to='/search'/>
+    }else if (this.state.redirectHost) {
+      if (window.location.pathname == '/hostsearch') {
+        window.location.reload();
+      };
+      return <Redirect to='/hostsearch'/>
+    };
+
     // add in some form of redirect if user logged out?
     return (
       <div style={{height: '7vh'}}>
@@ -55,6 +85,12 @@ export default class Navbar extends React.Component {
           <Menu.Item key="home" style={{alignItems: 'center'}}>
             Home
           </Menu.Item>
+          <Menu.Item key="game_search">
+            Find Games
+          </Menu.Item>
+          <Menu.Item key="host_search">
+            Find Hosts
+          </Menu.Item>
           {localStorage.getItem("currentUser") !== null ? 
             <Menu.Item key="logout">
               Logout
@@ -66,6 +102,12 @@ export default class Navbar extends React.Component {
             <Menu.Item key="register">
               Sign Up
             </Menu.Item></>)}
+          {localStorage.getItem("currentUser") !== null ? 
+            <Menu.Item key="user">
+              <img src={user} style={{float: 'left', height: '6vh', width: 'auto', paddingTop: '0.5vh'}}/>
+            </Menu.Item>
+            :
+            (<></>)}
         </Menu>
       </div>
     );

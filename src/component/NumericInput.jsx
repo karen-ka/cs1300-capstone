@@ -14,7 +14,9 @@ export default class NumericInput extends React.Component {
     // if (value.charAt(value.length - 1) === '.' || value === '-') {
     //   valueTemp = value.slice(0, -1);
     // }
-    onChange(valueTemp.replace(/0*(\d+)/, '$1'));
+    if (valueTemp !== undefined) {
+      onChange(valueTemp.replace(/0*(\d+)/, '$1'));
+    }
     if (onBlur) {
       onBlur();
     }
