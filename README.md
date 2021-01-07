@@ -1,13 +1,12 @@
 # TODO:
 A very basic list of things left to do, [wireframes for reference](https://www.figma.com/file/DfjXAp0tvCbh9EX3XJ32bl/Iterative-Design-Final-Ver---DnD?node-id=53%3A933).
-- [x] Add user dashboard page.
-- [x] Add host search page.
-- [x] Add host profile page.
-- [x] Add game info/detail page.
-- [x] Add booking functionality to game info/detail page.
-- [x] Fix existing navbar.
-- [x] Make logo clickable, should redirect to home page. (User dashboard if logged in, otherwise home page if logged out)
-
+- [ ] Add links to game search and host search to navbar
+- [ ] Fix crashing issue on game booking page
+- [ ] Improve styling/fix visual consistency issues
+- [ ] Add more content (fake reviews, more games, etc.)
+- [ ] Final testing before handing in to Jeff
+- [ ] Deploy website and give link to Jeff
+ 
 # Installing (First Time Only)
 
 Run `npm install` to download all required dependencies.
