@@ -8,12 +8,11 @@ const HostCard = (props) => {
   return (
     props.horizontal
       ?
-      <Card style={{ width: "60vw" }}>
+      <Card style={{ width: "55vw", minWidth: '525px' }}>
         <Row justify="center" gutter={24}>
           <Col span={6} align="center">
             <br />
-            <Avatar size={120} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" style={{ marginBottom: '2vh' }} />
-            {/* <Title level={4} align="start"></Title> */}
+            <Avatar size={{ xs: 74, sm: 82, md: 90, lg: 114, xl: 130, xxl: 150 }} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" style={{ marginBottom: '2vh' }} />
             <br />
             <Rate disabled defaultValue={props.hd.rating} style={{ fontSize: 12 }} />
             <Paragraph>{`${props.hd.numberOfGames} games hosted`}</Paragraph>
@@ -21,14 +20,13 @@ const HostCard = (props) => {
           </Col>
           <Col span={18}>
             <Title level={4} align="start">{props.hd.name}</Title>
-            {/* <Statistic title="About" value={props.hd.about} /> */}
             <Row>
               <Col span={12} style={{ paddingRight: '15px' }}>
                 <Text type="secondary" style={{
                   float: "left", whiteSpace: "pre-line"
                 }}>About</Text>
                 < br />
-                <Paragraph style={{ textAlign: "left" }} ellipsis={{ rows: 7 }}>{props.hd.about.split("\n").map((item, i) => <p key={i}>{item}</p>)}</Paragraph>
+                <Paragraph style={{ textAlign: "left", marginTop: '1vh' }} ellipsis={{ rows: 7 }}>{props.hd.about.split("\n").map((item, i) => <p key={i}>{item}</p>)}</Paragraph>
 
               </Col>
 

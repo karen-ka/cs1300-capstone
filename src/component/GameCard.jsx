@@ -60,22 +60,22 @@ export default class GameCard extends React.Component {
                         <div style={{ display: 'flex' }}>
 
                             <div style={{ flex: 1 }}>
-                                <Avatar size={50} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                                <Avatar size={90} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
                             </div>
 
                             <div style={{ flex: 1 }}>
-                                <Text type="secondary" style={{ float: "left" }}>Host</Text>
                                 <br />
-                                {this.props.gd.host}
-                                <br></br>
+                                <Statistic title="Host" value={this.props.gd.host} />
                             </div>
                         </div>
                         <Divider />
                         <>
+                            {/* helo future self. this differentiates whats on the simple card b/t checkout modal and user dashboard. namely, the user dashboard wont show price and instead shows action items like add to calendar blah etc etc*/}
                             <div>
                                 {this.props.onCheckoutModal ?
                                     <>
                                         <div>
+                                            <br />
                                             <Row>
                                                 <Col span={12}>
                                                     <Statistic title="Price" value={this.props.gd.price} prefix={'USD'} />
@@ -136,12 +136,12 @@ export default class GameCard extends React.Component {
 
 
                 // COMPLEX GAME CARD
-                <div style={{ display: 'flex', width: '60vw', minWidth: '700px' }} onClick={this.handleGameCardClick}>
+                <div style={{ display: 'flex', width: '55vw', minWidth: '700px' }} onClick={this.handleGameCardClick}>
                     <LoginModal ref={this.loginModal}></LoginModal>
                     <Card
-                        style={{ width: 300, flex: 1.3 }}
+                        style={{ width: 300, flex: 1.3, }}
                         cover={<img
-                            style={{ objectFit: 'cover' }}
+                            style={{ objectFit: 'contain' }}
                             alt="example"
                             // src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
                             src={`${this.props.gd.logo}`}
@@ -150,36 +150,22 @@ export default class GameCard extends React.Component {
                         <Meta
                             style={{ textAlign: 'left' }}
                             title={this.props.gd.name}
-                            description={<Paragraph ellipsis={{ rows: 3 }}>{this.props.gd.info}</Paragraph>}
+                            description={<Paragraph ellipsis={{ rows: 2 }}>{this.props.gd.info}</Paragraph>}
                         />
                     </Card>
                     <Card
                         style={{ width: 100, flex: 1 }}
-                        actions={[
-                            this.props.loggedIn ?
-                                <Button type='primary' onClick={this.handleLoggedInClick} style={{ justifyContent: 'center' }}>Book Now</Button> :
-                                <Button type='primary' onClick={this.handleLoggedOutClick} style={{ justifyContent: 'center' }}>Book Now</Button>,
-                            <Link to={`/game/${this.props.gd.gameID}`}>
-                                <Button>More Info</Button>
-                            </Link>
-                        ]}
                     >
 
                         <div style={{ display: 'flex' }}>
                             <div style={{ flex: 0.5 }}>
-                                {/* <br></br> */}
                                 <Avatar size={75} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-                                {/* <br></br>
-                                {this.props.hd.name} */}
                                 <br></br>
                                 <Rate disabled={true} defaultValue={this.props.hd.rating} style={{ fontSize: 10 }} />
                                 <Paragraph>{`${this.props.hd.numberOfGames} games`}</Paragraph>
                             </div>
                             <div style={{ flex: 1 }}>
                                 <Title level={4} style={{ textAlign: 'left' }}>{this.props.hd.name}</Title>
-                                {/* <Text type="secondary" style={{ textAlign: 'left' }}>EXPERIENCED HOST</Text> */}
-                                {/* {this.props.hd.name} */}
-                                {/* <br></br> */}
                                 <Text type="secondary" style={{ float: "left" }}>Intro</Text>
                                 <br />
                                 {<Paragraph style={{ textAlign: 'left' }} ellipsis={{ rows: 3 }}><> {this.props.hd.intro}</></Paragraph>}
@@ -203,6 +189,15 @@ export default class GameCard extends React.Component {
                                     <Statistic title="Time" value={this.props.gd.time} />
                                 </Col>
                             </Row>
+                        </div>
+                        <Divider />
+                        <div style={{ display: 'flex', justifyContent: 'space-around', margin: 'auto' }}>
+                            {this.props.loggedIn ?
+                                <Button type='primary' onClick={this.handleLoggedInClick} style={{ justifyContent: 'center' }}>Book Now</Button> :
+                                <Button type='primary' onClick={this.handleLoggedOutClick} style={{ justifyContent: 'center' }}>Book Now</Button>}
+                            <Link to={`/game/${this.props.gd.gameID}`}>
+                                <Button>More Info</Button>
+                            </Link>
                         </div>
                     </Card>
                 </div>

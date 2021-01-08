@@ -108,7 +108,6 @@ export default class Navbar extends React.Component {
           {localStorage.getItem("currentUser") !== null ?
             <Menu.Item key="user">
               <UserOutlined />
-              {/* <img src={user} style={{ float: 'left', height: '6vh', width: 'auto', paddingTop: '0.5vh' }} /> */}
             </Menu.Item>
             :
             (<></>)}
