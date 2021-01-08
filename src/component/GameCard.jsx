@@ -54,12 +54,14 @@ export default class GameCard extends React.Component {
                         style={{ width: 100, flex: 1 }}
                     >
                         <div style={{ display: 'flex' }}>
+
                             <div style={{ flex: 1 }}>
-                                Hosted by
-                        </div>
+                                <Avatar size={50} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                            </div>
+
                             <div style={{ flex: 1 }}>
-                                <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-                                <br></br>
+                                <Text type="secondary" style={{ float: "left" }}>Hosted By</Text>
+                                <br />
                                 {this.props.gd.host}
                                 <br></br>
                             </div>

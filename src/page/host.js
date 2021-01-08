@@ -31,20 +31,6 @@ const Host = (props) => {
           </Col>
           <Col span={15}>
 
-            {/* <Carousel>
-              <div>
-                <h3 style={contentStyle}>1</h3>
-              </div>
-              <div>
-                <h3 style={contentStyle}>2</h3>
-              </div>
-              <div>
-                <h3 style={contentStyle}>3</h3>
-              </div>
-              <div>
-                <h3 style={contentStyle}>4</h3>
-              </div>
-            </Carousel> */}
             <Card>
               <Title style={{ textAlign: "left" }} level={3}>About Me</Title>
               <Paragraph align="start">
@@ -59,20 +45,8 @@ const Host = (props) => {
               </Paragraph>
             </Card>
             <Card style={{ marginTop: 24 }}>
-              <Title style={{ textAlign: "left" }} level={3}>Reviews</Title>
-              {
-                hd.reviews.map((reviewID) => {
-                  const review = reviews[reviewID];
-                  return (
-                    <Comment
-                      align="start"
-                      author={review.name}
-                      avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                      content={review.review}
-                    />
-                  );
-                })
-              }
+              <Title style={{ textAlign: "left" }} level={3}>Hosted Games</Title>
+              SHOW GAMES HERE
             </Card>
           </Col>
         </Row>

@@ -89,9 +89,35 @@ export const gameinfo = {
     "location": "Discord",
     "gameID": 6
   },
+  7: {
+    "name": "Transported to Another World",
+    "price": 30,
+    "day": "Friday",
+    "time": "12pm",
+    "difficulty": "Hard",
+    "info": "The sun was shining brightly. It was a normal Friday and you were on the way to work. Suddenly, a truck... ? Here begins your life in a new world!",
+    "host": "Truckkun",
+    "hostid": 1000,
+    "gametype": "DnD",
+    "logo": '/game_logos/dnd.png',
+    "location": "Discord",
+    "gameID": 7
+  }
 }
 
 export const hostData = {
+  1000: {
+    "name": "Truckkun",
+    "rating": 5.0,
+    "numrating": 8751,
+    "intro": "Hey folks, I host many games. My specialty is transporting you out of this world for each one.",
+    "reviews": [1, 2, 6],
+    "about": "Hello, you may or may not know me. I love getting people into playing games and I guarantee an unforgettable experience. \n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    "numberOfGames": "9829",
+    "gamesHosted": ["Dungeons & Dragons", "Pandemic", "Magic: The Gathering"],
+    "style": "All of my games are extremely realistic.",
+    "hostid": 1000
+  },
   123: {
     "name": "Alex",
     "rating": 5.0,

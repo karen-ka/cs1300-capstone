@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Avatar, Space, Typography, Rate, Row, Col, Statistic, Button, Tag } from 'antd';
+import { Card, Avatar, Space, Typography, Rate, Row, Col, Statistic, Button, Tag, Comment } from 'antd';
+import { reviews } from '../gameData';
 
 const { Text, Title, Paragraph } = Typography;
-
 const HostCard = (props) => {
   return (
     props.horizontal
@@ -81,7 +81,20 @@ const HostCard = (props) => {
                 </ul>
               </Paragraph>
 
-              <Title level={4} align="start">Reviews</Title></>
+              <Title level={4} align="start">Reviews</Title>
+              {
+                props.hd.reviews.map((reviewID) => {
+                  const review = reviews[reviewID];
+                  return (
+                    <Comment
+                      align="start"
+                      author={review.name}
+                      avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                      content={review.review}
+                    />
+                  );
+                })
+              }</>
           }
 
         </Col>
