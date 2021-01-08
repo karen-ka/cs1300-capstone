@@ -34,17 +34,17 @@ export default class GameCard extends React.Component {
      * === You should most likely make changes in BOTH modals ===
      */
     render() {
-
         return (
             this.props.simple ?
                 // SIMPLE GAME CARD
-                <div style={{ display: 'flex' }}>
+                <div style={{ display: 'flex', width: '55vw', minWidth: '700px' }}>
                     <LoginModal ref={this.loginModal}></LoginModal>
                     <Card
-                        style={{ width: 500, flex: 1.5 }}
+                        style={{ width: 300, flex: 1.3, }}
                         cover=
                         {
                             <img
+                                style={{ objectFit: 'contain' }}
                                 src={`${this.props.gd.logo}`}
                             />
                         }
@@ -142,8 +142,6 @@ export default class GameCard extends React.Component {
                         style={{ width: 300, flex: 1.3, }}
                         cover={<img
                             style={{ objectFit: 'contain' }}
-                            alt="example"
-                            // src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
                             src={`${this.props.gd.logo}`}
                         ></img>}
                     >
