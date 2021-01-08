@@ -34,6 +34,7 @@ export default class GameCard extends React.Component {
      * === You should most likely make changes in BOTH modals ===
      */
     render() {
+        const disabled = this.props.nobook ? true : false;
         return (
             this.props.simple ?
                 // SIMPLE GAME CARD
@@ -191,7 +192,7 @@ export default class GameCard extends React.Component {
                         <Divider />
                         <div style={{ display: 'flex', justifyContent: 'space-around', margin: 'auto' }}>
                             {this.props.loggedIn ?
-                                <Button type='primary' onClick={this.handleLoggedInClick} style={{ justifyContent: 'center' }}>Book Now</Button> :
+                                <Button type='primary' onClick={this.handleLoggedInClick} style={{ justifyContent: 'center' }} disabled={disabled}>Book Now</Button> :
                                 <Button type='primary' onClick={this.handleLoggedOutClick} style={{ justifyContent: 'center' }}>Book Now</Button>}
                             <Link to={`/game/${this.props.gd.gameID}`}>
                                 <Button>More Info</Button>
