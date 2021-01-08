@@ -90,7 +90,7 @@ export default class Game extends React.Component {
               </Card>
             </Col>
             <Col span={7}>
-              <Card style={{ marginBottom: 24 }}>
+              <Card style={{ marginBottom: 24, minWidth: '250px' }}>
                 <Title align="start" level={3}>Reserve Your Seat</Title>
                 <Paragraph align="start">
                   {/* Price:

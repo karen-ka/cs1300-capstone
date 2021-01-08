@@ -51,9 +51,9 @@ const HostCard = (props) => {
         </Row>
       </Card>
       :
-      <Card>
+      <Card style={{ minWidth: '250px' }}>
         <Col>
-          <Avatar size={256} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+          <Avatar size={{ xs: 50, sm: 60, md: 80, lg: 120, xl: 160, xxl: 200 }} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
           <Title level={3}>{props.hd.name}</Title>
           {/* <Title level={4} align="start">About Me</Title>
           <Paragraph align="start">

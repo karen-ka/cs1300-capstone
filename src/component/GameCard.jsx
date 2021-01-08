@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Row, Col, Card, Avatar, Button, Divider, Rate, Statistic, Typography } from 'antd';
+import { Row, Col, Card, Avatar, Button, Divider, Rate, Statistic, Typography, Carousel } from 'antd';
 import LoginModal from './loginModal';
 
 const { Meta } = Card;
@@ -81,6 +81,7 @@ export default class GameCard extends React.Component {
                     <Card
                         style={{ width: 300, flex: 1.3 }}
                         cover={<img
+                            style={{ objectFit: 'cover' }}
                             alt="example"
                             // src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
                             src={`${this.props.gd.logo}`}

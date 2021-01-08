@@ -4,7 +4,7 @@ import { Space, Layout, Row, Col, Card, Typography, Button, Statistic } from 'an
 import Navbar from '../component/navbar.js';
 import GameCard from '../component/GameCard';
 import { gameinfo, hostData } from '../gameData.js'
-const { Header, Content } = Layout;
+const { Header, Content, Footer } = Layout;
 const { Title, Paragraph, Text } = Typography;
 
 export default class Search extends React.Component {
@@ -61,8 +61,8 @@ export default class Search extends React.Component {
             <Navbar />
           </Header>
           <Content style={{ float: 'center', width: '70%', marginTop: '10vh', marginLeft: 'auto', marginRight: 'auto', textAlign: 'left' }}>
-            <Text style={{ fontSize: '2em', marginTop: '200px', marginBottom: '100px' }}>Welcome back, <b>{this.username}</b>!</Text>
-            <br /> {/* idk how to make this better lol sorry its for the vertical spacing */}
+            <Text style={{ fontSize: '2em', marginTop: '200px', marginBottom: '20vh' }}>Welcome back, <b>{this.username}</b>!</Text>
+            <br />
             <br />
             <br />
             <br />
@@ -72,7 +72,7 @@ export default class Search extends React.Component {
               <br />
               {this.state.registeredGames.map(this.createCards)} </>)
               :
-              'bye'}
+              <></>}
             <br />
             <br />
             <br />
@@ -82,6 +82,7 @@ export default class Search extends React.Component {
 
 
           </Content>
+          <Footer />
         </Layout>
       </div>
     );
