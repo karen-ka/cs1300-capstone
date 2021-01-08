@@ -34,7 +34,7 @@ const Host = (props) => {
             <Card>
               <Title style={{ textAlign: "left" }} level={3}>About Me</Title>
               <Paragraph align="start">
-                {hd.about}
+                {hd.about.split("\n").map((item, i) => <p key={i}>{item}</p>)}
               </Paragraph>
             </Card>
 

@@ -6,7 +6,7 @@ import GameCard from './GameCard';
 import { Redirect } from 'react-router-dom';
 
 export default class CheckoutModal extends React.Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.loginModal = React.createRef();
         this.state = {
@@ -20,7 +20,7 @@ export default class CheckoutModal extends React.Component {
     }
 
     onMessageChange = (newMessage) => {
-        this.setState({message: newMessage});
+        this.setState({ message: newMessage });
     }
 
     showModal = () => {
@@ -51,17 +51,17 @@ export default class CheckoutModal extends React.Component {
         setTimeout(() => {
             this.setState({
                 modalText: "Success! Adding game to your profile.",
-                visible: true, 
-                loading:false
+                visible: true,
+                loading: false
             });
         }, 2000);
         // reload page after a few seconds
         setTimeout(() => {
             // change to redirect to user profile after booking a game
             window.location.reload();
-            // this.setState({
-            //     profileRedirect: true
-            // });
+            this.setState({
+                profileRedirect: true
+            });
         }, 3000);
     };
 
@@ -77,9 +77,9 @@ export default class CheckoutModal extends React.Component {
     render() {
         console.log(this.props)
         // Redirect to user page after checking out
-        // if (this.state.profileRedirect) {
-        //     return <Redirect to='/user' />
-        // };
+        if (this.state.profileRedirect) {
+            return <Redirect to='/user' />
+        };
 
         return (
             <Modal
@@ -90,16 +90,16 @@ export default class CheckoutModal extends React.Component {
                 onCancel={this.handleCancel}
                 footer={[]}
             >
-                <div className="steps-content" style={{ display: 'flex', paddingTop: '3vh'}}>
+                <div className="steps-content" style={{ display: 'flex', paddingTop: '3vh' }}>
                     <br></br>
                     <div style={{ flex: 1 }}>
-                    <><h3>Billing Information</h3><br></br>
-                    <CheckoutForm handleSuccess={this.handleSuccess} handleError={this.props.handleError} gameID={this.props.game ? this.props.game.gameID : null} loading={this.state.loading}></CheckoutForm></>
+                        <><h3>Billing Information</h3><br></br>
+                            <CheckoutForm handleSuccess={this.handleSuccess} handleError={this.props.handleError} gameID={this.props.game ? this.props.game.gameID : null} loading={this.state.loading}></CheckoutForm></>
                     </div>
                     <div style={{ flex: 1 }}>
                         <><h3>Your Order</h3></>
                         <br></br>
-                        <GameCard simple={true} gd={this.props.game}></GameCard>
+                        <GameCard onCheckoutModal={true} simple={true} gd={this.props.game}></GameCard>
                     </div>
                 </div>
                 <p>{this.state.modalText}</p>

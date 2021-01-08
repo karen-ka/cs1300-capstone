@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Row, Col, Card, Avatar, Button, Divider, Rate, Statistic, Typography, Carousel } from 'antd';
+import { Tooltip, Row, Col, Card, Avatar, Button, Divider, Rate, Statistic, Typography, Carousel } from 'antd';
 import LoginModal from './loginModal';
-
+import {
+    CalendarOutlined,
+    ShareAltOutlined,
+    MessageOutlined,
+} from '@ant-design/icons';
 const { Meta } = Card;
 const { Paragraph, Title, Text } = Typography;
 
@@ -60,7 +64,7 @@ export default class GameCard extends React.Component {
                             </div>
 
                             <div style={{ flex: 1 }}>
-                                <Text type="secondary" style={{ float: "left" }}>Hosted By</Text>
+                                <Text type="secondary" style={{ float: "left" }}>Host</Text>
                                 <br />
                                 {this.props.gd.host}
                                 <br></br>
@@ -69,8 +73,62 @@ export default class GameCard extends React.Component {
                         <Divider />
                         <>
                             <div>
-                                <Statistic valueStyle={{ fontSize: '.8rem' }} title="Price" value={this.props.gd.price} prefix={'USD'} />
-                                <Statistic title="Platform" value={this.props.gd.location} />
+                                {this.props.onCheckoutModal ?
+                                    <>
+                                        <div>
+                                            <Row>
+                                                <Col span={12}>
+                                                    <Statistic title="Price" value={this.props.gd.price} prefix={'USD'} />
+                                                </Col>
+                                                <Col span={12}>
+                                                    <Statistic title="Platform" value={this.props.gd.location} />
+                                                </Col>
+                                            </Row>
+                                            <Row>
+                                                <Col span={12}>
+                                                    <Statistic title="Day" value={this.props.gd.day} />
+                                                </Col>
+                                                <Col span={12}>
+                                                    <Statistic title="Time" value={this.props.gd.time} />
+                                                </Col>
+                                            </Row>
+
+                                        </div>
+
+                                    </>
+                                    :
+                                    <div>
+                                        <Row>
+                                            <Col span={12}>
+                                                <Statistic title="Day" value={this.props.gd.day} />
+                                            </Col>
+                                            <Col span={12}>
+                                                <Statistic title="Time" value={this.props.gd.time} />
+                                            </Col>
+                                        </Row>
+                                        <Row>
+                                            <Col span={12}>
+                                                <Statistic title="Platform" value={this.props.gd.location} />
+                                            </Col>
+                                        </Row>
+                                        <br />
+                                        <Row>
+                                            <Col span={24} style={{ textAlign: "right" }}>
+                                                <Tooltip title="Message host">
+                                                    <Button shape="circle" icon={<MessageOutlined />} style={{ margin: "0 5px 0 5px" }} />
+                                                </Tooltip>
+                                                <Tooltip title="Add to calendar">
+                                                    <Button shape="circle" icon={<CalendarOutlined />} style={{ margin: "0 5px 0 5px" }} />
+                                                </Tooltip>
+                                                <Tooltip title="Share">
+                                                    <Button shape="circle" icon={<ShareAltOutlined />} style={{ margin: "0 5px 0 5px" }} />
+                                                </Tooltip>
+
+                                            </Col>
+                                        </Row>
+                                    </div>
+                                }
+
                             </div>
                         </>
                     </Card>

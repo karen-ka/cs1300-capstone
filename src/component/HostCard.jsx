@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Avatar, Space, Typography, Rate, Row, Col, Statistic, Button, Tag, Comment } from 'antd';
+import { Divider, Card, Avatar, Space, Typography, Rate, Row, Col, Statistic, Button, Tag, Comment } from 'antd';
 import { reviews } from '../gameData';
 
 const { Text, Title, Paragraph } = Typography;
@@ -11,43 +11,50 @@ const HostCard = (props) => {
       <Card style={{ width: "60vw" }}>
         <Row justify="center" gutter={24}>
           <Col span={6} align="center">
-            <Avatar size={96} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" style={{ marginBottom: '2vh' }} />
+            <br />
+            <Avatar size={120} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" style={{ marginBottom: '2vh' }} />
             {/* <Title level={4} align="start"></Title> */}
             <br />
             <Rate disabled defaultValue={props.hd.rating} style={{ fontSize: 12 }} />
             <Paragraph>{`${props.hd.numberOfGames} games hosted`}</Paragraph>
 
-            <Link to={`/host/${props.hd.hostid}`}>
-              <Button type="primary">More Info</Button>
-            </Link>
           </Col>
           <Col span={18}>
             <Title level={4} align="start">{props.hd.name}</Title>
             {/* <Statistic title="About" value={props.hd.about} /> */}
+            <Row>
+              <Col span={12} style={{ paddingRight: '15px' }}>
+                <Text type="secondary" style={{
+                  float: "left", whiteSpace: "pre-line"
+                }}>About</Text>
+                < br />
+                <Paragraph style={{ textAlign: "left" }} ellipsis={{ rows: 7 }}>{props.hd.about.split("\n").map((item, i) => <p key={i}>{item}</p>)}</Paragraph>
 
-            <Text type="secondary" style={{ float: "left" }}>About</Text>
-            <br />
-            <Paragraph style={{ textAlign: "left" }} ellipsis={{ rows: 4 }}>{props.hd.about}</Paragraph>
+              </Col>
 
-            <Text type="secondary" style={{ float: "left" }}>Games Hosted</Text>
-            <br />
-            <div style={{ marginTop: '1vh', float: "left" }}>
-              {props.hd.gamesHosted.map(game => <Tag style={{ fontSize: '14px' }} color="default">{game}</Tag>)}
-            </div>
+              <Col span={2}>
+                <Divider type="vertical" style={{ height: '100%' }} />
+              </Col>
+
+              <Col span={8}>
+                <Text type="secondary" style={{ float: "left" }}>Games Hosted</Text>
+                <br />
+                <div style={{ marginTop: '1vh', textAlign: "left" }}>
+                  {props.hd.gamesHosted.map(game => <Tag style={{ fontSize: '14px', marginBottom: '7px' }} color="default">{game}</Tag>)}
+                </div>
+                <br />
+
+                <Statistic title="Price from" value={props.hd.price} prefix={'USD'} />
+
+                <Link to={`/host/${props.hd.hostid}`}>
+                  <Button type="primary">More Info</Button>
+                </Link>
+              </Col>
+            </Row>
+
             {/* <Statistic title="Games Hosted" ></Statistic> */}
             <br />
           </Col>
-          {/* <Col span={6}>
-            <Title level={3} align="start">Games Hosted:</Title>
-            <Paragraph align="start">
-              <ul>
-                {props.hd.gamesHosted.map(game => <li>{game}</li>)}
-              </ul>
-            </Paragraph>
-            <Link to={`/host/${props.hd.hostid}`}>
-              <Button type="primary">More Info</Button>
-            </Link>
-          </Col> */}
         </Row>
       </Card>
       :
