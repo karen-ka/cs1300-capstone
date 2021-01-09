@@ -19,7 +19,6 @@ class Search extends React.Component {
       currGame: null,
       hd: null,
       suggestions: [],
-      alreadyReloaded: false
     };
     this.loggedIn = localStorage.getItem('currentUser') ? true : false;
     this.username = localStorage.getItem('currentUser');
@@ -73,7 +72,7 @@ class Search extends React.Component {
 
   createCards = item => {
     return (
-      <Row gutter={[16, 48]} justify='center'>
+      <Row gutter={[16, 48]}>
         <Col>
           <GameCard simple={true} gd={gameinfo[item]} hd={hostData[gameinfo[item].hostid]} loggedIn={this.loggedIn} onBook={game => this.startCheckout(game)} />
         </Col>
