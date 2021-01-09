@@ -8,6 +8,10 @@ A very basic list of things left to do, [wireframes for reference](https://www.f
 - [ ] Add more content (fake reviews, more games, etc.) also vary up the images
 - [ ] Final testing before handing in to Jeff
 - [ ] Deploy website and give link to Jeff
+
+
+- [ ] make game detail page look nicer
+- [ ] add price floor in host data and display 'price from ... ' on host search
  
 # Installing (First Time Only)
 
