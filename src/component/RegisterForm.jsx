@@ -32,6 +32,7 @@ export default class RegisterForm extends React.Component {
         className="register-form"
         initialValues={{ remember: true }}
         onFinish={this.onFinish}
+        style={{ width: '70%', margin: 'auto' }}
       >
         <Form.Item
           name="name"
@@ -56,10 +57,10 @@ export default class RegisterForm extends React.Component {
           />
         </Form.Item>
 
-        <Form.Item name="offers">
+        {/* <Form.Item name="offers">
           <Checkbox>Yes, I would like to receive promotional offers and updates from StartPlaying.Games.</Checkbox>
 
-        </Form.Item>
+        </Form.Item> */}
         {/* <Form.Item>
           <a className="login-form-forgot" href="">
             Forgot password

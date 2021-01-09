@@ -62,7 +62,7 @@ export default class GameCard extends React.Component {
                     >
                         <div style={{ display: 'flex' }}>
 
-                            <div style={{ flex: 0.5, margin: 'auto', paddingRight: '3px' }}>
+                            <div style={{ flex: 0.5, margin: 'auto', paddingRight: '10px' }}>
                                 <Avatar size={90} src={`${process.env.PUBLIC_URL}/${this.props.hd.pfp}`} />
                             </div>
 
@@ -178,7 +178,7 @@ export default class GameCard extends React.Component {
                                 </>
                                 :
                                 <><div style={{ display: 'flex' }}>
-                                    <div style={{ flex: 0.5, paddingRight: '3px' }}>
+                                    <div style={{ flex: 0.5, paddingRight: '10px' }}>
                                         <Avatar size={90} src={`${process.env.PUBLIC_URL}/${this.props.hd.pfp}`} />
                                         <br></br>
                                     </div>

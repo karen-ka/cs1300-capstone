@@ -10,28 +10,29 @@ export default class LoginForm extends React.Component {
     const password = values['password'];
     // replace with mongo call
     let requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username: username, password:password })
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: username, password: password })
     };
     fetch('/login', requestOptions)
-    .then((response) => {
+      .then((response) => {
         if (response.status === 200) {
-            this.props.handleSuccess(username);
+          this.props.handleSuccess(username);
         } else {
-            this.props.handleError();
+          this.props.handleError();
         };
-    });
+      });
   };
 
   render() {
     return (
-        <Form
+      <Form
         id="loginForm"
         name="normal_login"
         className="login-form"
         initialValues={{ remember: true }}
         onFinish={this.onFinish}
+        style={{ width: '70%', margin: 'auto' }}
       >
         <Form.Item
           name="username"

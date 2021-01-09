@@ -70,7 +70,8 @@ export default class CheckoutForm extends React.Component {
 
 
         <Form.Item {...tailLayout}>
-          <Button type="primary" htmlType="submit" loading={this.props.loading}>
+          <br />
+          <Button style={{ width: '40%' }} type="primary" htmlType="submit" loading={this.props.loading}>
             Submit
         </Button>
         </Form.Item>

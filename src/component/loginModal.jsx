@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
-import { Modal, Button } from 'antd';
+import { Modal, Button, Alert } from 'antd';
 import LoginForm from './LoginForm';
 import { Redirect } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ export default class LoginModal extends React.Component {
     this.state = {
       visible: false,
       loading: false,
-      modalText: '',
+      modalText: <></>,
       profileRedirect: false
     };
   }
@@ -22,7 +22,7 @@ export default class LoginModal extends React.Component {
   };
 
   handleOk = () => {
-    this.setState({ modalText: 'Logging you in...', loading: true });
+    this.setState({ loading: true });
   };
 
   handleCancel = () => {
@@ -32,7 +32,14 @@ export default class LoginModal extends React.Component {
   handleError = () => {
     setTimeout(() => {
       this.setState({
-        modalText: "Username/Password doesn't match or doesn't exist. Please try again or sign up for an account.",
+        modalText: <>< Alert
+          style={{ width: '70%', margin: 'auto' }}
+          message="Incorrect email or password"
+          // description="Please go to login page or try again with a different username."
+          type="error"
+          showIcon
+        /><br /></>,
+        // modalText: "Username/Password doesn't match or doesn't exist. Please try again or sign up for an account.",
         visible: true,
         loading: false
       });
@@ -42,7 +49,7 @@ export default class LoginModal extends React.Component {
   handleSuccess = (username) => {
     setTimeout(() => {
       this.setState({
-        modalText: "Success! Logging you in!",
+        // modalText: "Success! Logging you in!",
         visible: true,
         loading: false
       });
@@ -66,9 +73,9 @@ export default class LoginModal extends React.Component {
     // Current just does to search
     if (this.state.profileRedirect) {
       return <Redirect to={{
-              pathname: '/user',
-              state: { fromLogin: true }
-            }}
+        pathname: '/user',
+        state: { fromLogin: true }
+      }}
       />
     };
     return (
@@ -78,14 +85,20 @@ export default class LoginModal extends React.Component {
         onOk={this.handleOk}
         onCancel={this.handleCancel}
         footer={[
-          <Button type="primary" form="loginForm" key="submit" htmlType="submit" onClick={this.handleOk} loading={this.state.loading}>
-            Log In
-            </Button>
+          <></>
         ]}
       >
+        <p>{this.state.modalText}</p>
+
         <LoginForm id="submit-form" handleSuccess={this.handleSuccess} handleError={this.handleError}></LoginForm>
 
-        <p>{this.state.modalText}</p>
+
+        <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+          <Button style={{ width: '70%' }} type="primary" form="loginForm" key="submit" htmlType="submit" onClick={this.handleOk} loading={this.state.loading}>
+            Log In
+            </Button>
+        </div>
+
       </Modal>
     );
   }
