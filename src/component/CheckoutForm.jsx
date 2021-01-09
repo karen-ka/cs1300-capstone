@@ -36,6 +36,7 @@ export default class CheckoutForm extends React.Component {
         className="checkoutform"
         initialValues={{ remember: true }}
         onFinish={this.onFinish}
+        style={{ minWidth: '300px' }}
       >
         <Form.Item
           name="Card number"
@@ -62,7 +63,7 @@ export default class CheckoutForm extends React.Component {
         <Form.Item
           label="Email"
           name="Email"
-          rules={[{ required: true, message: 'Please input the CVV' }]}
+          rules={[{ required: true, message: 'Please input your email' }]}
         >
           <Input style={{ width: '60%' }} length={4} placeholder="Email"></Input>
         </Form.Item>

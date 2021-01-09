@@ -39,7 +39,7 @@ export default class GameCard extends React.Component {
         return (
             this.props.simple ?
                 // SIMPLE GAME CARD
-                <div style={{ display: 'flex', width: '30vw', minWidth: '700px' }}>
+                <div style={{ display: 'flex', width: '35vw', minWidth: '500px' }}>
                     <LoginModal ref={this.loginModal}></LoginModal>
                     <Card
                         style={{ width: 300, flex: 1.3, }}
