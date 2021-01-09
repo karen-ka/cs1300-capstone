@@ -65,7 +65,11 @@ export default class LoginModal extends React.Component {
     // Redirect to profile page after logging in for every other page (except for the search page)
     // Current just does to search
     if (this.state.profileRedirect) {
-      return <Redirect to='/user' />
+      return <Redirect to={{
+              pathname: '/user',
+              state: { fromLogin: true }
+            }}
+      />
     };
     return (
       <Modal
