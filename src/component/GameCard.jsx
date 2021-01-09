@@ -10,7 +10,6 @@ import {
 const { Meta } = Card;
 const { Paragraph, Title, Text } = Typography;
 
-
 export default class GameCard extends React.Component {
     constructor (props) {
         super(props);
@@ -29,16 +28,18 @@ export default class GameCard extends React.Component {
         console.log('placeholder');
     }
 
+
     /**
      * ref for future me: this.props.simple: true if shown on checkout screen, false otherwise. we could probably combine and move the bool logic down, but ehh.
      * === You should most likely make changes in BOTH modals ===
      */
     render() {
         const disabled = this.props.nobook ? true : false;
+        const currStyle = this.props.onHostPage ? { display: 'flex', width: '45vw', minWidth: '600px' } : { display: 'flex', width: '55vw', minWidth: '700px' };
         return (
             this.props.simple ?
                 // SIMPLE GAME CARD
-                <div style={{ display: 'flex', width: '55vw', minWidth: '700px' }}>
+                <div style={{ display: 'flex', width: '30vw', minWidth: '700px' }}>
                     <LoginModal ref={this.loginModal}></LoginModal>
                     <Card
                         style={{ width: 300, flex: 1.3, }}
@@ -137,7 +138,7 @@ export default class GameCard extends React.Component {
 
 
                 // COMPLEX GAME CARD
-                <div style={{ display: 'flex', width: '55vw', minWidth: '700px' }} onClick={this.handleGameCardClick}>
+                <div style={currStyle} onClick={this.handleGameCardClick}>
                     <LoginModal ref={this.loginModal}></LoginModal>
                     <Card
                         style={{ width: 300, flex: 1.3, }}
@@ -154,52 +155,58 @@ export default class GameCard extends React.Component {
                     </Card>
                     <Card
                         style={{ width: 100, flex: 1 }}
+                    // bodyStyle={{ display: 'flex', height: '100%', width: '100%', }}
                     >
+                        <div style={{ margin: 'auto' }}>
+                            {this.props.onHostPage ? <><br /><br /></> :
+                                <><div style={{ display: 'flex' }}>
+                                    <div style={{ flex: 0.5 }}>
+                                        <Avatar size={75} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                                        <br></br>
+                                        <Rate disabled={true} defaultValue={this.props.hd.rating} style={{ fontSize: 10 }} />
+                                        <Paragraph>{`${this.props.hd.numberOfGames} games`}</Paragraph>
+                                    </div>
+                                    <div style={{ flex: 1 }}>
+                                        <Title level={4} style={{ textAlign: 'left' }}>{this.props.hd.name}</Title>
+                                        <Text type="secondary" style={{ float: "left" }}>Intro</Text>
+                                        <br />
+                                        {<Paragraph style={{ textAlign: 'left' }} ellipsis={{ rows: 3 }}><> {this.props.hd.intro}</></Paragraph>}
+                                    </div>
+                                </div>
+                                    <Divider /></>
+                            }
 
-                        <div style={{ display: 'flex' }}>
-                            <div style={{ flex: 0.5 }}>
-                                <Avatar size={75} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-                                <br></br>
-                                <Rate disabled={true} defaultValue={this.props.hd.rating} style={{ fontSize: 10 }} />
-                                <Paragraph>{`${this.props.hd.numberOfGames} games`}</Paragraph>
+
+                            <div>
+                                <Row>
+                                    <Col span={12}>
+                                        <Statistic title="Price" value={this.props.gd.price} prefix={'USD'} />
+                                    </Col>
+                                    <Col span={12}>
+                                        <Statistic title="Platform" value={this.props.gd.location} />
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col span={12}>
+                                        <Statistic title="Day" value={this.props.gd.day} />
+                                    </Col>
+                                    <Col span={12}>
+                                        <Statistic title="Time" value={this.props.gd.time} />
+                                    </Col>
+                                </Row>
                             </div>
-                            <div style={{ flex: 1 }}>
-                                <Title level={4} style={{ textAlign: 'left' }}>{this.props.hd.name}</Title>
-                                <Text type="secondary" style={{ float: "left" }}>Intro</Text>
-                                <br />
-                                {<Paragraph style={{ textAlign: 'left' }} ellipsis={{ rows: 3 }}><> {this.props.hd.intro}</></Paragraph>}
+                            <Divider />
+                            <div style={{ display: 'flex', justifyContent: 'space-around', margin: 'auto' }}>
+                                {this.props.loggedIn ?
+                                    <Button type='primary' onClick={this.handleLoggedInClick} style={{ justifyContent: 'center' }} disabled={disabled}>Book Now</Button> :
+                                    <Button type='primary' onClick={this.handleLoggedOutClick} style={{ justifyContent: 'center' }}>Book Now</Button>}
+                                <Link to={`/game/${this.props.gd.gameID}`}>
+                                    <Button>More Info</Button>
+                                </Link>
                             </div>
-                        </div>
-                        <Divider />
-                        <div>
-                            <Row>
-                                <Col span={12}>
-                                    <Statistic title="Price" value={this.props.gd.price} prefix={'USD'} />
-                                </Col>
-                                <Col span={12}>
-                                    <Statistic title="Platform" value={this.props.gd.location} />
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col span={12}>
-                                    <Statistic title="Day" value={this.props.gd.day} />
-                                </Col>
-                                <Col span={12}>
-                                    <Statistic title="Time" value={this.props.gd.time} />
-                                </Col>
-                            </Row>
-                        </div>
-                        <Divider />
-                        <div style={{ display: 'flex', justifyContent: 'space-around', margin: 'auto' }}>
-                            {this.props.loggedIn ?
-                                <Button type='primary' onClick={this.handleLoggedInClick} style={{ justifyContent: 'center' }} disabled={disabled}>Book Now</Button> :
-                                <Button type='primary' onClick={this.handleLoggedOutClick} style={{ justifyContent: 'center' }}>Book Now</Button>}
-                            <Link to={`/game/${this.props.gd.gameID}`}>
-                                <Button>More Info</Button>
-                            </Link>
                         </div>
                     </Card>
-                </div>
+                </div >
 
         );
     }

@@ -55,13 +55,13 @@ export default class Host extends React.Component {
                 games.push(
                   <Row gutter={[16, 48]}>
                     <Col>
-                      <GameCard gd={game} hd={this.hd} loggedIn={this.loggedIn} onBook={curr => this.startCheckout(curr)} nobook={nobook} />
+                      <GameCard onHostPage={true} gd={game} hd={this.hd} loggedIn={this.loggedIn} onBook={curr => this.startCheckout(curr)} nobook={nobook} />
                     </Col>
                   </Row>
                 );
               }
             }
-            this.setState({games: games});
+            this.setState({ games: games });
           });
         } else {
           console.log(response);
@@ -74,13 +74,13 @@ export default class Host extends React.Component {
           games.push(
             <Row gutter={[16, 48]}>
               <Col>
-                <GameCard gd={game} hd={this.hd} loggedIn={this.loggedIn} onBook={curr => this.startCheckout(curr)} nobook={false} />
+                <GameCard onHostPage={true} gd={game} hd={this.hd} loggedIn={this.loggedIn} onBook={curr => this.startCheckout(curr)} nobook={false} />
               </Col>
             </Row>
           );
         }
       }
-      this.setState({games: games});
+      this.setState({ games: games });
     }
   }
 
@@ -96,7 +96,7 @@ export default class Host extends React.Component {
         <Header>
           <Navbar />
         </Header>
-        <Content style={{ width: '80%', margin: 'auto' }}>
+        <Content style={{ width: '80%', margin: 'auto', minWidth: '1100px' }}>
           <Row gutter={24} justify="center" style={{ marginTop: 36 }}>
             <Col span={7}>
               <HostCard hd={this.hd} />
