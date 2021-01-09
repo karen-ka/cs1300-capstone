@@ -19,7 +19,6 @@ class Search extends React.Component {
       currGame: null,
       hd: null,
       suggestions: [],
-      alreadyReloaded: false
     };
     this.loggedIn = localStorage.getItem('currentUser') ? true : false;
     this.username = localStorage.getItem('currentUser');
