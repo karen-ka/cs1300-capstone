@@ -72,7 +72,7 @@ class Search extends React.Component {
 
   createCards = item => {
     return (
-      <Row gutter={[16, 48]} justify='center'>
+      <Row gutter={[16, 48]}>
         <Col>
           <GameCard simple={true} gd={gameinfo[item]} hd={hostData[gameinfo[item].hostid]} loggedIn={this.loggedIn} onBook={game => this.startCheckout(game)} />
         </Col>
