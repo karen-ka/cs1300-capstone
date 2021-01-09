@@ -110,6 +110,21 @@ export const gameinfo = {
     "location": "Discord",
     "gameID": 7,
     "tags": ["Dungeons & Dragons", "hard", "realistic"]
+  },
+  8: {
+    "name": "Cyberpunk 2077",
+    "price": 60,
+    "day": "Wednesday",
+    "time": "3pm",
+    "difficulty": "Medium",
+    "info": "Cyberpunk 2077 is an open-world, action-adventure story set in Night City, a megalopolis obsessed with power, glamour and body modification. You can customize your character’s cyberware, skillset and playstyle, and explore a vast city where the choices you make shape the story and the world around you.",
+    "host": "Johnny Silverhand",
+    "hostid": 2077,
+    "gametype": "Cyberpunk",
+    "logo": '/game_logos/cyberpunk.jpg',
+    "location": "Zoom",
+    "gameID": 8,
+    "tags": ["Cyberpunk", "medium"]
   }
 }
 
@@ -170,6 +185,20 @@ export const hostData = {
     "minPrice": 25,
     "pfp": "./pfp/munchlax.png"
   },
+  2077: {
+    "name": "Johnny Silverhand",
+    "rating": 1.0,
+    "numrating": 1,
+    "intro": "I'm a professional Cyberpunk host.",
+    "reviews": [3, 7],
+    "about": "I'm Johnny and I've hosted Cyberpunk 2077 for 15 years so far. If you join one of my games you're sure to have a good time.",
+    "numberOfGames": 10,
+    "gamesHosted": ["Cyberpunk"],
+    "style": "I try to make my games follow the rulebook as close as possible.",
+    "hostid": 2077,
+    "minPrice": 60,
+    "pfp": "./pfp/johnny.jpg"
+  }
 }
 
 export const reviews = {
@@ -196,17 +225,9 @@ export const reviews = {
   6: {
     "name": "Karen",
     "review": "10/10 would recommend"
+  },
+  7: {
+    "name": "V",
+    "review": "Did not have a good experience. The host was too self-centered and was not welcoming."
   }
 }
-
-// export const gameTypes = {
-//   "Magic: The Gathering": {
-//     "color": ""
-//   },
-//   "Pandemic": {
-
-//   },
-//   "Dungeons & Dragons": {
-
-//   },
-// }
