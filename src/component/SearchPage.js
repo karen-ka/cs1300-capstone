@@ -65,7 +65,7 @@ export default class Search extends React.Component {
 
   startCheckout = game => {
     console.log('hihihi')
-    this.setState({ checkoutVisible: true, currGame: game, hd: hostData[game.id] });
+    this.setState({ checkoutVisible: true, currGame: game, hd: hostData[game.hostid] });
     this.checkoutModal.current.showModal();
   }
 
