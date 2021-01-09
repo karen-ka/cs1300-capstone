@@ -15,6 +15,7 @@ export default class Search extends React.Component {
       registeredGames: [],
       checkoutVisible: false,
       currGame: null,
+      hd: null,
       suggestions: []
     };
     this.loggedIn = localStorage.getItem('currentUser') ? true : false;
@@ -36,12 +37,12 @@ export default class Search extends React.Component {
             response.json().then((data) => {
               // get random games to suggest to user from games that are left
               let suggestions = Object.keys(gameinfo).filter((key, index) =>
-                  data.includes(parseInt(key)) == false
+                data.includes(parseInt(key)) == false
               );
               if (suggestions.length > 0) {
                 suggestions = suggestions.sort(() => .5 - Math.random()).slice(0, Math.min((suggestions.length, 2)));
               }
-              
+
               this.setState({
                 registeredGames: Object.keys(gameinfo).filter((key, index) =>
                   data.includes(parseInt(key)) == true
@@ -57,7 +58,7 @@ export default class Search extends React.Component {
   }
 
   startCheckout = game => {
-    this.setState({ checkoutVisible: true, currGame: game });
+    this.setState({ checkoutVisible: true, currGame: game, hd: hostData[game.hostid] });
     this.checkoutModal.current.showModal();
   }
 
@@ -106,14 +107,14 @@ export default class Search extends React.Component {
             <br />
             <br />
             {/* TODO: make another game card ver for this page ... */}
-            <CheckoutModal ref={this.checkoutModal} game={this.state.currGame}></CheckoutModal>
+            <CheckoutModal ref={this.checkoutModal} game={this.state.currGame} hd={this.state.hd}></CheckoutModal>
             {this.state.suggestions.length > 0 ? (<>
               <Text style={{ fontSize: '1.5em' }}>Suggested Games</Text>
               <br />
               <br />
               {this.state.suggestions.map(this.createSuggestions)} </>)
               :
-            <></>}
+              <></>}
           </Content>
           <Footer />
         </Layout>

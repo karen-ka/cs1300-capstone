@@ -126,7 +126,7 @@ export default class Host extends React.Component {
               </Card>
             </Col>
           </Row>
-          <CheckoutModal ref={this.checkoutModal} game={this.state.currGame}></CheckoutModal>
+          <CheckoutModal ref={this.checkoutModal} game={this.state.currGame} hd={this.hd}></CheckoutModal>
         </Content>
         <Footer />
       </Layout >

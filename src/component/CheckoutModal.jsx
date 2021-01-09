@@ -100,7 +100,7 @@ export default class CheckoutModal extends React.Component {
                     <div style={{ flex: 1 }}>
                         <><h3>Your Order</h3></>
                         <br></br>
-                        <GameCard onCheckoutModal={true} simple={true} gd={this.props.game}></GameCard>
+                        <GameCard onCheckoutModal={true} simple={true} gd={this.props.game} hd={this.props.hd}></GameCard>
                     </div>
                 </div>
                 <p>{this.state.modalText}</p>

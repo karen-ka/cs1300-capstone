@@ -20,6 +20,7 @@ export default class Search extends React.Component {
       possibleGames: [],
       checkoutVisible: false,
       currGame: null,
+      hd: null,
       priceFilter: "All Prices",
       gameFilter: "All Games",
       filteredPossibleGames: []
@@ -64,7 +65,7 @@ export default class Search extends React.Component {
 
   startCheckout = game => {
     console.log('hihihi')
-    this.setState({ checkoutVisible: true, currGame: game });
+    this.setState({ checkoutVisible: true, currGame: game, hd: hostData[game.id] });
     this.checkoutModal.current.showModal();
   }
 
@@ -114,7 +115,7 @@ export default class Search extends React.Component {
         </Header>
         <Content>
           <FilterBar page="Games" handleGameFilter={this.handleGameFilter} handlePriceFilter={this.handlePriceFilter} />
-          <CheckoutModal ref={this.checkoutModal} game={this.state.currGame}></CheckoutModal>
+          <CheckoutModal ref={this.checkoutModal} game={this.state.currGame} hd={this.state.hd}></CheckoutModal>
           <div>
             <div style={{ textAlign: 'left', width: '50%', margin: 'auto', padding: '3vh 0 3vh 0' }}>
               <h1>Find the best game for your needs.</h1>

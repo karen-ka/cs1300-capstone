@@ -36,13 +36,14 @@ export default class GameCard extends React.Component {
     render() {
         const disabled = this.props.nobook ? true : false;
         const currStyle = this.props.onHostPage ? { display: 'flex', width: '45vw', minWidth: '600px' } : { display: 'flex', width: '55vw', minWidth: '720px' };
+        const simpleStyle = this.props.onCheckoutModal ? { display: 'flex', width: '35vw', minWidth: '550px' } : { display: 'flex', width: '55vw', minWidth: '720px' };
         return (
             this.props.simple ?
                 // SIMPLE GAME CARD
-                <div style={{ display: 'flex', width: '35vw', minWidth: '500px' }}>
+                <div style={simpleStyle}>
                     <LoginModal ref={this.loginModal}></LoginModal>
                     <Card
-                        style={{ width: 300, flex: 1.3, }}
+                        style={{ width: 300, flex: 1.2, }}
                         cover=
                         {
                             <img
@@ -53,7 +54,7 @@ export default class GameCard extends React.Component {
                     >
                         <Meta
                             title={this.props.gd.name}
-                            description={<Paragraph ellipsis={{ rows: 2 }}>{this.props.gd.info}</Paragraph>}
+                            description={<Paragraph ellipsis={{ rows: 3 }}>{this.props.gd.info}</Paragraph>}
                         />
                     </Card>
                     <Card
@@ -61,11 +62,11 @@ export default class GameCard extends React.Component {
                     >
                         <div style={{ display: 'flex' }}>
 
-                            <div style={{ flex: 1 }}>
+                            <div style={{ flex: 0.5, margin: 'auto', paddingRight: '3px' }}>
                                 <Avatar size={90} src={`${process.env.PUBLIC_URL}/${this.props.hd.pfp}`} />
                             </div>
 
-                            <div style={{ flex: 1 }}>
+                            <div style={{ flex: 0.5 }}>
                                 <br />
                                 <Statistic title="Host" value={this.props.gd.host} />
                             </div>
@@ -100,7 +101,10 @@ export default class GameCard extends React.Component {
                                     </>
                                     :
                                     <div>
-                                        <Row>
+                                        {this.props.onCheckoutModal ? <></> : <><Text type="secondary" style={{ float: "left" }}>Tags </Text>
+                                            <br />
+                                            {this.props.gd.tags.map(tag => <Tag style={{ fontSize: '14px', marginTop: '1vh' }} color="default">{tag}</Tag>)}</>}
+                                        <Row style={{ marginTop: '1vh' }}>
                                             <Col span={12}>
                                                 <Statistic title="Day" value={this.props.gd.day} />
                                             </Col>
@@ -172,7 +176,7 @@ export default class GameCard extends React.Component {
                                 :
                                 <><div style={{ display: 'flex' }}>
                                     <div style={{ flex: 0.5, paddingRight: '3px' }}>
-                                        <Avatar style={{ border: '1px solid white' }} size={90} src={`${process.env.PUBLIC_URL}/${this.props.hd.pfp}`} />
+                                        <Avatar size={90} src={`${process.env.PUBLIC_URL}/${this.props.hd.pfp}`} />
                                         <br></br>
                                     </div>
                                     <div style={{ flex: 0.5, textAlign: 'left' }}>
