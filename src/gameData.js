@@ -126,6 +126,7 @@ export const hostData = {
     "style": "All of my games are extremely realistic.",
     "hostid": 1000,
     "minPrice": 30,
+    "pfp": "./pfp/popcorn.png"
   },
   123: {
     "name": "Alex",
@@ -139,6 +140,7 @@ export const hostData = {
     "style": "I try to add some humor to all my game sessions to help break the ice so if you are into corny jokes, please join my session!",
     "hostid": 123,
     "minPrice": 20,
+    "pfp": "./pfp/snootu.png"
   },
   111: {
     "name": "Brian Longggggname",
@@ -152,6 +154,7 @@ export const hostData = {
     "style": "I personally try to make each of my games unique by adding in special traits to the games, such as adding in a hidden character.",
     "hostid": 111,
     "minPrice": 10,
+    "pfp": "./pfp/snoo.png"
   },
   420: {
     "name": "Tanvir",
@@ -165,6 +168,7 @@ export const hostData = {
     "style": "For my games, I try to make sure to adjust the gameplay to suit the players, so I'm very receptive to feedback. By the end of the session, you may honestly not recognize the game we are playing compared to when we started!",
     "hostid": 420,
     "minPrice": 25,
+    "pfp": "./pfp/munchlax.png"
   },
 }
 

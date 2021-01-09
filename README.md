@@ -1,14 +1,16 @@
 # TODO:
 A very basic list of things left to do, [wireframes for reference](https://www.figma.com/file/DfjXAp0tvCbh9EX3XJ32bl/Iterative-Design-Final-Ver---DnD?node-id=53%3A933).
 
+
+- [ ] make game detail page look nicer
 - [ ] Improve styling/fix visual consistency issues
-- [ ] Add more content (fake reviews, more games, etc.) also vary up the images
-- [ ] Final testing before handing in to Jeff
+- [ ] Add more content (fake reviews, more games, etc.) 
+- [ ] Final testing before handing in to Jeff (TEST ON DIFF BROWSERS - brooken on firefox)
 - [ ] Deploy website and give link to Jeff
 
 
-- [ ] make game detail page look nicer
-- [ ] add price floor in host data and display 'price from ... ' on host search
+
+
  
 # Installing (First Time Only)
 
