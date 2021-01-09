@@ -82,6 +82,10 @@ export default class Host extends React.Component {
       }
       this.setState({ games: games });
     }
+
+    // idk if will this cause problems, delet this if anything weird is happening
+    // original problem: clicking 'learn more' on host search page would redirect to the middle of host detail page
+    window.scrollTo(0, 0);
   }
 
   startCheckout = game => {

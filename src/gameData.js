@@ -122,9 +122,10 @@ export const hostData = {
     "reviews": [1, 2, 6],
     "about": "Hello, you may or may not know me. I love getting people into playing games and I guarantee an unforgettable experience. \n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     "numberOfGames": "9829",
-    "gamesHosted": ["Dungeons & Dragons", "Pandemic", "Magic: The Gathering"],
+    "gamesHosted": ["Dungeons & Dragons",],
     "style": "All of my games are extremely realistic.",
-    "hostid": 1000
+    "hostid": 1000,
+    "minPrice": 30,
   },
   123: {
     "name": "Alex",
@@ -136,7 +137,8 @@ export const hostData = {
     "numberOfGames": 56,
     "gamesHosted": ["Dungeons & Dragons"],
     "style": "I try to add some humor to all my game sessions to help break the ice so if you are into corny jokes, please join my session!",
-    "hostid": 123
+    "hostid": 123,
+    "minPrice": 20,
   },
   111: {
     "name": "Brian Longggggname",
@@ -148,7 +150,8 @@ export const hostData = {
     "numberOfGames": 5,
     "gamesHosted": ["Magic: The Gathering"],
     "style": "I personally try to make each of my games unique by adding in special traits to the games, such as adding in a hidden character.",
-    "hostid": 111
+    "hostid": 111,
+    "minPrice": 10,
   },
   420: {
     "name": "Tanvir",
@@ -160,7 +163,8 @@ export const hostData = {
     "numberOfGames": 23,
     "gamesHosted": ["Magic: The Gathering", "Pandemic"],
     "style": "For my games, I try to make sure to adjust the gameplay to suit the players, so I'm very receptive to feedback. By the end of the session, you may honestly not recognize the game we are playing compared to when we started!",
-    "hostid": 420
+    "hostid": 420,
+    "minPrice": 25,
   },
 }
 

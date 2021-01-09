@@ -42,8 +42,8 @@ const HostCard = (props) => {
                 </div>
                 <br />
 
-                <Statistic title="Price from" value={props.hd.price} prefix={'USD'} />
-
+                <Statistic title="Price from" value={props.hd.minPrice} prefix={'USD'} />
+                <br />
                 <Link to={`/host/${props.hd.hostid}`}>
                   <Button type="primary">More Info</Button>
                 </Link>
@@ -60,10 +60,7 @@ const HostCard = (props) => {
         <Col>
           <Avatar size={{ xs: 50, sm: 60, md: 80, lg: 120, xl: 160, xxl: 200 }} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
           <Title level={3}>{props.hd.name}</Title>
-          {/* <Title level={4} align="start">About Me</Title>
-          <Paragraph align="start">
-            {props.hd.about}
-          </Paragraph> */}
+
           <Title level={4} align="start">Statistics</Title>
           <div align="start">
             <Rate disabled defaultValue={props.hd.rating} style={{ fontSize: 20, marginRight: 24 }} />
