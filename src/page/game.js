@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Row, Col, Card, Typography, Button, Statistic } from 'antd';
+import { Layout, Row, Col, Card, Typography, Button, Statistic, } from 'antd';
 import Navbar from '../component/navbar.js';
 import HostCard from '../component/HostCard.jsx';
 import LoginModal from '../component/loginModal';
@@ -7,7 +7,7 @@ import CheckoutModal from '../component/CheckoutModal';
 
 import { gameinfo, hostData } from '../gameData';
 
-const { Title, Paragraph } = Typography;
+const { Title, Paragraph, Text } = Typography;
 const { Header, Content, Footer } = Layout;
 
 export default class Game extends React.Component {
@@ -75,7 +75,7 @@ export default class Game extends React.Component {
                 cover={<img src={gd.logo} width={600} />}>
                 <Title style={{ textAlign: 'left', width: '80%', margin: 'auto' }} level={3}>{gd.name}</Title>
                 <br></br>
-                <Paragraph style={{ textAlign: 'left', width: '80%', margin: 'auto' }}>{gd.info}</Paragraph>
+                <Paragraph style={{ textAlign: 'left', width: '80%', margin: 'auto' }}>{gd.info.split("\n").map((item, i) => <p key={i}>{item}</p>)}</Paragraph>
                 <br></br>
                 <Row justify="space-around">
                   <Col span={6}>

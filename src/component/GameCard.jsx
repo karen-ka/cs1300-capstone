@@ -35,7 +35,7 @@ export default class GameCard extends React.Component {
      */
     render() {
         const disabled = this.props.nobook ? true : false;
-        const currStyle = this.props.onHostPage ? { display: 'flex', width: '45vw', minWidth: '600px' } : { display: 'flex', width: '55vw', minWidth: '700px' };
+        const currStyle = this.props.onHostPage ? { display: 'flex', width: '45vw', minWidth: '600px' } : { display: 'flex', width: '55vw', minWidth: '720px' };
         return (
             this.props.simple ?
                 // SIMPLE GAME CARD
@@ -151,10 +151,10 @@ export default class GameCard extends React.Component {
                             style={{ textAlign: 'left' }}
                             title={this.props.gd.name}
                             description={
-                                <><Paragraph ellipsis={{ rows: 2 }}>{this.props.gd.info}</Paragraph>
-                                    <Text type="secondary" style={{ float: "left" }}>Tags </Text>
-                                    <br />
-                                    {this.props.gd.tags.map(tag => <Tag style={{ fontSize: '14px', marginTop: '1vh' }} color="default">{tag}</Tag>)}</>
+                                <><Paragraph ellipsis={{ rows: 4 }}>{this.props.gd.info}</Paragraph>
+                                    {this.props.onHostPage ? <></> : <><Text type="secondary" style={{ float: "left" }}>Tags </Text>
+                                        <br />
+                                        {this.props.gd.tags.map(tag => <Tag style={{ fontSize: '14px', marginTop: '1vh' }} color="default">{tag}</Tag>)}</>}</>
                             }
                         />
                     </Card>
@@ -162,26 +162,42 @@ export default class GameCard extends React.Component {
                         style={{ width: 100, flex: 1 }}
                     >
                         <div style={{ margin: 'auto' }}>
-                            {this.props.onHostPage ? <><br /><br /></> :
+                            {this.props.onHostPage ?
+                                <><br />
+                                    <Text type="secondary" style={{ float: "left" }}>Tags </Text>
+                                    <br />
+                                    {this.props.gd.tags.map(tag => <Tag style={{ fontSize: '14px', marginTop: '1vh', float: 'left' }} color="default">{tag}</Tag>)}
+                                    <br /><br />
+                                </>
+                                :
                                 <><div style={{ display: 'flex' }}>
                                     <div style={{ flex: 0.5, paddingRight: '3px' }}>
-                                        <Avatar size={75} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                                        <Avatar size={90} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
                                         <br></br>
-                                        <Rate disabled={true} defaultValue={this.props.hd.rating} style={{ fontSize: 10 }} />
-                                        <Paragraph>{`${this.props.hd.numberOfGames} games`}</Paragraph>
                                     </div>
-                                    <div style={{ flex: 1 }}>
-                                        <Title level={4} style={{ textAlign: 'left' }}>{this.props.hd.name}</Title>
-                                        <Text type="secondary" style={{ float: "left" }}>Intro</Text>
-                                        <br />
-                                        {<Paragraph style={{ textAlign: 'left' }} ellipsis={{ rows: 3 }}><> {this.props.hd.intro}</></Paragraph>}
+                                    <div style={{ flex: 0.5, textAlign: 'left' }}>
+                                        <Title level={4} style={{ textAlign: 'left', marginTop: '1vh' }}>{this.props.hd.name}</Title>
+
+                                        <Rate disabled={true} defaultValue={this.props.hd.rating} style={{ fontSize: 10, paddingRight: '1vw' }} />
+
+                                        <Text type="secondary">{`${this.props.hd.numberOfGames} games`}</Text>
                                     </div>
+
                                 </div>
+                                    <div style={{ display: 'flex', paddingTop: '3vh' }}>
+
+                                        <div>
+                                            <Text type="secondary" style={{ float: "left" }}>Intro</Text>
+                                            <br />
+                                            {<Paragraph style={{ textAlign: 'left', marginTop: '1vh' }} ellipsis={{ rows: 3 }}><> {this.props.hd.intro}</></Paragraph>}
+                                        </div>
+                                    </div>
                                     <Divider /></>
                             }
 
 
                             <div>
+                                {this.props.onHostPage ? <><br /> <br /></> : <></>}
                                 <Row>
                                     <Col span={12}>
                                         <Statistic title="Price" value={this.props.gd.price} prefix={'USD'} />
