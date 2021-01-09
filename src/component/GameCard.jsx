@@ -36,7 +36,7 @@ export default class GameCard extends React.Component {
     render() {
         const disabled = this.props.nobook ? true : false;
         const currStyle = this.props.onHostPage ? { display: 'flex', width: '45vw', minWidth: '600px' } : { display: 'flex', width: '55vw', minWidth: '720px' };
-        const simpleStyle = this.props.onCheckoutModal ? { display: 'flex', width: '35vw', minWidth: '550px' } : { display: 'flex', width: '55vw', minWidth: '720px' };
+        const simpleStyle = this.props.onCheckoutModal ? { display: 'flex', width: '40vw', minWidth: '600px' } : { display: 'flex', width: '55vw', minWidth: '720px' };
         return (
             this.props.simple ?
                 // SIMPLE GAME CARD
@@ -67,8 +67,11 @@ export default class GameCard extends React.Component {
                             </div>
 
                             <div style={{ flex: 0.5 }}>
-                                <br />
-                                <Statistic title="Host" value={this.props.gd.host} />
+                                <Title level={4} style={{ textAlign: 'left', marginTop: '1vh' }}>{this.props.hd.name}</Title>
+
+                                <Rate disabled={true} defaultValue={this.props.hd.rating} style={{ fontSize: 10, paddingRight: '1vw' }} />
+
+                                <Text type="secondary">{`${this.props.hd.numberOfGames} games`}</Text>
                             </div>
                         </div>
                         <Divider />

@@ -77,26 +77,27 @@ export default class Game extends React.Component {
                 <br></br>
                 <Paragraph style={{ textAlign: 'left', width: '80%', margin: 'auto' }}>{gd.info.split("\n").map((item, i) => <p key={i}>{item}</p>)}</Paragraph>
                 <br></br>
+
+              </Card>
+            </Col>
+            <Col span={7}>
+              <Card style={{ marginBottom: 24, minWidth: '250px' }}>
+                <Title align="start" level={3}>Reserve Your Seat</Title>
                 <Row justify="space-around">
                   <Col span={6}>
                     <Statistic title="Price" value={gd.price} prefix={'USD'} />
                     <Statistic title="Day" value={gd.day} />
                   </Col>
                   <Col span={6}>
-                    <Statistic title="Location" value={gd.location} />
+                    <Statistic title="Platform" value={gd.location} />
                     <Statistic title="Time" value={gd.time} />
                   </Col>
                 </Row>
-              </Card>
-            </Col>
-            <Col span={7}>
-              <Card style={{ marginBottom: 24, minWidth: '250px' }}>
-                <Title align="start" level={3}>Reserve Your Seat</Title>
-                <Paragraph align="start">
-                  {/* Price:
-                  <br/> */}
+                <br />
+                {/* <Paragraph align="start">
+
                   {`USD ${gd.price} / player`}
-                </Paragraph>
+                </Paragraph> */}
                 <LoginModal ref={this.loginModal}></LoginModal>
                 <CheckoutModal ref={this.checkoutModal} game={this.gd}></CheckoutModal>
 

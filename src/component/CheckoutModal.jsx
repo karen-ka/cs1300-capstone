@@ -83,7 +83,7 @@ export default class CheckoutModal extends React.Component {
 
         return (
             <Modal
-                style={{ minWidth: '900px' }}
+                style={{ minWidth: '950px' }}
                 width={'80vw'}
                 height={'60vh'}
                 title="Checkout"
