@@ -5,10 +5,12 @@ import Navbar from '../component/navbar.js';
 import GameCard from '../component/GameCard';
 import { gameinfo, hostData } from '../gameData.js'
 import CheckoutModal from '../component/CheckoutModal';
+import { withRouter } from 'react-router-dom';
+
 const { Header, Content, Footer } = Layout;
 const { Title, Paragraph, Text } = Typography;
 
-export default class Search extends React.Component {
+class Search extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -16,7 +18,8 @@ export default class Search extends React.Component {
       checkoutVisible: false,
       currGame: null,
       hd: null,
-      suggestions: []
+      suggestions: [],
+      alreadyReloaded: false
     };
     this.loggedIn = localStorage.getItem('currentUser') ? true : false;
     this.username = localStorage.getItem('currentUser');
@@ -24,6 +27,12 @@ export default class Search extends React.Component {
   }
 
   componentDidMount() {
+    if (this.props.location.state) {
+      if (this.props.location.state.fromLogin) {
+        window.history.replaceState(null, '')
+        window.location.reload();
+      }
+    }
     if (this.loggedIn) {
       // if no user logged in, set username to "admin" which will show all games.
       let requestOptions = {
@@ -64,7 +73,7 @@ export default class Search extends React.Component {
 
   createCards = item => {
     return (
-      <Row gutter={[16, 48]}>
+      <Row gutter={[16, 48]} justify='center'>
         <Col>
           <GameCard simple={true} gd={gameinfo[item]} hd={hostData[gameinfo[item].hostid]} loggedIn={this.loggedIn} onBook={game => this.startCheckout(game)} />
         </Col>
@@ -122,3 +131,5 @@ export default class Search extends React.Component {
     );
   }
 }
+
+export default withRouter(Search);
