@@ -12,7 +12,8 @@ export const gameinfo = {
     "gametype": "DnD",
     "logo": '/game_logos/dnd.png',
     "location": "Discord",
-    "gameID": 1
+    "gameID": 1,
+    "tags": ["Dungeons & Dragons", "beginner", "fun"],
   },
   2: {
     "name": "Intermediate Magic: the Gathering",
@@ -25,9 +26,10 @@ export const gameinfo = {
     "hostid": 111,
     "datetime": "",
     "gametype": "Magic",
-    "logo": '/game_logos/magic.jpg',
+    "logo": '/game_logos/mtg1.jpg',
     "location": "Zoom",
-    "gameID": 2
+    "gameID": 2,
+    "tags": ["Magic: the Gathering", "intermediate", "fantasy"],
   },
   3: {
     "name": "Advanced Magic: the Gathering",
@@ -40,9 +42,11 @@ export const gameinfo = {
     "hostid": 420,
     "datetime": "",
     "gametype": "Magic",
-    "logo": '/game_logos/magic.jpg',
+    "logo": '/game_logos/mtg2.jpg',
     "location": "Skype",
-    "gameID": 3
+    "gameID": 3,
+    "tags": ["Magic: the Gathering", "advanced", "intense"],
+
   },
   4: {
     "name": "Pandemic",
@@ -57,7 +61,8 @@ export const gameinfo = {
     "gametype": "Pandemic",
     "logo": '/game_logos/pandemic.jpg',
     "location": "Zoom",
-    "gameID": 4
+    "gameID": 4,
+    "tags": ["Pandemic", "beginner"]
   },
   5: {
     "name": "Pandemic - Remastered",
@@ -70,9 +75,10 @@ export const gameinfo = {
     "hostid": 123,
     "datetime": "",
     "gametype": "Pandemic",
-    "logo": '/game_logos/pandemic.jpg',
+    "logo": '/game_logos/pandemic1.jpg',
     "location": "Skype",
-    "gameID": 5
+    "gameID": 5,
+    "tags": ["Pandemic", "advanced"]
   },
   6: {
     "name": "CIT: Living Nightmare",
@@ -85,9 +91,10 @@ export const gameinfo = {
     "hostid": 420,
     "datetime": "",
     "gametype": "DnD",
-    "logo": '/game_logos/dnd.png',
+    "logo": '/game_logos/cit.jpeg',
     "location": "Discord",
-    "gameID": 6
+    "gameID": 6,
+    "tags": ["Dungeons & Dragons", "hard"]
   },
   7: {
     "name": "Transported to Another World",
@@ -99,9 +106,10 @@ export const gameinfo = {
     "host": "Truckkun",
     "hostid": 1000,
     "gametype": "DnD",
-    "logo": '/game_logos/dnd.png',
+    "logo": '/game_logos/truck.png',
     "location": "Discord",
-    "gameID": 7
+    "gameID": 7,
+    "tags": ["Dungeons & Dragons", "hard", "realistic"]
   }
 }
 

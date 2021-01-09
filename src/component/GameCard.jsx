@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Tooltip, Row, Col, Card, Avatar, Button, Divider, Rate, Statistic, Typography, Carousel } from 'antd';
+import { Tooltip, Row, Col, Card, Avatar, Button, Divider, Rate, Statistic, Typography, Tag } from 'antd';
 import LoginModal from './loginModal';
 import {
     CalendarOutlined,
@@ -141,26 +141,30 @@ export default class GameCard extends React.Component {
                 <div style={currStyle} onClick={this.handleGameCardClick}>
                     <LoginModal ref={this.loginModal}></LoginModal>
                     <Card
-                        style={{ width: 300, flex: 1.3, }}
+                        style={{ width: 300, flex: 1.2, }}
                         cover={<img
-                            style={{ objectFit: 'contain' }}
+                            style={{ objectFit: 'contain', width: '100%' }}
                             src={`${this.props.gd.logo}`}
                         ></img>}
                     >
                         <Meta
                             style={{ textAlign: 'left' }}
                             title={this.props.gd.name}
-                            description={<Paragraph ellipsis={{ rows: 2 }}>{this.props.gd.info}</Paragraph>}
+                            description={
+                                <><Paragraph ellipsis={{ rows: 2 }}>{this.props.gd.info}</Paragraph>
+                                    <Text type="secondary" style={{ float: "left" }}>Tags </Text>
+                                    <br />
+                                    {this.props.gd.tags.map(tag => <Tag style={{ fontSize: '14px', marginTop: '1vh' }} color="default">{tag}</Tag>)}</>
+                            }
                         />
                     </Card>
                     <Card
                         style={{ width: 100, flex: 1 }}
-                    // bodyStyle={{ display: 'flex', height: '100%', width: '100%', }}
                     >
                         <div style={{ margin: 'auto' }}>
                             {this.props.onHostPage ? <><br /><br /></> :
                                 <><div style={{ display: 'flex' }}>
-                                    <div style={{ flex: 0.5 }}>
+                                    <div style={{ flex: 0.5, paddingRight: '3px' }}>
                                         <Avatar size={75} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
                                         <br></br>
                                         <Rate disabled={true} defaultValue={this.props.hd.rating} style={{ fontSize: 10 }} />
@@ -197,6 +201,7 @@ export default class GameCard extends React.Component {
                             </div>
                             <Divider />
                             <div style={{ display: 'flex', justifyContent: 'space-around', margin: 'auto' }}>
+                                {/* <br /> */}
                                 {this.props.loggedIn ?
                                     <Button type='primary' onClick={this.handleLoggedInClick} style={{ justifyContent: 'center' }} disabled={disabled}>Book Now</Button> :
                                     <Button type='primary' onClick={this.handleLoggedOutClick} style={{ justifyContent: 'center' }}>Book Now</Button>}
