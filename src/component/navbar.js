@@ -10,6 +10,8 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 
+const { SubMenu } = Menu;
+
 export default class Navbar extends React.Component {
   constructor (props) {
     super(props);
@@ -78,16 +80,13 @@ export default class Navbar extends React.Component {
 
     // add in some form of redirect if user logged out?
     return (
-      <div style={{ height: '7vh' }}>
+      <div style={{ height: '7vh', width: '95%', margin: 'auto' }}>
         <LoginModal ref={this.loginModal}></LoginModal>
         <RegisterModal ref={this.registerModal}></RegisterModal>
         <Link to={url}>
           <img src={logo} style={{ float: 'left', height: '6vh', width: 'auto', paddingTop: '0.5vh' }} />
         </Link>
         <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal" style={{ float: 'right', height: '6vh', alignContent: 'middle', display: 'flex', lineHeight: '7vh', backgroundColor: 'transparent' }}>
-          {/* <Menu.Item key="home" style={{ alignItems: 'center' }}>
-            Home
-          </Menu.Item> */}
           <Menu.Item key="game_search">
             Find Games
           </Menu.Item>
@@ -95,9 +94,12 @@ export default class Navbar extends React.Component {
             Find Hosts
           </Menu.Item>
           {localStorage.getItem("currentUser") !== null ?
-            <Menu.Item key="logout">
-              Logout
-            </Menu.Item>
+            <SubMenu key="userMenu" icon={<UserOutlined />} popupOffset={[-30, 0]} >
+              <Menu.Item key="user" >Dashboard</Menu.Item>
+              <Menu.Divider></Menu.Divider>
+              <Menu.Item key="logout" >Logout</Menu.Item>
+            </SubMenu>
+
             :
             (<><Menu.Item key="login">
               Login
@@ -105,12 +107,7 @@ export default class Navbar extends React.Component {
               <Menu.Item key="register">
                 Sign Up
             </Menu.Item></>)}
-          {localStorage.getItem("currentUser") !== null ?
-            <Menu.Item key="user">
-              <UserOutlined />
-            </Menu.Item>
-            :
-            (<></>)}
+
         </Menu>
       </div>
     );
