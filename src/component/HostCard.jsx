@@ -43,7 +43,7 @@ export default class HostCard extends React.Component {
                   </div>
                   <br />
 
-                  <Statistic title="Price from" value={this.props.hd.minPrice} prefix={'USD'} />
+                  <Statistic title="Price From" value={this.props.hd.minPrice} prefix={'USD'} />
                   <br />
                   <Link to={`/host/${this.props.hd.hostid}`}>
                     <Button type="primary">More Info</Button>

@@ -1,6 +1,28 @@
 /* @import '~antd/dist/antd.css'; */
 @import '~antd/dist/antd.dark.less';
 
+// .ant-card-hoverable{
+//   // box-shadow: 1px 2px 3px;
+//   // color: white;
+//   transition: box-shadow 0.3s, border-color 0.3s
+//   // 0 3px 6px -4px rgba(255, 0, 0, 0.12)
+// }
+
+.trigger-card-hover:hover + .ant-card {
+  transition: box-shadow 0.3s, border-color 0.3s
+}
+
+.ant-card-hover:hover {
+  // box-shadow: 0 3px 6px -4px rgb(110, 110, 110);
+  box-shadow: -4px 6px 6px -4px rgb(80, 80, 80);
+}
+
+#left-card .ant-card-body {
+  height: 100%;
+  flex-direction: column;
+  display: 'flex';
+}
+
 .ant-carousel .slick-list .slick-slide > div > div {
   display: flex !important;
   justify-content: center;
@@ -24,17 +46,21 @@
 }
 .ant-avatar img {
   border-radius: 300px;
-  border: 1px solid rgb(68, 68, 68);
+  border: 1px solid #303030;
 }
 
 .ant-card-meta-title {
   font-size: 1.2rem;
 }
 
+.ant-card-bordered {
+  border: 2px solid #303030;
+}
+
 .ant-card-bordered .ant-card-cover {
     margin-left: 0px;
     margin-top: 1px;
-    margin-right: 1px;
+    margin-right: -1px;
 }
 
 .ant-rate-star:not(:last-child) {

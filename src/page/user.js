@@ -74,7 +74,7 @@ class Search extends React.Component {
     return (
       <Row gutter={[16, 48]}>
         <Col>
-          <GameCard simple={true} gd={gameinfo[item]} hd={hostData[gameinfo[item].hostid]} loggedIn={this.loggedIn} onBook={game => this.startCheckout(game)} />
+          <GameCard onUserPage={true} gd={gameinfo[item]} hd={hostData[gameinfo[item].hostid]} loggedIn={this.loggedIn} onBook={game => this.startCheckout(game)} />
         </Col>
       </Row>
     );
