@@ -3,9 +3,10 @@ import '../App.less';
 import GameCard from './GameCard';
 import { gameinfo, hostData } from '../gameData.js'
 import Navbar from './navbar.js';
-import { Row, Col, Layout, Typography } from 'antd';
+import { Row, Col, Layout, Typography, Spin, Alert } from 'antd';
 import CheckoutModal from './CheckoutModal'
 import FilterBar from './FilterBar'
+import { LoadingOutlined } from '@ant-design/icons';
 const { Header, Footer, Sider, Content } = Layout;
 const { Title } = Typography;
 
@@ -23,7 +24,8 @@ export default class Search extends React.Component {
       hd: null,
       priceFilter: "All Prices",
       gameFilter: "All Games",
-      filteredPossibleGames: []
+      filteredPossibleGames: [],
+      loading: true,
     };
     this.loggedIn = localStorage.getItem('currentUser') ? true : false;
     this.checkoutModal = React.createRef();
@@ -48,6 +50,7 @@ export default class Search extends React.Component {
                 filteredPossibleGames: Object.keys(gameinfo).filter((key, index) =>
                   data.includes(parseInt(key)) == false
                 ),
+                loading: false,
               });
             });
           } else {
@@ -57,10 +60,10 @@ export default class Search extends React.Component {
     } else {
       this.setState({
         possibleGames: Object.keys(gameinfo),
-        filteredPossibleGames: Object.keys(gameinfo)
+        filteredPossibleGames: Object.keys(gameinfo),
+        loading: false,
       });
     }
-
   }
 
   startCheckout = game => {
@@ -107,6 +110,7 @@ export default class Search extends React.Component {
       filteredPossibleGames: possibleGames
     });
   }
+
   render() {
     return (
       <Layout>
@@ -124,16 +128,24 @@ export default class Search extends React.Component {
           </p>
             </div>
             {
-              this.state.filteredPossibleGames.length > 0 ?
+              this.state.loading ? <LoadingOutlined style={{ fontSize: 24 }} spin /> : <> </>
+            }
+            {
+              (this.state.filteredPossibleGames.length > 0 && !this.state.loading) ?
                 this.state.filteredPossibleGames.map(this.createCards) :
+                <></>
+            }
+            {
+              (this.state.filteredPossibleGames.length == 0 && !this.state.loading) ?
                 <Row gutter={[16, 48]} align='middle' width='100%' justify='center'>
                   <Col>
-                    <Title level={3}>No games left! Please come back later to see if there's more games being hosted!</Title>
+                    <Alert style={{ textAlign: 'left' }} message="No Games Left" description="Please come back later to see if there's more games being hosted!" type="info" showIcon />
                   </Col>
-                </Row>
+                </Row> : <></>
             }
           </div>
         </Content>
+        <Footer />
       </Layout>
     );
   }

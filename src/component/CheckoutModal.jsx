@@ -103,7 +103,7 @@ export default class CheckoutModal extends React.Component {
                         <GameCard onCheckoutModal={true} simple={true} gd={this.props.game} hd={this.props.hd}></GameCard>
                     </div>
                 </div>
-                <p>{this.state.modalText}</p>
+                {/* <p>{this.state.modalText}</p> */}
             </Modal>
         );
     }

@@ -223,10 +223,14 @@ export default class GameCard extends React.Component {
                                 </Row>
                             </div>
                             <Divider />
+
                             <div style={{ display: 'flex', justifyContent: 'space-around', margin: 'auto' }}>
-                                {/* <br /> */}
                                 {this.props.loggedIn ?
-                                    <Button type='primary' onClick={this.handleLoggedInClick} style={{ justifyContent: 'center' }} disabled={disabled}>Book Now</Button> :
+                                    (disabled ?
+                                        (
+                                            <Button type='primary' onClick={this.handleLoggedInClick} style={{ justifyContent: 'center', }} disabled={disabled}>Already Booked</Button>
+                                        )
+                                        : <Button type='primary' onClick={this.handleLoggedInClick} style={{ justifyContent: 'center' }} disabled={disabled}>Book Now</Button>) :
                                     <Button type='primary' onClick={this.handleLoggedOutClick} style={{ justifyContent: 'center' }}>Book Now</Button>}
                                 <Link to={`/game/${this.props.gd.gameID}`}>
                                     <Button>More Info</Button>

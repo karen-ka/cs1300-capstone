@@ -108,10 +108,7 @@ export default class Game extends React.Component {
                   </Col>
                 </Row>
                 <br />
-                {/* <Paragraph align="start">
 
-                  {`USD ${gd.price} / player`}
-                </Paragraph> */}
                 <LoginModal ref={this.loginModal}></LoginModal>
                 <CheckoutModal ref={this.checkoutModal} game={this.gd}></CheckoutModal>
 
