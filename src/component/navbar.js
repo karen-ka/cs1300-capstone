@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu } from 'antd';
+import { Menu, Avatar } from 'antd';
 import LoginModal from './loginModal'
 import RegisterModal from './registerModal'
 import { Link } from 'react-router-dom'
@@ -9,7 +9,7 @@ import { Redirect } from 'react-router-dom';
 import {
   UserOutlined,
 } from '@ant-design/icons';
-
+import '../App.less';
 const { SubMenu } = Menu;
 
 export default class Navbar extends React.Component {
@@ -43,7 +43,7 @@ export default class Navbar extends React.Component {
       };
     } else if (e.key === "home") {
       this.setState({ redirectHome: true });
-    } else if (e.key === "user") {
+    } else if (e.key === "user" || e.key === "userMenu") {
       this.setState({ redirectUser: true });
     } else if (e.key === "game_search") {
       this.setState({ redirectGame: true });
@@ -86,15 +86,15 @@ export default class Navbar extends React.Component {
         <Link to={url}>
           <img src={logo} style={{ float: 'left', height: '6vh', width: 'auto', paddingTop: '0.5vh' }} />
         </Link>
-        <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal" style={{ float: 'right', height: '6vh', alignContent: 'middle', display: 'flex', lineHeight: '7vh', backgroundColor: 'transparent' }}>
-          <Menu.Item key="game_search">
+        <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal" style={{ border: 'unset', float: 'right', height: '6vh', alignContent: 'middle', display: 'flex', lineHeight: '7vh', backgroundColor: 'transparent' }}>
+          <Menu.Item key="game_search" style={{ borderBottom: 'unset' }}>
             Find Games
           </Menu.Item>
-          <Menu.Item key="host_search">
+          <Menu.Item key="host_search" style={{ borderBottom: 'unset' }}>
             Find Hosts
           </Menu.Item>
           {localStorage.getItem("currentUser") !== null ?
-            <SubMenu key="userMenu" icon={<UserOutlined />} popupOffset={[-30, 0]} >
+            <SubMenu style={{ borderBottom: 'unset' }} onTitleClick={this.handleClick} key="userMenu" icon={<Avatar style={{ marginTop: '1vh' }} size="large" icon={<UserOutlined style={{ margin: 'auto', }} />} />} popupOffset={[-30, 0]}  >
               <Menu.Item key="user" >Dashboard</Menu.Item>
               <Menu.Divider></Menu.Divider>
               <Menu.Item key="logout" >Logout</Menu.Item>
