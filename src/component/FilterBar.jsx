@@ -30,7 +30,7 @@ export default class FilterBar extends React.Component {
     }
 
     const currTitle = (this.props.page === "Games") ?
-      <>
+      <div style={{ width: '100%', paddingLeft: '30px', paddingRight: '30px' }}>
         <Space>
           I'm looking for
         <Select defaultValue={this.props.page} style={{ width: 120 }} onChange={this.handleSearchTypeFilter}>
@@ -51,8 +51,8 @@ export default class FilterBar extends React.Component {
             <Option value="40">&lt;40</Option>
           </Select>
         </Space>
-      </> :
-      <>
+      </div> :
+      <div style={{ width: '100%', paddingLeft: '30px', paddingRight: '30px' }}>
         <Space>
           I'm looking for
         <Select defaultValue={this.props.page} style={{ width: 120 }} onChange={this.handleSearchTypeFilter}>
@@ -60,12 +60,12 @@ export default class FilterBar extends React.Component {
             <Option value="Hosts">Hosts</Option>
           </Select>
         </Space>
-      </>
+      </div>
 
     return (
       <div>
         <PageHeader
-          style={{ backgroundColor: '#181818', paddingLeft: "50px" }}
+          style={{ backgroundColor: '#1f1f1f', borderTop: '1px solid rgb(80,80,80)', }}
           className="site-page-header"
           title={currTitle}
         />

@@ -120,8 +120,8 @@ export default class Search extends React.Component {
         <Content>
           <FilterBar page="Games" handleGameFilter={this.handleGameFilter} handlePriceFilter={this.handlePriceFilter} />
           <CheckoutModal ref={this.checkoutModal} game={this.state.currGame} hd={this.state.hd}></CheckoutModal>
-          <div>
-            <div style={{ textAlign: 'left', width: '50%', margin: 'auto', padding: '3vh 0 3vh 0' }}>
+          <div >
+            <div style={{ textAlign: 'left', width: '50%', margin: 'auto', padding: '3vh 0 3vh 0', minWidth: '400px' }}>
               <h1>Find the best game for your needs.</h1>
               <p>
                 We’ve got you covered. Whether you’re new or a pro, choose from a game hosted by one of our experienced game hosts! On StartPlaying.Games, you’ll find the perfect game that fits your playing style.

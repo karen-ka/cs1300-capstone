@@ -30,7 +30,7 @@ export default class Search extends React.Component {
         </Header>
         <Content>
           <FilterBar page="Hosts" handleGameFilter={this.handleGameFilter} handlePriceFilter={this.handlePriceFilter} />
-          <div style={{ textAlign: 'left', width: '50%', margin: 'auto', padding: '3vh 0 3vh 0' }}>
+          <div style={{ textAlign: 'left', width: '50%', margin: 'auto', padding: '3vh 0 3vh 0', minWidth: '400px' }}>
             <h1>Find the best host for your needs.</h1>
             <p>
               We’ve got you covered. Whether you’re new or a pro, choose from one of our experienced game hosts! On StartPlaying.Games, you’ll find the perfect host that fits your playing style.

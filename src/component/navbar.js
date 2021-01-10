@@ -80,7 +80,7 @@ export default class Navbar extends React.Component {
 
     // add in some form of redirect if user logged out?
     return (
-      <div style={{ height: '7vh', width: '95%', margin: 'auto' }}>
+      <div style={{ height: '7vh', width: '100%', margin: 'auto', paddingLeft: '30px', paddingRight: '30px' }}>
         <LoginModal ref={this.loginModal}></LoginModal>
         <RegisterModal ref={this.registerModal}></RegisterModal>
         <Link to={url}>
