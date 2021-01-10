@@ -14,6 +14,7 @@ export const gameinfo = {
     "location": "Discord",
     "gameID": 1,
     "tags": ["Dungeons & Dragons", "beginner", "fun"],
+    "gallery": ["/game_logos/dnd1.jpeg", "/game_logos/dnd2.jpg"],
   },
   2: {
     "name": "The Great Mage",
@@ -30,6 +31,7 @@ export const gameinfo = {
     "location": "Zoom",
     "gameID": 2,
     "tags": ["Magic: the Gathering", "intermediate", "fantasy"],
+    "gallery": ["/game_logos/magic1.jpeg", "/game_logos/magic2.jpg"],
   },
   3: {
     "name": "Advanced Magic: Elemental Strike",
@@ -46,6 +48,7 @@ export const gameinfo = {
     "location": "Skype",
     "gameID": 3,
     "tags": ["Magic: the Gathering", "advanced", "intense"],
+    "gallery": ["/game_logos/magic3.jpg", "/game_logos/magic2.jpg"],
 
   },
   4: {
@@ -62,7 +65,8 @@ export const gameinfo = {
     "logo": '/game_logos/pandemic.jpg',
     "location": "Zoom",
     "gameID": 4,
-    "tags": ["Pandemic", "beginner"]
+    "tags": ["Pandemic", "beginner"],
+    "gallery": ["/game_logos/pandemic2.jpg", "/game_logos/pandemic3.jpg"],
   },
   5: {
     "name": "Pandemic - Remastered",
@@ -78,7 +82,8 @@ export const gameinfo = {
     "logo": '/game_logos/pandemic1.jpg',
     "location": "Skype",
     "gameID": 5,
-    "tags": ["Pandemic", "advanced"]
+    "tags": ["Pandemic", "advanced"],
+    "gallery": ["/game_logos/pandemic2.jpg", "/game_logos/pandemic3.jpg"],
   },
   6: {
     "name": "CIT: Living Nightmare",
@@ -94,7 +99,8 @@ export const gameinfo = {
     "logo": '/game_logos/cit.jpeg',
     "location": "Discord",
     "gameID": 6,
-    "tags": ["Dungeons & Dragons", "hard"]
+    "tags": ["Dungeons & Dragons", "hard"],
+    "gallery": ["/game_logos/cit2.jpg", "/game_logos/sunlab.jpg"],
   },
   7: {
     "name": "Transported to Another World",
@@ -109,7 +115,8 @@ export const gameinfo = {
     "logo": '/game_logos/truck.png',
     "location": "Discord",
     "gameID": 7,
-    "tags": ["Dungeons & Dragons", "hard", "realistic"]
+    "tags": ["Dungeons & Dragons", "hard", "realistic"],
+    "gallery": ["/game_logos/aincrad.jpg", "/game_logos/overlord.jpg"],
   },
   8: {
     "name": "Cyberpunk 2077",
@@ -124,7 +131,8 @@ export const gameinfo = {
     "logo": '/game_logos/cyberpunk.jpg',
     "location": "Zoom",
     "gameID": 8,
-    "tags": ["Cyberpunk", "medium"]
+    "tags": ["Cyberpunk", "medium"],
+    "gallery": ["/game_logos/cp1.jpg", "/game_logos/cp2.jpeg"],
   }
 }
 

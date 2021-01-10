@@ -4,7 +4,7 @@ import Navbar from '../component/navbar.js';
 import HostCard from '../component/HostCard.jsx';
 import LoginModal from '../component/loginModal';
 import CheckoutModal from '../component/CheckoutModal';
-
+import CarouselArrows from '../component/CarouselArrows';
 import { gameinfo, hostData } from '../gameData';
 
 const { Title, Paragraph, Text } = Typography;
@@ -50,6 +50,7 @@ export default class Game extends React.Component {
           };
         });
     }
+    window.scrollTo(0, 0);
   }
 
   handleClick = () => {
@@ -68,15 +69,28 @@ export default class Game extends React.Component {
         <Header>
           <Navbar />
         </Header>
-        <Content style={{ width: '80%', margin: 'auto' }}>
+        <Content style={{ width: '80%', margin: 'auto', minWidth: '800px' }}>
           <Row gutter={24} justify="center" style={{ marginTop: 36 }}>
             <Col span={15}>
               <Card
+                style={{ minWidth: '400px' }}
                 cover={<img src={gd.logo} width={600} />}>
                 <Title style={{ textAlign: 'left', width: '80%', margin: 'auto' }} level={3}>{gd.name}</Title>
                 <br></br>
                 <Paragraph style={{ textAlign: 'left', width: '80%', margin: 'auto' }}>{gd.info.split("\n").map((item, i) => <p key={i}>{item}</p>)}</Paragraph>
                 <br></br>
+
+              </Card>
+              <br />
+
+              <Card
+                style={{ minWidth: '400px' }}
+              >
+
+                <div style={{ width: '80%', margin: 'auto' }}>
+                  <CarouselArrows style={{ width: '90%', margin: 'auto', height: '30vh' }} gd={gd} gallery={gd.gallery}></CarouselArrows>
+
+                </div>
 
               </Card>
             </Col>
@@ -101,7 +115,7 @@ export default class Game extends React.Component {
                 <LoginModal ref={this.loginModal}></LoginModal>
                 <CheckoutModal ref={this.checkoutModal} game={this.gd}></CheckoutModal>
 
-                <Button align="center" onClick={this.handleClick} type="primary" disabled={this.state.booked}>{this.state.text}</Button>
+                <Button style={{ width: '100%' }} align="center" onClick={this.handleClick} type="primary" disabled={this.state.booked}>{this.state.text}</Button>
               </Card>
               <HostCard hd={hd} onGameDetailPage={true} />
             </Col>

@@ -4,9 +4,8 @@ import { Divider, Card, Avatar, Space, Typography, Rate, Row, Col, Statistic, Bu
 import { reviews } from '../gameData';
 
 const { Text, Title, Paragraph } = Typography;
-export default class LoginForm extends React.Component {
+export default class HostCard extends React.Component {
   render() {
-    console.log(this.props);
     return (
       this.props.horizontal
         ?
@@ -52,7 +51,6 @@ export default class LoginForm extends React.Component {
                 </Col>
               </Row>
 
-              {/* <Statistic title="Games Hosted" ></Statistic> */}
               <br />
             </Col>
           </Row>
@@ -73,9 +71,6 @@ export default class LoginForm extends React.Component {
 
             {this.props.onGameDetailPage ? <>
 
-              <Link to={`/host/${this.props.hd.hostid}`}>
-                <Button type="primary">Learn More</Button>
-              </Link>
             </>
               :
 
@@ -86,20 +81,35 @@ export default class LoginForm extends React.Component {
                   </ul>
                 </Paragraph>
 
-                <Title level={4} align="start">Reviews</Title>
-                {
-                  this.props.hd.reviews.map((reviewID) => {
-                    const review = reviews[reviewID];
-                    return (
-                      <Comment
-                        align="start"
-                        author={review.name}
-                        avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                        content={review.review}
-                      />
-                    );
-                  })
-                }</>
+              </>
+            }
+
+            <Title level={4} align="start">Reviews</Title>
+            {
+              this.props.hd.reviews.map((reviewID) => {
+                const review = reviews[reviewID];
+                return (
+                  <Comment
+                    align="start"
+                    author={review.name}
+                    avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                    content={review.review}
+                  />
+                );
+              })
+            }
+
+            {this.props.onGameDetailPage ? <>
+              <br />
+              <Link to={`/host/${this.props.hd.hostid}`}>
+                <Button type="primary" style={{ width: '100%' }}>Learn More</Button>
+              </Link>
+            </>
+              :
+
+              <>
+
+              </>
             }
 
           </Col>
@@ -108,4 +118,3 @@ export default class LoginForm extends React.Component {
   }
 }
 
-// export default HostCard;
