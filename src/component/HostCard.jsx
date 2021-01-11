@@ -13,17 +13,16 @@ export default class HostCard extends React.Component {
   }
 
   handleLoggedOutClick = () => {
-    console.log('logged out click')
     this.loginModal.current.showModal();
   };
 
   handleLoggedInClick = () => {
-    console.log('logged in click')
     this.contactModal.current.showModal();
   }
 
   render() {
     return (
+      // horizontal game card
       this.props.horizontal
         ?
         <Card className="ant-card-hover" style={{ width: "55vw", minWidth: '525px' }}>
@@ -83,6 +82,7 @@ export default class HostCard extends React.Component {
           </Row>
         </Card>
         :
+        // vertical game card on the game detail page
         (this.props.onGameDetailPage ?
           <Card style={{ minWidth: '250px' }} className="ant-card-hover">
             <ContactModal ref={this.contactModal} hd={this.props.hd}></ContactModal>
@@ -124,7 +124,7 @@ export default class HostCard extends React.Component {
           </Card>
           :
 
-
+          // vertical game card on the host detail page
           < Card style={{ minWidth: '250px' }}>
             <ContactModal ref={this.contactModal} hd={this.props.hd}></ContactModal>
             <loginModal ref={this.loginModal}></loginModal>

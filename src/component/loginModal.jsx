@@ -15,6 +15,10 @@ export default class LoginModal extends React.Component {
       modalText: <></>,
       profileRedirect: false
     };
+
+    if (this.props.onUserPage) {
+      this.setState({ visible: true });
+    }
   }
 
   showModal = () => {
@@ -69,8 +73,11 @@ export default class LoginModal extends React.Component {
   };
 
   render() {
+    const modalProps = this.props.onUserPage ? { maskClosable: false, closable: false } : {};
     // Redirect to profile page after logging in for every other page (except for the search page)
     // Current just does to search
+
+    console.log(this.props)
     if (this.state.profileRedirect) {
       return <Redirect to={{
         pathname: '/user',
@@ -87,6 +94,7 @@ export default class LoginModal extends React.Component {
         footer={[
           <></>
         ]}
+        {...modalProps}
       >
         <p>{this.state.modalText}</p>
 

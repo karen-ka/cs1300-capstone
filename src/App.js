@@ -12,7 +12,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.less';
 
 class App extends React.Component {
-  constructor() {
+  constructor () {
     super();
     // here for testing purposes
     // localStorage.clear("currentUser");
@@ -23,14 +23,14 @@ class App extends React.Component {
         <BrowserRouter>
           <div className="App">
             <Switch>
-              <Route path="/" exact component={Home}/>
-              <Route path="/about" component={About}/>
-              <Route path="/search" component={Search}/>
-              <Route path="/hostsearch" component={HostSearch}/>
-              <Route path="/user" component={User}/>
-              <Route path="/register" component={RegisterModal}/>
-              <Route path="/game/:id" component={Game}/>
-              <Route path="/host/:id" component={Host}/>
+              <Route path="/" exact component={Home} />
+              <Route path="/about" component={About} />
+              <Route path="/search" component={Search} />
+              <Route path="/hostsearch" component={HostSearch} />
+              <Route path="/user" component={User} />
+              <Route path="/register" component={RegisterModal} />
+              <Route path="/game/:id" component={Game} />
+              <Route path="/host/:id" component={Host} />
             </Switch>
           </div>
         </BrowserRouter>
