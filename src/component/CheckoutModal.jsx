@@ -1,6 +1,6 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import { Modal } from 'antd';
+import { Modal, message } from 'antd';
 import CheckoutForm from './CheckoutForm';
 import GameCard from './GameCard';
 import { Redirect } from 'react-router-dom';
@@ -49,6 +49,7 @@ export default class CheckoutModal extends React.Component {
     handleSuccess = () => {
         this.handleSubmit();
         setTimeout(() => {
+            message.success("Success! Adding game to your profile.");
             this.setState({
                 modalText: "Success! Adding game to your profile.",
                 visible: true,
@@ -58,24 +59,14 @@ export default class CheckoutModal extends React.Component {
         // reload page after a few seconds
         setTimeout(() => {
             // change to redirect to user profile after booking a game
-            window.location.reload();
             this.setState({
                 profileRedirect: true
             });
-        }, 3000);
-    };
-
-    next = e => {
-        console.log(e)
-        this.setState({ current: this.state.current + 1 });
-    };
-
-    prev = () => {
-        this.setState({ current: this.state.current - 1 });
+            window.location.reload();
+        }, 4000);
     };
 
     render() {
-        console.log(this.props)
         // Redirect to user page after checking out
         if (this.state.profileRedirect) {
             return <Redirect to='/user' />

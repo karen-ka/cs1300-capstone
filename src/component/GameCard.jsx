@@ -270,22 +270,7 @@ export default class GameCard extends React.Component {
 
                                                 </Col>
                                             </Row>) : <Button type='primary' onClick={this.handleLoggedOutClick} style={{ justifyContent: 'center', width: '100%' }}>Book Now</Button>)}
-                                        {/* {this.props.onUserPage ?
-                                            (<Row>
-                                                <Col span={24} style={{ textAlign: "right" }}>
-                                                    <Tooltip title="Message host">
-                                                        <Button shape="circle" icon={<MessageOutlined />} style={{ margin: "0 5px 0 5px" }} />
-                                                    </Tooltip>
-                                                    <Tooltip title="Add to calendar">
-                                                        <Button shape="circle" icon={<CalendarOutlined />} style={{ margin: "0 5px 0 5px" }} />
-                                                    </Tooltip>
-                                                    <Tooltip title="Share">
-                                                        <Button shape="circle" icon={<ShareAltOutlined />} style={{ margin: "0 5px 0 5px" }} />
-                                                    </Tooltip>
 
-                                                </Col>
-                                            </Row>) : <></>
-                                        } */}
                                     </div>
                                 </div>
                             </Col>

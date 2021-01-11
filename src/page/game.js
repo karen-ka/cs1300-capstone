@@ -114,7 +114,7 @@ export default class Game extends React.Component {
 
                 <Button style={{ width: '100%' }} align="center" onClick={this.handleClick} type="primary" disabled={this.state.booked}>{this.state.text}</Button>
               </Card>
-              <HostCard hd={hd} onGameDetailPage={true} />
+              <HostCard loggedIn={this.loggedIn} hd={hd} onGameDetailPage={true} />
             </Col>
           </Row>
         </Content>
