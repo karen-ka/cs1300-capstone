@@ -1,12 +1,13 @@
 import React from 'react';
 import '../App.less';
-import { Space, Layout, Row, Col, Card, Typography, Button, Statistic } from 'antd';
+import { Space, Layout, Row, Col, Card, Typography, Button, Statistic, Alert } from 'antd';
 import Navbar from '../component/navbar.js';
 import GameCard from '../component/GameCard';
 import { gameinfo, hostData } from '../gameData.js'
 import CheckoutModal from '../component/CheckoutModal';
+import LoginForm from '../component/LoginForm';
 import { withRouter } from 'react-router-dom';
-
+import { Redirect } from 'react-router-dom';
 const { Header, Content, Footer } = Layout;
 const { Title, Paragraph, Text } = Typography;
 
@@ -19,10 +20,13 @@ class Search extends React.Component {
       currGame: null,
       hd: null,
       suggestions: [],
+      loading: false,
+      profileRedirect: false,
     };
     this.loggedIn = localStorage.getItem('currentUser') ? true : false;
     this.username = localStorage.getItem('currentUser');
     this.checkoutModal = React.createRef();
+    this.loginModal = React.createRef();
   }
 
   componentDidMount() {
@@ -70,6 +74,10 @@ class Search extends React.Component {
     this.checkoutModal.current.showModal();
   }
 
+  startLogin = () => {
+    this.loginModal.current.showModal();
+  }
+
   createCards = item => {
     return (
       <Row gutter={[16, 48]}>
@@ -90,43 +98,111 @@ class Search extends React.Component {
     );
   };
 
+  handleOk = () => {
+    this.setState({ loading: true });
+  };
+
+  handleCancel = () => {
+    this.setState({ visible: false });
+  };
+
+  handleError = () => {
+    setTimeout(() => {
+      this.setState({
+        modalText: <>< Alert
+          style={{ width: '70%', margin: 'auto' }}
+          message="Incorrect email or password"
+          // description="Please go to login page or try again with a different username."
+          type="error"
+          showIcon
+        /><br /></>,
+        // modalText: "Username/Password doesn't match or doesn't exist. Please try again or sign up for an account.",
+        visible: true,
+        loading: false
+      });
+    }, 3000);
+  };
+
+  handleSuccess = (username) => {
+    setTimeout(() => {
+      this.setState({
+        // modalText: "Success! Logging you in!",
+        visible: true,
+        loading: false
+      });
+    }, 2000);
+    // redirect to user page after a few seconds
+    setTimeout(() => {
+      localStorage.setItem('currentUser', username);
+      // this means that if the user is in the search page or the game page, reload the page (there's weird router issues otherwise)
+      if (document.location.pathname === '/search' || document.location.pathname.includes("/game")) {
+        window.location.reload();
+      } else {
+        this.setState({
+          profileRedirect: true
+        })
+      }
+    }, 3000);
+  };
+
   render() {
-    console.log(this.state.registeredGames.length, this.state.registeredGames)
+    if (this.state.profileRedirect) {
+      window.location.reload();
+    };
     return (
-      <div>
-        <Layout>
-          <Header>
-            <Navbar />
-          </Header>
-          <Content style={{ float: 'center', width: '70%', marginTop: '10vh', marginLeft: 'auto', marginRight: 'auto', textAlign: 'left' }}>
-            <Text style={{ fontSize: '2em', marginTop: '200px', marginBottom: '20vh' }}>Welcome back, <b>{this.username}</b>!</Text>
-            <br />
-            <br />
-            <br />
-            <br />
-            {this.state.registeredGames.length > 0 ? (<>
-              <Text style={{ fontSize: '1.5em' }}>Your Upcoming Games</Text>
+      // <div>
+      <Layout style={{ minHeight: '100%', }}>
+        <Header>
+          <Navbar />
+        </Header>
+        {this.loggedIn ?
+          <>
+            <Content style={{ float: 'center', width: '70%', marginTop: '10vh', marginLeft: 'auto', marginRight: 'auto', textAlign: 'left' }}>
+
+              <Text style={{ fontSize: '2em', marginTop: '200px', marginBottom: '20vh' }}>Welcome back, <b>{this.username}</b>!</Text>
               <br />
               <br />
-              {this.state.registeredGames.map(this.createCards)} </>)
-              :
-              <></>}
-            <br />
-            <br />
-            <br />
-            {/* TODO: make another game card ver for this page ... */}
-            <CheckoutModal ref={this.checkoutModal} game={this.state.currGame} hd={this.state.hd}></CheckoutModal>
-            {this.state.suggestions.length > 0 ? (<>
-              <Text style={{ fontSize: '1.5em' }}>Suggested Games</Text>
               <br />
               <br />
-              {this.state.suggestions.map(this.createSuggestions)} </>)
-              :
-              <></>}
-          </Content>
-          <Footer />
-        </Layout>
-      </div>
+              {this.state.registeredGames.length > 0 ? (<>
+                <Text style={{ fontSize: '1.5em' }}>Your Upcoming Games</Text>
+                <br />
+                <br />
+                {this.state.registeredGames.map(this.createCards)} </>)
+                :
+                <></>}
+              <br />
+              <br />
+              <br />
+              <CheckoutModal ref={this.checkoutModal} game={this.state.currGame} hd={this.state.hd}></CheckoutModal>
+              {this.state.suggestions.length > 0 ? (<>
+                <Text style={{ fontSize: '1.5em' }}>Suggested Games</Text>
+                <br />
+                <br />
+                {this.state.suggestions.map(this.createSuggestions)} </>)
+                :
+                <></>}
+            </Content>
+
+          </>
+          :
+          <>
+            <Content style={{ float: 'center', minHeight: '55vh', width: '30%', marginTop: '30vh', marginLeft: 'auto', marginRight: 'auto', textAlign: 'left' }}>
+              <LoginForm id="submit-form" handleSuccess={this.handleSuccess} handleError={this.handleError}></LoginForm>
+
+
+              <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+                <Button style={{ width: '70%' }} type="primary" form="loginForm" key="submit" htmlType="submit" onClick={this.handleOk} loading={this.state.loading}>
+                  Log In
+            </Button>
+              </div>
+            </Content>
+          </>
+        }
+
+        <Footer />
+      </Layout>
+      // </div>
     );
   }
 }

@@ -10,9 +10,10 @@ export default class Search extends React.Component {
   constructor (props) {
     super(props);
     this.HostCards = [];
+    this.loggedIn = localStorage.getItem('currentUser') ? true : false;
     // creating and storing horizontal host cards
     for (const [_, host] of Object.entries(hostData)) {
-      this.HostCards.push(<HostCard horizontal hd={host} />)
+      this.HostCards.push(<HostCard loggedIn={this.loggedIn} horizontal hd={host} />)
     }
   }
 
