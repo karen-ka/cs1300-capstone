@@ -83,69 +83,89 @@ export default class HostCard extends React.Component {
           </Row>
         </Card>
         :
-
-        <Card style={{ minWidth: '250px' }}>
-          <ContactModal ref={this.contactModal} hd={this.props.hd}></ContactModal>
-          <loginModal ref={this.loginModal}></loginModal>
-          <Col>
-            <Avatar size={{ xs: 50, sm: 60, md: 80, lg: 120, xl: 160, xxl: 200 }} src={`${process.env.PUBLIC_URL}/${this.props.hd.pfp}`} />
-            <Title level={3}>{this.props.hd.name}</Title>
-            <br />
-            {this.props.loggedIn ? <Button type="primary" onClick={this.handleLoggedInClick} style={{ width: '100%' }}>Contact Host</Button> :
-              <Button type="primary" onClick={this.handleLoggedOutClick} style={{ width: '100%' }}>Contact Host</Button>}
-
-            <Title style={{ marginTop: '24px' }} level={4} align="start">Statistics</Title>
-            <div align="start">
-              <Rate disabled defaultValue={this.props.hd.rating} style={{ fontSize: 20, marginRight: 24 }} />
-              {this.props.hd.rating.toFixed(1)}
-            </div>
-            <Paragraph align="start">{`${this.props.hd.numberOfGames} games hosted`}</Paragraph>
-
-            {this.props.onGameDetailPage ? <>
-
-            </>
-              :
-
-              <><Title level={4} align="start">Games Hosted</Title>
-                <Paragraph align="start">
-                  <ul>
-                    {this.props.hd.gamesHosted.map(game => <Tag style={{ fontSize: '14px' }} color="default">{game}</Tag>)}
-                  </ul>
-                </Paragraph>
-
-              </>
-            }
-
-            <Title level={4} align="start">Reviews</Title>
-            {
-              this.props.hd.reviews.map((reviewID) => {
-                const review = reviews[reviewID];
-                return (
-                  <Comment
-                    align="start"
-                    author={review.name}
-                    avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                    content={review.review}
-                  />
-                );
-              })
-            }
-
-            {this.props.onGameDetailPage ? <>
-              <br />
+        (this.props.onGameDetailPage ?
+          <Card style={{ minWidth: '250px' }} className="ant-card-hover">
+            <ContactModal ref={this.contactModal} hd={this.props.hd}></ContactModal>
+            <loginModal ref={this.loginModal}></loginModal>
+            <Col>
               <Link to={`/host/${this.props.hd.hostid}`}>
-                <Button type="primary" style={{ width: '100%' }}>Learn More</Button>
+                <div className="ant-hover-trigger" style={{ pointerEvents: "none" }}>
+                  <Avatar size={{ xs: 50, sm: 60, md: 80, lg: 120, xl: 160, xxl: 200 }} src={`${process.env.PUBLIC_URL}/${this.props.hd.pfp}`} />
+                  <Title level={3}>{this.props.hd.name}</Title>
+
+                  <Title style={{ marginTop: '24px' }} level={4} align="start">Statistics</Title>
+                  <div align="start">
+                    <Rate disabled defaultValue={this.props.hd.rating} style={{ fontSize: 20, marginRight: 24 }} />
+                    <Text>{this.props.hd.rating.toFixed(1)}</Text>
+                  </div>
+                  <Paragraph align="start">{`${this.props.hd.numberOfGames} games hosted`}</Paragraph>
+
+                  <Title level={4} align="start">Reviews</Title>
+                  {
+                    this.props.hd.reviews.map((reviewID) => {
+                      const review = reviews[reviewID];
+                      return (
+                        <Comment
+                          align="start"
+                          author={review.name}
+                          avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                          content={<Text>{review.review}</Text>}
+                        />
+                      );
+                    })
+                  }
+                </div>
               </Link>
-            </>
-              :
+              <br />
+              {this.props.loggedIn ? <Button type="primary" onClick={this.handleLoggedInClick} style={{ width: '100%' }}>Contact Host</Button> :
+                <Button type="primary" onClick={this.handleLoggedOutClick} style={{ width: '100%' }}>Contact Host</Button>}
 
-              <>
+            </Col>
+          </Card>
+          :
 
-              </>
-            }
 
-          </Col>
-        </Card>
+          < Card style={{ minWidth: '250px' }}>
+            <ContactModal ref={this.contactModal} hd={this.props.hd}></ContactModal>
+            <loginModal ref={this.loginModal}></loginModal>
+            <Col>
+              <Avatar size={{ xs: 50, sm: 60, md: 80, lg: 120, xl: 160, xxl: 200 }} src={`${process.env.PUBLIC_URL}/${this.props.hd.pfp}`} />
+              <Title level={3}>{this.props.hd.name}</Title>
+              <br />
+              {this.props.loggedIn ? <Button type="primary" onClick={this.handleLoggedInClick} style={{ width: '100%' }}>Contact Host</Button> :
+                <Button type="primary" onClick={this.handleLoggedOutClick} style={{ width: '100%' }}>Contact Host</Button>}
+
+              <Title style={{ marginTop: '24px' }} level={4} align="start">Statistics</Title>
+              <div align="start">
+                <Rate disabled defaultValue={this.props.hd.rating} style={{ fontSize: 20, marginRight: 24 }} />
+                {this.props.hd.rating.toFixed(1)}
+              </div>
+              <Paragraph align="start">{`${this.props.hd.numberOfGames} games hosted`}</Paragraph>
+
+              <Title level={4} align="start">Games Hosted</Title>
+              <Paragraph align="start">
+                <ul>
+                  {this.props.hd.gamesHosted.map(game => <Tag style={{ fontSize: '14px' }} color="default">{game}</Tag>)}
+                </ul>
+              </Paragraph>
+
+              <Title level={4} align="start">Reviews</Title>
+              {
+                this.props.hd.reviews.map((reviewID) => {
+                  const review = reviews[reviewID];
+                  return (
+                    <Comment
+                      align="start"
+                      author={review.name}
+                      avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                      content={review.review}
+                    />
+                  );
+                })
+              }
+
+            </Col>
+          </Card >)
     );
   }
 }
