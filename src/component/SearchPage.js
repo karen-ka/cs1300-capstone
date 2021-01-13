@@ -125,7 +125,7 @@ export default class Search extends React.Component {
         <Header>
           <Navbar></Navbar>
         </Header>
-        <Content>
+        <Content style={{ minHeight: '83vh' }}>
           <FilterBar page="Games" handleGameFilter={this.handleGameFilter} handlePriceFilter={this.handlePriceFilter} />
           <CheckoutModal ref={this.checkoutModal} game={this.state.currGame} hd={this.state.hd}></CheckoutModal>
           <div >

@@ -33,17 +33,19 @@ export default class HostCard extends React.Component {
         <LoginModal msg={loginMsg} ref={this.loginModal}></LoginModal>
         {this.props.horizontal
           ?
-          (<Card className="ant-card-hover" style={{ width: "55vw", minWidth: '525px' }}>
+          (<Card className="ant-card-hover" style={{ width: "55vw", minWidth: '620px' }}>
             <Row justify="center" gutter={24}>
-              <Col span={17}>
+              <Col span={16}>
                 <Link to={`/host/${this.props.hd.hostid}`}>
                   <div className="trigger-card-hover" style={{ display: 'flex', height: '100%', width: 'auto' }}>
                     <Col span={8} >
 
                       <br />
                       <Avatar size={{ xs: 74, sm: 82, md: 90, lg: 114, xl: 130, xxl: 150 }} src={`${process.env.PUBLIC_URL}/${this.props.hd.pfp}`} style={{ marginBottom: '2vh' }} />
-                      <br />
-                      <Rate disabled defaultValue={this.props.hd.rating} style={{ fontSize: 12 }} />
+                      <div >
+                        <Rate disabled defaultValue={this.props.hd.rating} style={{ fontSize: 12, paddingTop: '1vh', paddingRight: '1vh' }} />
+                        <Text>{this.props.hd.rating.toFixed(1)}</Text>
+                      </div>
                       <Paragraph>{`${this.props.hd.numberOfGames} games hosted`}</Paragraph>
 
                     </Col>
@@ -65,7 +67,7 @@ export default class HostCard extends React.Component {
                 </Link>
               </Col>
 
-              <Col span={6} style={{ marginTop: '28px', paddingTop: '0.5em', }}>
+              <Col span={8} style={{ marginTop: '28px', paddingTop: '0.5em', }}>
 
                 <Text type="secondary" style={{ float: "left" }}>Games Hosted</Text>
                 <br />

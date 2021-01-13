@@ -17,14 +17,6 @@ export default class Search extends React.Component {
     }
   }
 
-  // getDisplayText = () => {
-  //   if (this.HostCards.length == 1) {
-  //     return "1 host";
-  //   } else {
-  //     return `${this.HostCards.length} hosts`;
-  //   }
-  // }
-
   getDisplayText = () => {
     if (this.HostCards.length == 1) {
       return <Tag style={{ marginTop: '0.5em', marginRight: '0' }}>1 host</Tag>;
@@ -41,7 +33,7 @@ export default class Search extends React.Component {
         </Header>
         <Content>
           <FilterBar page="Hosts" handleGameFilter={this.handleGameFilter} handlePriceFilter={this.handlePriceFilter} />
-          <div style={{ textAlign: 'left', width: '50%', margin: 'auto', padding: '3vh 0 3vh 0', minWidth: '400px' }}>
+          <div style={{ textAlign: 'left', width: '50%', margin: 'auto', padding: '5vh 0 5vh 0', minWidth: '400px' }}>
             <h1 style={{ float: 'left', paddingRight: '24px' }}>Find the best host for your needs.</h1> {this.getDisplayText()}
             <br />
             <br />
@@ -49,7 +41,6 @@ export default class Search extends React.Component {
               We’ve got you covered. Whether you’re new or a pro, choose from one of our experienced game hosts! On StartPlaying.Games, you’ll find the perfect host that fits your playing style.
           </p>
           </div>
-          <br />
           <Space direction="vertical" size={48}>
             {this.HostCards}
           </Space>

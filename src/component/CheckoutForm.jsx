@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Input, Button, Checkbox, DatePicker } from 'antd';
 import NumericInput from './NumericInput.jsx'
+import moment from 'moment';
 
 const layout = {
   labelCol: { span: 8 },
@@ -27,7 +28,21 @@ export default class CheckoutForm extends React.Component {
       });
   };
 
+  // can't select previous months for cvv
+  disabledDate = (current) => {
+    return current < moment().subtract(1, 'months');
+  }
+
+
   render() {
+    const validateMessages = {
+      required: '${label} is required',
+      types: {
+        email: '${label} is not a valid email',
+        number: '${label} is not a valid number!',
+      },
+    };
+
     return (
       <Form
         {...layout}
@@ -37,33 +52,34 @@ export default class CheckoutForm extends React.Component {
         initialValues={{ remember: true }}
         onFinish={this.onFinish}
         style={{ minWidth: '300px' }}
+        validateMessages={validateMessages}
       >
         <Form.Item
           name="Card number"
           label="Card number"
-          rules={[{ required: true, message: 'Please input your card number' }]}
+          rules={[{ required: true, }]}
         >
           <NumericInput style={{ width: '60%' }} length={16} placeholder="Card number"></NumericInput>
         </Form.Item>
         <Form.Item
           name="Expiry date"
           label="Expiry date"
-          rules={[{ required: true, message: 'Please input the expiry date' }]}
+          rules={[{ required: true, }]}
         >
-          <DatePicker picker="month" placeholder="Expiry date" />
+          <DatePicker picker="month" placeholder="Expiry date" disabledDate={this.disabledDate} />
         </Form.Item>
 
         <Form.Item
           label="CVV"
           name="CVV"
-          rules={[{ required: true, message: 'Please input the CVV' }]}
+          rules={[{ required: true, }]}
         >
           <NumericInput style={{ width: '20%' }} length={4} placeholder="CVV"></NumericInput>
         </Form.Item>
         <Form.Item
           label="Email"
           name="Email"
-          rules={[{ required: true, message: 'Please input your email' }]}
+          rules={[{ required: true, type: 'email' }]}
         >
           <Input style={{ width: '60%' }} length={4} placeholder="Email"></Input>
         </Form.Item>

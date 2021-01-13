@@ -31,14 +31,14 @@ export default class FilterBar extends React.Component {
 
     const currTitle = (this.props.page === "Games") ?
       <div style={{ width: '100%', paddingLeft: '30px', paddingRight: '30px' }}>
-        <Space>
+        <Space style={{ fontWeight: '400' }}>
           I'm looking for
         <Select defaultValue={this.props.page} style={{ width: 120 }} onChange={this.handleSearchTypeFilter}>
             <Option value="Games">Games</Option>
             <Option value="Hosts">Hosts</Option>
           </Select>
         filtered by:
-          <Select defaultValue="All Games" style={{ width: 240 }} onChange={this.props.handleGameFilter}>
+          <Select defaultValue="All Games" style={{ width: 200 }} onChange={this.props.handleGameFilter}>
             <Option value="All Games">All Game Types</Option>
             <Option value="DnD">Dungeons and Dragons</Option>
             <Option value="Magic">Magic: the Gathering</Option>
@@ -53,7 +53,7 @@ export default class FilterBar extends React.Component {
         </Space>
       </div> :
       <div style={{ width: '100%', paddingLeft: '30px', paddingRight: '30px' }}>
-        <Space>
+        <Space style={{ fontWeight: '400' }}>
           I'm looking for
         <Select defaultValue={this.props.page} style={{ width: 120 }} onChange={this.handleSearchTypeFilter}>
             <Option value="Games">Games</Option>

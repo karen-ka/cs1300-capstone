@@ -35,7 +35,7 @@ export default class GameCard extends React.Component {
      */
     render() {
         const disabled = this.props.nobook ? true : false;
-        const currStyle = this.props.onHostPage ? { display: 'flex', width: '45vw', minWidth: '600px' } : { display: 'flex', width: '55vw', minWidth: '720px' };
+        const currStyle = this.props.onHostPage ? { display: 'flex', width: '45vw', minWidth: '500px' } : { display: 'flex', width: '55vw', minWidth: '720px' };
         const simpleStyle = this.props.onCheckoutModal ? { display: 'flex', width: '40vw', minWidth: '600px' } : { display: 'flex', width: '55vw', minWidth: '720px' };
         const divId = this.props.onHostPage ? "left-ant-card" : "left-card";
         const leftCardStyle = this.props.onHostPage ? { margin: 'auto', height: '100%', padding: '48px 24px 48px 24px', display: 'flex', flexDirection: 'column', width: '100%' } : { padding: '24px', margin: 'auto', display: 'flex', flexDirection: 'column', height: '100%' };

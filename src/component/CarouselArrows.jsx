@@ -28,7 +28,7 @@ export default class CarouselArrows extends React.Component {
             <>
                 <Row justify="center" >
                     <Col>
-                        <Title level={4} style={{ textAlign: 'left', margin: 'auto' }}>Image Gallery</Title>
+                        <Title level={3} style={{ textAlign: 'left', margin: 'auto' }}>Gallery</Title>
                         <br />
                         <Carousel autoplay dots={false} arrows nextArrow={<RightOutlined style={{ color: 'white', fontSize: '50px' }} />} prevArrow={<LeftOutlined style={{ color: 'white', fontSize: '50px' }} />}>
 
