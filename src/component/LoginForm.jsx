@@ -27,6 +27,7 @@ export default class LoginForm extends React.Component {
   render() {
     return (
       <Form
+        preserve={false}
         id="loginForm"
         name="normal_login"
         className="login-form"

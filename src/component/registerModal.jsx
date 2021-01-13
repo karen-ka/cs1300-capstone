@@ -4,6 +4,7 @@ import 'antd/dist/antd.css';
 import { Modal, Button, Alert } from 'antd';
 import RegisterForm from './RegisterForm';
 import { Redirect } from 'react-router-dom';
+import logo from '../img/logo.png';
 
 export default class RegisterModal extends React.Component {
   constructor (props) {
@@ -14,7 +15,8 @@ export default class RegisterModal extends React.Component {
       loading: false,
       modalText: <></>,
       profileRedirect: false,
-      showAlert: false
+      maskClosable: true,
+      closable: true,
     };
   }
 
@@ -22,8 +24,12 @@ export default class RegisterModal extends React.Component {
     this.setState({ visible: true })
   };
 
+  afterClose = () => {
+    this.setState({ modalText: <></>, })
+  }
+
   handleOk = () => {
-    this.setState({ loading: true });
+    this.setState({ loading: true, maskClosable: false, closable: false });
   };
 
   handleCancel = () => {
@@ -42,7 +48,8 @@ export default class RegisterModal extends React.Component {
         /><br /></>,
         visible: true,
         loading: false,
-        showAlert: true,
+        maskClosable: true,
+        closable: true,
       });
     }, 3000);
   };
@@ -84,7 +91,15 @@ export default class RegisterModal extends React.Component {
         footer={[
           <></>
         ]}
+        destroyOnClose={true}
+        maskClosable={this.state.maskClosable}
+        closable={this.state.closable}
+        afterClose={this.afterClose}
       >
+
+        <div style={{ width: '100%', textAlign: 'center', marginBottom: '24px' }}>
+          <img src={logo}></img>
+        </div>
 
         {this.state.modalText}
 

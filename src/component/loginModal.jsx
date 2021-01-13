@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { Modal, Button, Alert } from 'antd';
 import LoginForm from './LoginForm';
 import { Redirect } from 'react-router-dom';
+import logo from '../img/logo.png';
+
 
 export default class LoginModal extends React.Component {
   constructor (props) {
@@ -12,12 +14,18 @@ export default class LoginModal extends React.Component {
       visible: false,
       loading: false,
       modalText: <></>,
-      profileRedirect: false
+      profileRedirect: false,
+      maskClosable: true,
+      closable: true,
     };
+  }
 
-    if (this.props.onUserPage) {
-      this.setState({ visible: true });
-    }
+  // onCancel = () => {
+  //   this.setState({ modalText: <></>, visible: false, })
+  // }
+
+  afterClose = () => {
+    this.setState({ modalText: <></>, })
   }
 
   showModal = () => {
@@ -25,7 +33,7 @@ export default class LoginModal extends React.Component {
   };
 
   handleOk = () => {
-    this.setState({ loading: true });
+    this.setState({ loading: true, maskClosable: false, closable: false, });
   };
 
   handleCancel = () => {
@@ -44,7 +52,9 @@ export default class LoginModal extends React.Component {
         /><br /></>,
         // modalText: "Username/Password doesn't match or doesn't exist. Please try again or sign up for an account.",
         visible: true,
-        loading: false
+        loading: false,
+        maskClosable: true,
+        closable: true,
       });
     }, 3000);
   };
@@ -93,11 +103,21 @@ export default class LoginModal extends React.Component {
         footer={[
           <></>
         ]}
+        destroyOnClose={true}
+        maskClosable={this.state.maskClosable}
+        closable={this.state.closable}
+        afterClose={this.afterClose}
       // {...modalProps}
       >
 
+        <div style={{ width: '100%', textAlign: 'center', marginBottom: '24px' }}>
+          <img src={logo}></img>
+        </div>
+
+        {this.state.modalText}
+
         {this.props.msg ?
-          (<div style={{ display: 'flex', justifyContent: 'space-around', marginBottom: '5vh' }}>
+          (<div style={{ display: 'flex', justifyContent: 'space-around', marginBottom: '24px' }}>
 
             {this.props.msg}
 
