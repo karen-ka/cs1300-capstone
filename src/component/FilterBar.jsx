@@ -41,14 +41,14 @@ export default class FilterBar extends React.Component {
           <Select defaultValue="All Games" style={{ width: 240 }} onChange={this.props.handleGameFilter}>
             <Option value="All Games">All Game Types</Option>
             <Option value="DnD">Dungeons and Dragons</Option>
+            <Option value="Magic">Magic: the Gathering</Option>
             <Option value="Pandemic">Pandemic</Option>
-            <Option value="Magic">Magic the Gathering</Option>
           </Select>
           <Select defaultValue="All Prices" style={{ width: 120 }} onChange={this.props.handlePriceFilter}>
             <Option value="All Prices">All Prices</Option>
-            <Option value="20">&lt;20</Option>
-            <Option value="30">&lt;30</Option>
-            <Option value="40">&lt;40</Option>
+            <Option value="20">&lt; $20</Option>
+            <Option value="30">&lt; $30</Option>
+            <Option value="40">&lt; $40</Option>
           </Select>
         </Space>
       </div> :

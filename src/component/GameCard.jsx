@@ -38,7 +38,7 @@ export default class GameCard extends React.Component {
         const currStyle = this.props.onHostPage ? { display: 'flex', width: '45vw', minWidth: '600px' } : { display: 'flex', width: '55vw', minWidth: '720px' };
         const simpleStyle = this.props.onCheckoutModal ? { display: 'flex', width: '40vw', minWidth: '600px' } : { display: 'flex', width: '55vw', minWidth: '720px' };
         const divId = this.props.onHostPage ? "left-ant-card" : "left-card";
-        const leftCardStyle = this.props.onHostPage ? { margin: 'auto', height: '100%', padding: '24px' } : { padding: '24px', margin: 'auto', display: 'flex', flexDirection: 'column', height: '100%' };
+        const leftCardStyle = this.props.onHostPage ? { margin: 'auto', height: '100%', padding: '48px 24px 48px 24px', display: 'flex', flexDirection: 'column', width: '100%' } : { padding: '24px', margin: 'auto', display: 'flex', flexDirection: 'column', height: '100%' };
 
         const loginMsg = (<Alert
             message="Log In required to book games"
@@ -200,11 +200,13 @@ export default class GameCard extends React.Component {
                             <Col span={11} style={{ flexGrow: '1' }}>
                                 <div style={leftCardStyle}>
                                     {this.props.onHostPage ?
-                                        <><br />
-                                            <Text type="secondary" style={{ float: "left" }}>Tags </Text>
+                                        <>
                                             <br />
-                                            {this.props.gd.tags.map(tag => <Tag style={{ fontSize: '14px', marginTop: '1vh', float: 'left' }} color="default">{tag}</Tag>)}
-                                            <br /><br />
+                                            <Text type="secondary" style={{ width: '100%', textAlign: "left", paddingBottom: '1vh' }}>Tags </Text>
+                                            <div style={{ paddingBottom: '48px' }}>
+                                                {this.props.gd.tags.map(tag => <Tag style={{ fontSize: '14px', marginTop: '1vh', float: 'left' }} color="default">{tag}</Tag>)}
+
+                                            </div>
                                         </>
                                         :
                                         <><div style={{ display: 'flex' }}>
@@ -234,7 +236,6 @@ export default class GameCard extends React.Component {
 
 
                                     <div>
-                                        {this.props.onHostPage ? <><br /> <br /></> : <></>}
                                         <Row>
                                             <Col span={12}>
                                                 <Statistic title="Price" value={this.props.gd.price} prefix={'USD'} />
