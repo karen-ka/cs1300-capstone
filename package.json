@@ -19,11 +19,12 @@
     "web-vitals": "^0.2.4"
   },
   "proxy": "http://localhost:8080",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
-    "eject": "craco eject"
+    "start": "node server.js",
+    "build": "craco build"
   },
   "eslintConfig": {
     "extends": [
