@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Tooltip, Row, Col, Card, Avatar, Button, Divider, Rate, Statistic, Typography, Tag } from 'antd';
+import { Tooltip, Row, Col, Card, Avatar, Button, Divider, Rate, Statistic, Typography, Tag, Alert } from 'antd';
 import LoginModal from './loginModal';
 import {
     CalendarOutlined,
@@ -39,11 +39,18 @@ export default class GameCard extends React.Component {
         const simpleStyle = this.props.onCheckoutModal ? { display: 'flex', width: '40vw', minWidth: '600px' } : { display: 'flex', width: '55vw', minWidth: '720px' };
         const divId = this.props.onHostPage ? "left-ant-card" : "left-card";
         const leftCardStyle = this.props.onHostPage ? { margin: 'auto', height: '100%', padding: '24px' } : { padding: '24px', margin: 'auto', display: 'flex', flexDirection: 'column', height: '100%' };
+
+        const loginMsg = (<Alert
+            message="Log In required to book games"
+            type="info"
+            showIcon
+        />);
+
         return (
             this.props.simple ?
                 // SIMPLE GAME CARD
                 <div style={simpleStyle}>
-                    <LoginModal ref={this.loginModal}></LoginModal>
+                    <LoginModal msg={loginMsg} ref={this.loginModal}></LoginModal>
                     <Card
                         style={{ width: 300, flex: 1.2, pointerEvents: 'none' }}
                         cover=
@@ -149,11 +156,9 @@ export default class GameCard extends React.Component {
                 // COMPLEX GAME CARD
 
                 <div style={currStyle}>
-                    <LoginModal ref={this.loginModal}></LoginModal>
-                    {/* <Link to={`/game/${this.props.gd.gameID}`}> */}
+                    <LoginModal msg={loginMsg} ref={this.loginModal}></LoginModal>
 
                     <Card
-                        // hoverable={true}
                         style={{ flex: 1.3, height: '100%', flexDirection: 'horizontal' }}
                         bodyStyle={{ padding: 'unset', }}
                         className="ant-card-hover"
@@ -276,7 +281,6 @@ export default class GameCard extends React.Component {
                             </Col>
                         </Row>
                     </Card>
-                    {/* </Link> */}
 
                 </div >
 

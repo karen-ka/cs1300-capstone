@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'antd/dist/antd.css';
 import { Modal, Button, Alert } from 'antd';
 import LoginForm from './LoginForm';
 import { Redirect } from 'react-router-dom';
@@ -73,11 +72,11 @@ export default class LoginModal extends React.Component {
   };
 
   render() {
-    const modalProps = this.props.onUserPage ? { maskClosable: false, closable: false } : {};
+    // const modalProps = this.props.onUserPage ? { maskClosable: false, closable: false } : {};
     // Redirect to profile page after logging in for every other page (except for the search page)
     // Current just does to search
 
-    console.log(this.props)
+    // console.log(this.props)
     if (this.state.profileRedirect) {
       return <Redirect to={{
         pathname: '/user',
@@ -94,9 +93,22 @@ export default class LoginModal extends React.Component {
         footer={[
           <></>
         ]}
-        {...modalProps}
+      // {...modalProps}
       >
-        <p>{this.state.modalText}</p>
+
+        {this.props.msg ?
+          (<div style={{ display: 'flex', justifyContent: 'space-around', marginBottom: '5vh' }}>
+
+            {this.props.msg}
+
+          </div>)
+
+          :
+
+          <></>
+        }
+
+
 
         <LoginForm id="submit-form" handleSuccess={this.handleSuccess} handleError={this.handleError}></LoginForm>
 
@@ -107,7 +119,7 @@ export default class LoginModal extends React.Component {
             </Button>
         </div>
 
-      </Modal>
+      </Modal >
     );
   }
 }
