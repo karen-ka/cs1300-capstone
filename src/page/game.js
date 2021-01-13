@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Row, Col, Card, Typography, Button, Statistic, } from 'antd';
+import { Layout, Row, Col, Card, Typography, Button, Statistic, Alert } from 'antd';
 import Navbar from '../component/navbar.js';
 import HostCard from '../component/HostCard.jsx';
 import LoginModal from '../component/loginModal';
@@ -64,6 +64,12 @@ export default class Game extends React.Component {
   render() {
     const gd = this.gd;
     const hd = this.hd;
+    const loginMsg = (<Alert
+      message="Log In required to book games"
+      type="info"
+      showIcon
+    />);
+
     return (
       <Layout>
         <Header>
@@ -109,7 +115,7 @@ export default class Game extends React.Component {
                 </Row>
                 <br />
 
-                <LoginModal ref={this.loginModal}></LoginModal>
+                <LoginModal msg={loginMsg} ref={this.loginModal}></LoginModal>
                 <CheckoutModal ref={this.checkoutModal} game={this.gd}></CheckoutModal>
 
                 <Button style={{ width: '100%' }} align="center" onClick={this.handleClick} type="primary" disabled={this.state.booked}>{this.state.text}</Button>
