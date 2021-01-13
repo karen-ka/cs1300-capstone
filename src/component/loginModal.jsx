@@ -9,10 +9,9 @@ import logo from '../img/logo.png';
 export default class LoginModal extends React.Component {
   constructor (props) {
     super(props);
-    this.loginModal = React.createRef();
+    this.loginForm = React.createRef();
     this.state = {
       visible: false,
-      loading: false,
       modalText: <></>,
       profileRedirect: false,
       maskClosable: true,
@@ -33,7 +32,7 @@ export default class LoginModal extends React.Component {
   };
 
   handleOk = () => {
-    this.setState({ loading: true, maskClosable: false, closable: false, });
+    this.setState({ maskClosable: false, closable: false, });
   };
 
   handleCancel = () => {
@@ -52,10 +51,10 @@ export default class LoginModal extends React.Component {
         /><br /></>,
         // modalText: "Username/Password doesn't match or doesn't exist. Please try again or sign up for an account.",
         visible: true,
-        loading: false,
         maskClosable: true,
         closable: true,
       });
+      this.loginForm.current.unsetLoading();
     }, 3000);
   };
 
@@ -64,8 +63,8 @@ export default class LoginModal extends React.Component {
       this.setState({
         // modalText: "Success! Logging you in!",
         visible: true,
-        loading: false
       });
+      this.loginForm.current.unsetLoading();
     }, 2000);
     // redirect to user page after a few seconds
     setTimeout(() => {
@@ -82,11 +81,9 @@ export default class LoginModal extends React.Component {
   };
 
   render() {
-    // const modalProps = this.props.onUserPage ? { maskClosable: false, closable: false } : {};
     // Redirect to profile page after logging in for every other page (except for the search page)
     // Current just does to search
 
-    // console.log(this.props)
     if (this.state.profileRedirect) {
       return <Redirect to={{
         pathname: '/user',
@@ -98,7 +95,6 @@ export default class LoginModal extends React.Component {
       <Modal
         title="Log In"
         visible={this.state.visible}
-        onOk={this.handleOk}
         onCancel={this.handleCancel}
         footer={[
           <></>
@@ -128,16 +124,7 @@ export default class LoginModal extends React.Component {
           <></>
         }
 
-
-
-        <LoginForm id="submit-form" handleSuccess={this.handleSuccess} handleError={this.handleError}></LoginForm>
-
-
-        <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-          <Button style={{ width: '70%' }} type="primary" form="loginForm" key="submit" htmlType="submit" onClick={this.handleOk} loading={this.state.loading}>
-            Log In
-            </Button>
-        </div>
+        <LoginForm id="submit-form" handleOk={this.handleOk} handleSuccess={this.handleSuccess} handleError={this.handleError} ref={this.loginForm}></LoginForm>
 
       </Modal >
     );

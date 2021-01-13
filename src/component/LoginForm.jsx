@@ -5,7 +5,25 @@ import { Menu } from 'antd';
 
 export default class LoginForm extends React.Component {
 
+  constructor (props) {
+    super(props);
+    this.loginModal = React.createRef();
+    this.state = {
+      loading: false,
+    };
+  }
+
+  setLoading = () => {
+    this.setState({ loading: true });
+  }
+
+  unsetLoading = () => {
+    this.setState({ loading: false });
+  }
+
   onFinish = values => {
+    this.setLoading();
+    this.props.handleOk();
     const username = values['username'];
     const password = values['password'];
     // replace with mongo call
@@ -24,6 +42,10 @@ export default class LoginForm extends React.Component {
       });
   };
 
+  onFinishFailed = () => {
+    console.log('failed')
+  }
+
   render() {
     return (
       <Form
@@ -33,6 +55,7 @@ export default class LoginForm extends React.Component {
         className="login-form"
         initialValues={{ remember: true }}
         onFinish={this.onFinish}
+        onFinishFailed={this.onFinishFailed}
         style={{ width: '70%', margin: 'auto' }}
       >
         <Form.Item
@@ -50,6 +73,11 @@ export default class LoginForm extends React.Component {
             type="password"
             placeholder="Password"
           />
+        </Form.Item>
+        <Form.Item>
+          <Button style={{ width: '100%', }} type="primary" form="loginForm" key="submit" htmlType="submit" loading={this.state.loading}>
+            Log In
+            </Button>
         </Form.Item>
       </Form>
     );
