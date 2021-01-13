@@ -3,12 +3,12 @@ import '../App.less';
 import GameCard from './GameCard';
 import { gameinfo, hostData } from '../gameData.js'
 import Navbar from './navbar.js';
-import { Row, Col, Layout, Typography, Spin, Alert } from 'antd';
+import { Row, Col, Layout, Typography, Spin, Alert, Tag } from 'antd';
 import CheckoutModal from './CheckoutModal'
 import FilterBar from './FilterBar'
 import { LoadingOutlined } from '@ant-design/icons';
 const { Header, Footer, Sider, Content } = Layout;
-const { Title } = Typography;
+const { Title, Text } = Typography;
 
 
 /**
@@ -72,6 +72,14 @@ export default class Search extends React.Component {
     this.checkoutModal.current.showModal();
   }
 
+  getDisplayText = () => {
+    if (this.state.filteredPossibleGames.length == 1) {
+      return <Tag style={{ marginTop: '0.5em', marginRight: '0' }}>"1 game"</Tag>;
+    } else if (this.state.filteredPossibleGames.length > 0) {
+      return <Tag style={{ marginTop: '0.5em', marginRight: '0' }}>{this.state.filteredPossibleGames.length} games</Tag>
+    }
+  }
+
   createCards = item => {
     return (
       <Row gutter={[16, 48]} align='middle' width='100%' justify='center'>
@@ -117,12 +125,14 @@ export default class Search extends React.Component {
         <Header>
           <Navbar></Navbar>
         </Header>
-        <Content>
+        <Content style={{ minHeight: '83vh' }}>
           <FilterBar page="Games" handleGameFilter={this.handleGameFilter} handlePriceFilter={this.handlePriceFilter} />
           <CheckoutModal ref={this.checkoutModal} game={this.state.currGame} hd={this.state.hd}></CheckoutModal>
           <div >
-            <div style={{ textAlign: 'left', width: '50%', margin: 'auto', padding: '3vh 0 3vh 0', minWidth: '400px' }}>
-              <h1>Find the best game for your needs.</h1>
+            <div style={{ textAlign: 'left', width: '50%', margin: 'auto', padding: '5vh 0 5vh 0', minWidth: '400px' }}>
+              <h1 style={{ float: 'left', paddingRight: '24px' }}>Find the best game for your needs.</h1> {this.getDisplayText()}
+              <br />
+              <br />
               <p>
                 We’ve got you covered. Whether you’re new or a pro, choose from a game hosted by one of our experienced game hosts! On StartPlaying.Games, you’ll find the perfect game that fits your playing style.
           </p>
@@ -139,7 +149,7 @@ export default class Search extends React.Component {
               (this.state.filteredPossibleGames.length == 0 && !this.state.loading) ?
                 <Row gutter={[16, 48]} align='middle' width='100%' justify='center'>
                   <Col>
-                    <Alert style={{ textAlign: 'left' }} message="No Games Left" description="Please come back later to see if there's more games being hosted!" type="info" showIcon />
+                    <Alert style={{ textAlign: 'left' }} message="No Games Left" description="Please come back later to see if there's more games available!" type="info" showIcon />
                   </Col>
                 </Row> : <></>
             }

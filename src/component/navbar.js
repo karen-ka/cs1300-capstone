@@ -94,7 +94,7 @@ export default class Navbar extends React.Component {
             Find Hosts
           </Menu.Item>
           {localStorage.getItem("currentUser") !== null ?
-            <SubMenu style={{ borderBottom: 'unset' }} onTitleClick={this.handleClick} key="userMenu" icon={<Avatar style={{ marginTop: '1vh' }} size="large" icon={<UserOutlined style={{ margin: 'auto', }} />} />} popupOffset={[-30, 0]}  >
+            <SubMenu style={{ borderBottom: 'unset', }} onTitleClick={this.handleClick} key="userMenu" icon={<Avatar style={{ marginTop: '1vh' }} size="large" icon={<UserOutlined style={{ margin: 'auto', }} />} />} popupOffset={[-30, 0]}  >
               <Menu.Item key="user" >Dashboard</Menu.Item>
               <Menu.Divider></Menu.Divider>
               <Menu.Item key="logout" >Logout</Menu.Item>

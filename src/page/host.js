@@ -100,7 +100,7 @@ export default class Host extends React.Component {
         <Header>
           <Navbar />
         </Header>
-        <Content style={{ width: '80%', margin: 'auto', minWidth: '1100px' }}>
+        <Content style={{ width: '80%', margin: 'auto', minWidth: '900px' }}>
           <Row gutter={24} justify="center" style={{ marginTop: 36 }}>
             <Col span={7}>
               <HostCard loggedIn={this.loggedIn} hd={this.hd} />

@@ -4,17 +4,18 @@ import 'antd/dist/antd.css';
 import { Modal, Button, Alert } from 'antd';
 import RegisterForm from './RegisterForm';
 import { Redirect } from 'react-router-dom';
+import logo from '../img/logo.png';
 
 export default class RegisterModal extends React.Component {
   constructor (props) {
     super(props);
-    this.registerModal = React.createRef();
+    this.registerForm = React.createRef();
     this.state = {
       visible: false,
-      loading: false,
       modalText: <></>,
       profileRedirect: false,
-      showAlert: false
+      maskClosable: true,
+      closable: true,
     };
   }
 
@@ -22,8 +23,12 @@ export default class RegisterModal extends React.Component {
     this.setState({ visible: true })
   };
 
+  afterClose = () => {
+    this.setState({ modalText: <></>, })
+  }
+
   handleOk = () => {
-    this.setState({ loading: true });
+    this.setState({ maskClosable: false, closable: false });
   };
 
   handleCancel = () => {
@@ -41,9 +46,10 @@ export default class RegisterModal extends React.Component {
           showIcon
         /><br /></>,
         visible: true,
-        loading: false,
-        showAlert: true,
+        maskClosable: true,
+        closable: true,
       });
+      this.registerForm.current.unsetLoading();
     }, 3000);
   };
 
@@ -52,8 +58,8 @@ export default class RegisterModal extends React.Component {
       this.setState({
         // modalText: "Success! Logging you in!",
         visible: true,
-        loading: false
       });
+      this.registerForm.current.unsetLoading();
     }, 2000);
     // redirect to user page after a few seconds
     setTimeout(() => {
@@ -84,17 +90,19 @@ export default class RegisterModal extends React.Component {
         footer={[
           <></>
         ]}
+        destroyOnClose={true}
+        maskClosable={this.state.maskClosable}
+        closable={this.state.closable}
+        afterClose={this.afterClose}
       >
+
+        <div style={{ width: '100%', textAlign: 'center', marginBottom: '24px' }}>
+          <img src={logo}></img>
+        </div>
 
         {this.state.modalText}
 
-        <RegisterForm id="submit-form" handleSuccess={this.handleSuccess} handleError={this.handleError}></RegisterForm>
-
-        <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-          <Button style={{ width: '70%', margin: 'auto' }} type="primary" form="registerForm" key="submit" htmlType="submit" onClick={this.handleOk} loading={this.state.loading}>
-            Sign Up
-            </Button>
-        </div>
+        <RegisterForm id="submit-form" ref={this.registerForm} handleOk={this.handleOk} handleSuccess={this.handleSuccess} handleError={this.handleError}></RegisterForm>
 
       </Modal>
     );

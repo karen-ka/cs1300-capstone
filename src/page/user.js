@@ -157,7 +157,7 @@ class Search extends React.Component {
         </Header>
         {this.loggedIn ?
           <>
-            <Content style={{ float: 'center', width: '70%', marginTop: '10vh', marginLeft: 'auto', marginRight: 'auto', textAlign: 'left' }}>
+            <Content style={{ float: 'center', width: '60%', marginTop: '10vh', marginLeft: 'auto', marginRight: 'auto', textAlign: 'left' }}>
 
               <Text style={{ fontSize: '2em', marginTop: '200px', marginBottom: '20vh' }}>Welcome back, <b>{this.username}</b>!</Text>
               <br />
