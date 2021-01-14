@@ -137,7 +137,7 @@ export default class Navbar extends React.Component {
             maskClosable={true}
             onClose={this.onClose}
             visible={this.state.drawerVisible}
-          // style={{ width: '30vw' }}
+            width={200}
           >
             <Menu onClick={this.handleClick} selectedKeys={[current]} mode="vertical" style={{ border: 'unset', backgroundColor: 'transparent', marginTop: '5vh' }}>
               <Menu.Item key="game_search" style={{ borderBottom: 'unset' }}>

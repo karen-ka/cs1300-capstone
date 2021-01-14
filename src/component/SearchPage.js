@@ -74,9 +74,9 @@ export default class Search extends React.Component {
 
   getDisplayText = () => {
     if (this.state.filteredPossibleGames.length == 1) {
-      return <Tag style={{ marginTop: '0.5em', marginRight: '0' }}>"1 game"</Tag>;
+      return <Tag className="hide-on-mobile" style={{ marginTop: '0.5em', marginRight: '0' }}>"1 game"</Tag>;
     } else if (this.state.filteredPossibleGames.length > 0) {
-      return <Tag style={{ marginTop: '0.5em', marginRight: '0' }}>{this.state.filteredPossibleGames.length} games</Tag>
+      return <Tag className="hide-on-mobile" style={{ marginTop: '0.5em', marginRight: '0' }}>{this.state.filteredPossibleGames.length} games</Tag>
     }
   }
 
@@ -129,7 +129,7 @@ export default class Search extends React.Component {
           <FilterBar page="Games" handleGameFilter={this.handleGameFilter} handlePriceFilter={this.handlePriceFilter} />
           <CheckoutModal ref={this.checkoutModal} game={this.state.currGame} hd={this.state.hd}></CheckoutModal>
           <div >
-            <div style={{ textAlign: 'left', width: '55%', margin: 'auto', padding: '5vh 0 5vh 0', minWidth: '400px' }}>
+            <div className="search-hero">
               <h1 style={{ float: 'left', paddingRight: '24px' }}>Find the best game for your needs.</h1> {this.getDisplayText()}
               <br />
               <br />

@@ -138,132 +138,210 @@ export default class GameCard extends React.Component {
 
 
                     // COMPLEX GAME CARD
+                    <>
+                        <div className="m-gamecard">
+                            <Card
+                                style={{ height: '100%', width: '90%', margin: 'auto', flexDirection: 'horizontal' }}
+                                bodyStyle={{ padding: 'unset', }}
+                                className="ant-card-hover"
+                            >
 
-                    <div style={currStyle}>
-                        <Card
-                            style={{ flex: 1.3, height: '100%', flexDirection: 'horizontal' }}
-                            bodyStyle={{ padding: 'unset', }}
-                            className="ant-card-hover"
-                        >
+                                <Link to={`/game/${this.props.gd.gameID}`}>
+                                    <div className="trigger-card-hover" style={{ height: '100%' }}>
+                                        <Row style={{ display: 'flex', flexDirection: 'vertical' }}>
 
+                                            <Col span={24} style={{ textAlign: 'left' }}>
 
-                            <Row style={{ display: 'flex', flexDirection: 'horizontal' }}>
-
-                                <Col span={13} style={{ textAlign: 'left' }}>
-                                    <Link to={`/game/${this.props.gd.gameID}`}>
-                                        <div className="trigger-card-hover" style={{ display: 'flex', height: '100%' }}>
-                                            <div style={{ flexGrow: '1' }}>
-                                                <img
-                                                    style={{ objectFit: 'contain', width: '100%', marginBottom: '10px', }}
-                                                    src={`${this.props.gd.logo}`}
-                                                ></img>
-
-
-                                                <div style={{ padding: '24px' }}>
-                                                    <Title level={3}>{this.props.gd.name}</Title>
-                                                    <><Paragraph ellipsis={{ rows: 4 }}>{this.props.gd.info}</Paragraph>
-                                                        {this.props.onHostPage ? <></> : <><Text type="secondary" style={{ float: "left" }}>Tags </Text>
-                                                            <br />
-                                                            {this.props.gd.tags.map(tag => <Tag style={{ fontSize: '14px', marginTop: '1vh' }} color="default">{tag}</Tag>)}</>}</>
-                                                    <br />
-                                                </div>
-                                            </div>
-
-                                            <div >
-                                                <Divider type="vertical" style={{ height: '100%', margin: 'auto' }} />
-                                            </div>
-                                        </div>
-
-                                    </Link>
-                                </Col>
+                                                <div style={{ flexGrow: '1' }}>
+                                                    <img
+                                                        style={{ objectFit: 'contain', width: '100%', marginBottom: '10px', }}
+                                                        src={`${this.props.gd.logo}`}
+                                                    ></img>
 
 
-                                <Col span={11} style={{ flexGrow: '1' }}>
-                                    <div style={leftCardStyle}>
-                                        {this.props.onHostPage ?
-                                            <>
-                                                <br />
-                                                <Text type="secondary" style={{ width: '100%', textAlign: "left", paddingBottom: '1vh' }}>Tags </Text>
-                                                <div style={{ paddingBottom: '48px' }}>
-                                                    {this.props.gd.tags.map(tag => <Tag style={{ fontSize: '14px', marginTop: '1vh', float: 'left' }} color="default">{tag}</Tag>)}
-
-                                                </div>
-                                            </>
-                                            :
-                                            <><div style={{ display: 'flex' }}>
-                                                <div style={{ flex: 0.5, paddingRight: '10px' }}>
-                                                    <Avatar size={90} src={`${process.env.PUBLIC_URL}/${this.props.hd.pfp}`} />
-                                                    <br></br>
-                                                </div>
-                                                <div style={{ flex: 0.5, textAlign: 'left' }}>
-                                                    <Title level={4} style={{ textAlign: 'left', marginTop: '1vh' }}>{this.props.hd.name}</Title>
-
-                                                    <Rate disabled={true} defaultValue={this.props.hd.rating} style={{ fontSize: 10, paddingRight: '1vw' }} />
-
-                                                    <Text type="secondary">{`${this.props.hd.numberOfGames} games`}</Text>
-                                                </div>
-
-                                            </div>
-                                                <div style={{ display: 'flex', paddingTop: '1vh' }}>
-
-                                                    <div>
-                                                        <Text type="secondary" style={{ float: "left" }}>Intro</Text>
-                                                        <br />
-                                                        {<Paragraph style={{ textAlign: 'left', marginTop: '1vh' }} ellipsis={{ rows: 3 }}><> {this.props.hd.intro}</></Paragraph>}
+                                                    <div style={{ paddingLeft: '24px', paddingRight: '24px', paddingTop: '24px' }}>
+                                                        <Title level={3}>{this.props.gd.name}</Title>
+                                                        <Paragraph ellipsis={{ rows: 4 }}>{this.props.gd.info}</Paragraph>
                                                     </div>
                                                 </div>
-                                                <Divider /></>
-                                        }
 
 
-                                        <div>
+                                            </Col>
+
+                                        </Row>
+
+                                        <div style={{ width: '80%', margin: 'auto', textAlign: 'center' }}>
                                             <Row>
                                                 <Col span={12}>
-                                                    <Statistic title="Price" value={this.props.gd.price} prefix={'USD'} />
+                                                    <Statistic style={{ textAlign: 'center' }} title="Price" value={this.props.gd.price} prefix={'USD'} />
                                                 </Col>
                                                 <Col span={12}>
-                                                    <Statistic title="Platform" value={this.props.gd.location} />
+                                                    <Statistic style={{ textAlign: 'center' }} title="Platform" value={this.props.gd.location} />
                                                 </Col>
                                             </Row>
                                             <Row>
                                                 <Col span={12}>
-                                                    <Statistic title="Day" value={this.props.gd.day} />
+                                                    <Statistic style={{ textAlign: 'center' }} title="Day" value={this.props.gd.day} />
                                                 </Col>
                                                 <Col span={12}>
-                                                    <Statistic title="Time" value={`${this.props.gd.time}pm`} />
+                                                    <Statistic style={{ textAlign: 'center' }} title="Time" value={`${this.props.gd.time}pm`} />
                                                 </Col>
                                             </Row>
-                                        </div>
-                                        <Divider />
-
-                                        <div style={{ display: 'flex', justifyContent: 'space-around', margin: 'auto', width: '100%' }}>
-                                            {this.props.loggedIn && !this.props.onUserPage ?
-                                                (disabled ?
-                                                    (
-                                                        <Button type='primary' onClick={this.handleLoggedInClick} style={{ justifyContent: 'center', width: '100%' }} disabled={disabled}>Already Booked</Button>
-                                                    )
-                                                    : <Button type='primary' onClick={this.handleLoggedInClick} style={{ justifyContent: 'center', width: '100%' }} disabled={disabled}>Book Now</Button>) :
-                                                (this.props.onUserPage && this.props.loggedIn ? (<Row style={{ width: '100%', lineHeight: '40px', verticalAlign: 'center' }}>
-                                                    <Col span={24} style={{ textAlign: "right", height: '40px', display: 'flex', verticalAlign: 'center' }}>
-                                                        <Tooltip title="Message host">
-                                                            <Button shape="circle" size="large" onClick={this.handleMessageClick} icon={<MessageOutlined />} style={{ lineHeight: '30px', margin: "0 5px 0 5px" }} />
-                                                        </Tooltip>
-                                                        <Tooltip title="Add to calendar">
-                                                            <Button shape="circle" size="large" href={this.generateGcal()} target="_blank" icon={<CalendarOutlined style={{ verticalAlign: '-0.125em' }} />} style={{ lineHeight: '30px', margin: "0 5px 0 5px" }} />
-                                                        </Tooltip>
-                                                        <Tooltip title="Share">
-                                                            <Button shape="circle" size="large" onClick={this.handleShareClick} target="_blank" icon={<ShareAltOutlined />} style={{ lineHeight: '30px', margin: "0 5px 0 5px" }} />
-                                                        </Tooltip>
-
-                                                    </Col>
-                                                </Row>) : <Button type='primary' onClick={this.handleLoggedOutClick} style={{ justifyContent: 'center', width: '100%' }}>Book Now</Button>)}
                                         </div>
                                     </div>
-                                </Col>
-                            </Row>
-                        </Card>
 
-                    </div >}</>
+                                </Link>
+
+                                <div style={{ display: 'flex', justifyContent: 'space-around', margin: 'auto', width: '80%', paddingBottom: '24px' }}>
+                                    {this.props.loggedIn && !this.props.onUserPage ?
+                                        (disabled ?
+                                            (
+                                                <Button type='primary' onClick={this.handleLoggedInClick} style={{ justifyContent: 'center', width: '100%' }} disabled={disabled}>Already Booked</Button>
+                                            )
+                                            : <Button type='primary' onClick={this.handleLoggedInClick} style={{ justifyContent: 'center', width: '100%' }} disabled={disabled}>Book Now</Button>) :
+                                        (this.props.onUserPage && this.props.loggedIn ? (<Row style={{ width: '100%', lineHeight: '40px', verticalAlign: 'center' }}>
+                                            <Col span={24} style={{ textAlign: "right", height: '40px', display: 'flex', verticalAlign: 'center' }}>
+                                                <Tooltip title="Message host">
+                                                    <Button shape="circle" size="large" onClick={this.handleMessageClick} icon={<MessageOutlined />} style={{ lineHeight: '30px', margin: "0 5px 0 5px" }} />
+                                                </Tooltip>
+                                                <Tooltip title="Add to calendar">
+                                                    <Button shape="circle" size="large" href={this.generateGcal()} target="_blank" icon={<CalendarOutlined style={{ verticalAlign: '-0.125em' }} />} style={{ lineHeight: '30px', margin: "0 5px 0 5px" }} />
+                                                </Tooltip>
+                                                <Tooltip title="Share">
+                                                    <Button shape="circle" size="large" onClick={this.handleShareClick} target="_blank" icon={<ShareAltOutlined />} style={{ lineHeight: '30px', margin: "0 5px 0 5px" }} />
+                                                </Tooltip>
+
+                                            </Col>
+                                        </Row>) : <Button type='primary' onClick={this.handleLoggedOutClick} style={{ justifyContent: 'center', width: '100%' }}>Book Now</Button>)}
+                                </div>
+                            </Card>
+                        </div>
+
+                        <div style={currStyle} className="d-gamecard">
+                            <Card
+                                style={{ flex: 1.3, height: '100%', flexDirection: 'horizontal' }}
+                                bodyStyle={{ padding: 'unset', }}
+                                className="ant-card-hover"
+                            >
+
+
+                                <Row style={{ display: 'flex', flexDirection: 'horizontal' }}>
+
+                                    <Col span={13} style={{ textAlign: 'left' }}>
+                                        <Link to={`/game/${this.props.gd.gameID}`}>
+                                            <div className="trigger-card-hover" style={{ display: 'flex', height: '100%' }}>
+                                                <div style={{ flexGrow: '1' }}>
+                                                    <img
+                                                        style={{ objectFit: 'contain', width: '100%', marginBottom: '10px', }}
+                                                        src={`${this.props.gd.logo}`}
+                                                    ></img>
+
+
+                                                    <div style={{ padding: '24px' }}>
+                                                        <Title level={3}>{this.props.gd.name}</Title>
+                                                        <><Paragraph ellipsis={{ rows: 4 }}>{this.props.gd.info}</Paragraph>
+                                                            {this.props.onHostPage ? <></> : <><Text type="secondary" style={{ float: "left" }}>Tags </Text>
+                                                                <br />
+                                                                {this.props.gd.tags.map(tag => <Tag style={{ fontSize: '14px', marginTop: '1vh' }} color="default">{tag}</Tag>)}</>}</>
+                                                        <br />
+                                                    </div>
+                                                </div>
+
+                                                <div >
+                                                    <Divider type="vertical" style={{ height: '100%', margin: 'auto' }} />
+                                                </div>
+                                            </div>
+
+                                        </Link>
+                                    </Col>
+
+
+                                    <Col span={11} style={{ flexGrow: '1' }}>
+                                        <div style={leftCardStyle}>
+                                            {this.props.onHostPage ?
+                                                <>
+                                                    <br />
+                                                    <Text type="secondary" style={{ width: '100%', textAlign: "left", paddingBottom: '1vh' }}>Tags </Text>
+                                                    <div style={{ paddingBottom: '48px' }}>
+                                                        {this.props.gd.tags.map(tag => <Tag style={{ fontSize: '14px', marginTop: '1vh', float: 'left' }} color="default">{tag}</Tag>)}
+
+                                                    </div>
+                                                </>
+                                                :
+                                                <><div style={{ display: 'flex' }}>
+                                                    <div style={{ flex: 0.5, paddingRight: '10px' }}>
+                                                        <Avatar size={90} src={`${process.env.PUBLIC_URL}/${this.props.hd.pfp}`} />
+                                                        <br></br>
+                                                    </div>
+                                                    <div style={{ flex: 0.5, textAlign: 'left' }}>
+                                                        <Title level={4} style={{ textAlign: 'left', marginTop: '1vh' }}>{this.props.hd.name}</Title>
+
+                                                        <Rate disabled={true} defaultValue={this.props.hd.rating} style={{ fontSize: 10, paddingRight: '1vw' }} />
+
+                                                        <Text type="secondary">{`${this.props.hd.numberOfGames} games`}</Text>
+                                                    </div>
+
+                                                </div>
+                                                    <div style={{ display: 'flex', paddingTop: '1vh' }}>
+
+                                                        <div>
+                                                            <Text type="secondary" style={{ float: "left" }}>Intro</Text>
+                                                            <br />
+                                                            {<Paragraph style={{ textAlign: 'left', marginTop: '1vh' }} ellipsis={{ rows: 3 }}><> {this.props.hd.intro}</></Paragraph>}
+                                                        </div>
+                                                    </div>
+                                                    <Divider /></>
+                                            }
+
+
+                                            <div>
+                                                <Row>
+                                                    <Col span={12}>
+                                                        <Statistic title="Price" value={this.props.gd.price} prefix={'USD'} />
+                                                    </Col>
+                                                    <Col span={12}>
+                                                        <Statistic title="Platform" value={this.props.gd.location} />
+                                                    </Col>
+                                                </Row>
+                                                <Row>
+                                                    <Col span={12}>
+                                                        <Statistic title="Day" value={this.props.gd.day} />
+                                                    </Col>
+                                                    <Col span={12}>
+                                                        <Statistic title="Time" value={`${this.props.gd.time}pm`} />
+                                                    </Col>
+                                                </Row>
+                                            </div>
+                                            <Divider />
+
+                                            <div style={{ display: 'flex', justifyContent: 'space-around', margin: 'auto', width: '100%' }}>
+                                                {this.props.loggedIn && !this.props.onUserPage ?
+                                                    (disabled ?
+                                                        (
+                                                            <Button type='primary' onClick={this.handleLoggedInClick} style={{ justifyContent: 'center', width: '100%' }} disabled={disabled}>Already Booked</Button>
+                                                        )
+                                                        : <Button type='primary' onClick={this.handleLoggedInClick} style={{ justifyContent: 'center', width: '100%' }} disabled={disabled}>Book Now</Button>) :
+                                                    (this.props.onUserPage && this.props.loggedIn ? (<Row style={{ width: '100%', lineHeight: '40px', verticalAlign: 'center' }}>
+                                                        <Col span={24} style={{ textAlign: "right", height: '40px', display: 'flex', verticalAlign: 'center' }}>
+                                                            <Tooltip title="Message host">
+                                                                <Button shape="circle" size="large" onClick={this.handleMessageClick} icon={<MessageOutlined />} style={{ lineHeight: '30px', margin: "0 5px 0 5px" }} />
+                                                            </Tooltip>
+                                                            <Tooltip title="Add to calendar">
+                                                                <Button shape="circle" size="large" href={this.generateGcal()} target="_blank" icon={<CalendarOutlined style={{ verticalAlign: '-0.125em' }} />} style={{ lineHeight: '30px', margin: "0 5px 0 5px" }} />
+                                                            </Tooltip>
+                                                            <Tooltip title="Share">
+                                                                <Button shape="circle" size="large" onClick={this.handleShareClick} target="_blank" icon={<ShareAltOutlined />} style={{ lineHeight: '30px', margin: "0 5px 0 5px" }} />
+                                                            </Tooltip>
+
+                                                        </Col>
+                                                    </Row>) : <Button type='primary' onClick={this.handleLoggedOutClick} style={{ justifyContent: 'center', width: '100%' }}>Book Now</Button>)}
+                                            </div>
+                                        </div>
+                                    </Col>
+                                </Row>
+                            </Card>
+
+                        </div > </>}</>
 
         );
     }

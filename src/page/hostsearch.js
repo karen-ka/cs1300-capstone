@@ -19,9 +19,9 @@ export default class Search extends React.Component {
 
   getDisplayText = () => {
     if (this.HostCards.length == 1) {
-      return <Tag style={{ marginTop: '0.5em', marginRight: '0' }}>1 host</Tag>;
+      return <Tag sclassName="hide-on-mobile" style={{ marginTop: '0.5em', marginRight: '0' }}>1 host</Tag>;
     } else if (this.HostCards.length > 0) {
-      return <Tag style={{ marginTop: '0.5em', marginRight: '0' }}>{this.HostCards.length} hosts</Tag>
+      return <Tag className="hide-on-mobile" style={{ marginTop: '0.5em', marginRight: '0' }}>{this.HostCards.length} hosts</Tag>
     }
   }
 
@@ -33,7 +33,9 @@ export default class Search extends React.Component {
         </Header>
         <Content>
           <FilterBar page="Hosts" handleGameFilter={this.handleGameFilter} handlePriceFilter={this.handlePriceFilter} />
-          <div style={{ textAlign: 'left', width: '55%', margin: 'auto', padding: '5vh 0 5vh 0', minWidth: '400px' }}>
+
+
+          <div className="search-hero" >
             <h1 style={{ float: 'left', paddingRight: '24px' }}>Find the best host for your needs.</h1> {this.getDisplayText()}
             <br />
             <br />
