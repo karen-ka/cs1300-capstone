@@ -1,9 +1,7 @@
 # TODO:
 [wireframes for reference](https://www.figma.com/file/DfjXAp0tvCbh9EX3XJ32bl/Iterative-Design-Final-Ver---DnD?node-id=53%3A933).
 
-- [ ] make home page text responsive
-- [ ] make navbar responsive
-- [ ] Final testing before handing in to Jeff (TEST ON DIFF BROWSERS - brooken on firefox)
+- [ ] Final testing (desktop, ipad, mobile) before handing in to Jeff (scroll randomly broken sometimes ???)
 - [ ] Deploy website and give link to Jeff
 
 

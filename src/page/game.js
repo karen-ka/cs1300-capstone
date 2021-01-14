@@ -75,55 +75,183 @@ export default class Game extends React.Component {
         <Header>
           <Navbar />
         </Header>
-        <Content className="m-content">
-          <Row gutter={24} justify="center" style={{ marginTop: 36 }}>
-            <Col span={15}>
-              <Card
-                style={{ minWidth: '400px' }}
-                cover={<img src={gd.logo} width={600} />}>
-                <Title style={{ textAlign: 'left', width: '80%', margin: 'auto' }} level={3}>{gd.name}</Title>
-                <br></br>
-                <Paragraph style={{ textAlign: 'left', width: '80%', margin: 'auto' }}>{gd.info.split("\n").map((item, i) => <p key={i}>{item}</p>)}</Paragraph>
-                <br></br>
+        <div className="hide-on-ipad">
+          <Content className="m-content">
+            <Row gutter={24} justify="center" style={{ marginTop: 36 }}>
+              <Col span={15}>
+                <Card
+                  style={{ minWidth: '400px' }}
+                  cover={<img src={gd.logo} width={600} />}>
+                  <Title style={{ textAlign: 'left', width: '80%', margin: 'auto' }} level={3}>{gd.name}</Title>
+                  <br></br>
+                  <Paragraph style={{ textAlign: 'left', width: '80%', margin: 'auto' }}>{gd.info.split("\n").map((item, i) => <p key={i}>{item}</p>)}</Paragraph>
+                  <br></br>
 
-              </Card>
-              <br />
-
-              <Card
-                style={{ minWidth: '400px' }}
-              >
-
-                <div style={{ width: '80%', margin: 'auto' }}>
-                  <CarouselArrows style={{ width: '90%', margin: 'auto', height: '30vh' }} gd={gd} gallery={gd.gallery}></CarouselArrows>
-
-                </div>
-
-              </Card>
-            </Col>
-            <Col span={7}>
-              <Card style={{ marginBottom: 24, minWidth: '250px' }}>
-                <Title align="start" level={3}>Reserve Your Seat</Title>
-                <Row justify="space-around">
-                  <Col span={6}>
-                    <Statistic title="Price" value={gd.price} prefix={'USD'} />
-                    <Statistic title="Day" value={gd.day} />
-                  </Col>
-                  <Col span={6}>
-                    <Statistic title="Platform" value={gd.location} />
-                    <Statistic title="Time" value={`${gd.time}pm`} />
-                  </Col>
-                </Row>
+                </Card>
                 <br />
 
-                <LoginModal msg={loginMsg} ref={this.loginModal}></LoginModal>
-                <CheckoutModal ref={this.checkoutModal} game={this.gd}></CheckoutModal>
+                <Card
+                  style={{ minWidth: '400px' }}
+                >
 
-                <Button style={{ width: '100%' }} align="center" onClick={this.handleClick} type="primary" disabled={this.state.booked}>{this.state.text}</Button>
-              </Card>
-              <HostCard loggedIn={this.loggedIn} hd={hd} onGameDetailPage={true} />
-            </Col>
-          </Row>
-        </Content>
+                  <div style={{ width: '80%', margin: 'auto' }}>
+                    <CarouselArrows style={{ width: '90%', margin: 'auto', height: '30vh' }} gd={gd} gallery={gd.gallery}></CarouselArrows>
+
+                  </div>
+
+                </Card>
+              </Col>
+              <Col span={7}>
+                <Card style={{ marginBottom: 24, minWidth: '250px' }}>
+                  <Title align="start" level={3}>Reserve Your Seat</Title>
+                  <Row justify="space-around">
+                    <Col span={6}>
+                      <Statistic title="Price" value={gd.price} prefix={'USD'} />
+                      <Statistic title="Day" value={gd.day} />
+                    </Col>
+                    <Col span={6}>
+                      <Statistic title="Platform" value={gd.location} />
+                      <Statistic title="Time" value={`${gd.time}pm`} />
+                    </Col>
+                  </Row>
+                  <br />
+
+                  <LoginModal msg={loginMsg} ref={this.loginModal}></LoginModal>
+                  <CheckoutModal ref={this.checkoutModal} game={this.gd} hd={this.hd}></CheckoutModal>
+
+                  <Button style={{ width: '100%' }} align="center" onClick={this.handleClick} type="primary" disabled={this.state.booked}>{this.state.text}</Button>
+                </Card>
+                <HostCard loggedIn={this.loggedIn} hd={hd} onGameDetailPage={true} />
+              </Col>
+            </Row>
+          </Content>
+        </div>
+
+        <div className="show-on-ipad hide-on-mobile">
+          <Content style={{ width: '90%', }}>
+            <Row gutter={24} justify="center" style={{ marginTop: 36 }}>
+              <Col span={15}>
+                <Card
+                  // style={{ minWidth: '400px' }}
+                  cover={<img src={gd.logo} width={600} />}>
+                  <Title style={{ textAlign: 'left', width: '80%', margin: 'auto' }} level={3}>{gd.name}</Title>
+                  <br></br>
+                  <Paragraph style={{ textAlign: 'left', width: '80%', margin: 'auto' }}>{gd.info.split("\n").map((item, i) => <p key={i}>{item}</p>)}</Paragraph>
+                  <br></br>
+
+                </Card>
+                <br />
+
+                <Card
+                  style={{ minWidth: '400px' }}
+                >
+
+                  <div style={{ width: '80%', margin: 'auto' }}>
+                    <CarouselArrows style={{ width: '90%', margin: 'auto', height: '30vh' }} gd={gd} gallery={gd.gallery}></CarouselArrows>
+
+                  </div>
+
+                </Card>
+              </Col>
+              <Col span={7}>
+                <Card style={{ marginBottom: 24, minWidth: '250px' }}>
+                  <Title align="start" level={3}>Reserve Your Seat</Title>
+                  <Row justify="space-around">
+                    <Col span={6}>
+                      <Statistic title="Price" value={gd.price} prefix={'USD'} />
+                      <Statistic title="Day" value={gd.day} />
+                    </Col>
+                    <Col span={6}>
+                      <Statistic title="Platform" value={gd.location} />
+                      <Statistic title="Time" value={`${gd.time}pm`} />
+                    </Col>
+                  </Row>
+                  <br />
+
+                  <LoginModal msg={loginMsg} ref={this.loginModal}></LoginModal>
+                  <CheckoutModal ref={this.checkoutModal} game={this.gd} hd={this.hd}></CheckoutModal>
+
+                  <Button style={{ width: '100%' }} align="center" onClick={this.handleClick} type="primary" disabled={this.state.booked}>{this.state.text}</Button>
+                </Card>
+                <HostCard loggedIn={this.loggedIn} hd={hd} onGameDetailPage={true} />
+              </Col>
+            </Row>
+          </Content>
+
+        </div>
+
+        <div className="show-on-mobile">
+          <Content style={{ width: '90%', margin: 'auto' }}>
+            <Row gutter={24} justify="center" style={{ marginTop: 36 }}>
+              <Col span={24}>
+
+                <Card style={{ marginBottom: 24, minWidth: '250px' }}>
+                  <Title align="start" level={3}>Reserve Your Seat</Title>
+                  <Row justify="space-around">
+                    <Col span={6}>
+                      <Statistic title="Price" value={gd.price} prefix={'USD'} />
+                      <Statistic title="Day" value={gd.day} />
+                    </Col>
+                    <Col span={6}>
+                      <Statistic title="Platform" value={gd.location} />
+                      <Statistic title="Time" value={`${gd.time}pm`} />
+                    </Col>
+                  </Row>
+                  <br />
+
+                  <LoginModal msg={loginMsg} ref={this.loginModal}></LoginModal>
+                  <CheckoutModal ref={this.checkoutModal} game={this.gd} hd={this.hd}></CheckoutModal>
+
+                  <Button style={{ width: '100%' }} align="center" onClick={this.handleClick} type="primary" disabled={this.state.booked}>{this.state.text}</Button>
+                </Card>
+
+                <Card
+                  // style={{ minWidth: '400px' }}
+                  cover={<img src={gd.logo} width={600} />}>
+                  <Title style={{ textAlign: 'left', width: '80%', margin: 'auto' }} level={3}>{gd.name}</Title>
+                  <br></br>
+                  <Paragraph style={{ textAlign: 'left', width: '80%', margin: 'auto' }}>{gd.info.split("\n").map((item, i) => <p key={i}>{item}</p>)}</Paragraph>
+                  <br></br>
+
+                </Card>
+                <br />
+
+                <Card style={{ marginBottom: '24px' }}
+                >
+
+                  <div style={{ width: '80%', margin: 'auto', }}>
+                    <CarouselArrows style={{ margin: 'auto', }} gd={gd} gallery={gd.gallery}></CarouselArrows>
+
+                  </div>
+
+                </Card>
+              </Col>
+              <Col span={24}>
+                {/* <Card style={{ marginBottom: 24, minWidth: '250px' }}>
+                  <Title align="start" level={3}>Reserve Your Seat</Title>
+                  <Row justify="space-around">
+                    <Col span={6}>
+                      <Statistic title="Price" value={gd.price} prefix={'USD'} />
+                      <Statistic title="Day" value={gd.day} />
+                    </Col>
+                    <Col span={6}>
+                      <Statistic title="Platform" value={gd.location} />
+                      <Statistic title="Time" value={`${gd.time}pm`} />
+                    </Col>
+                  </Row>
+                  <br />
+
+                  <LoginModal msg={loginMsg} ref={this.loginModal}></LoginModal>
+                  <CheckoutModal ref={this.checkoutModal} game={this.gd}></CheckoutModal>
+
+                  <Button style={{ width: '100%' }} align="center" onClick={this.handleClick} type="primary" disabled={this.state.booked}>{this.state.text}</Button>
+                </Card> */}
+                <HostCard loggedIn={this.loggedIn} hd={hd} onGameDetailPage={true} />
+              </Col>
+            </Row>
+          </Content>
+
+        </div>
         <Footer />
       </Layout>
     );
