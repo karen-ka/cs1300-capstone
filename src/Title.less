@@ -1,5 +1,10 @@
-body {
+  body {
     background: #2d2d2d;
+  }
+
+  .m-innerIam {
+    display: hidden;
+    color: #FFE7D4;
   }
 
   .break {
@@ -14,6 +19,12 @@ body {
     color: rgb(255, 255, 255);
     width: 70%;
     // backdrop-filter: blur(2px);
+
+    padding-left: 0;
+    display: flex;
+    padding-top: 30vh;
+    width: 80vw;
+     margin: auto;
     
   }
   .Iam p {
@@ -59,36 +70,6 @@ body {
           animation-delay:2s;
   }
 
-  
-//   @-webkit-keyframes move {
-//       0%  { top: 0px; }
-//       20% { top: -50px; }
-//       40% { top: -100px; }
-//       60% { top: -150px; }
-//       80% { top: -200px; }
-//   }
-//   @-moz-keyframes move {
-//       0%  { top: 0px; }
-//       20% { top: -50px; }
-//       40% { top: -100px; }
-//       60% { top: -150px; }
-//       80% { top: -200px; }
-//   }
-//   @-o-keyframes move {
-//       0%  { top: 0px; }
-//       20% { top: -50px; }
-//       40% { top: -100px; }
-//       60% { top: -150px; }
-//       80% { top: -200px; }
-//   }
-//   @keyframes move {
-//       0%  { top: 0px; }
-//       20% { top: -50px; }
-//       40% { top: -100px; }
-//       60% { top: -150px; }
-//       80% { top: -200px; }
-//   }
-
   @keyframes move {
   0%, 8.33% {
     top: 0px;
@@ -104,5 +85,93 @@ body {
   }
   100% {
     top: -320px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  /* For mobile phones: */
+    .Iam {
+    letter-spacing: 1px;
+    padding: 0em 0em 0.5em 0em;
+    font: normal 30px/40px Roboto, sans-serif;
+    color: rgb(255, 255, 255);
+    width: 70%;
+    flex-direction: column;
+    text-align: center;
+    // backdrop-filter: blur(2px);
+    width: 100%;
+    margin: 0;
+    padding-top: 30vh;
+  }
+
+  .m-hero {
+    width: 100%;
+    text-align: center;
+  }
+
+  .m-subhero {
+    display: none;
+  }
+
+  .Iam .innerIam {
+    width: 100vw;
+    text-align: center;
+    margin: auto;
+  }
+  .Iam p {
+    padding-top: 1em;
+    height: 40px;
+    float: left;
+    margin-right: 0.3em;
+  }
+  .Iam b {
+    float: left;
+    overflow: hidden;
+    position: relative;
+    height: 40px;
+    top: 30px;
+  }
+
+  @keyframes move {
+    0%, 8.33% {
+      top: 0px;
+    }
+    25%, 33.33% {
+      top: -40px;
+    }
+    50%, 58.33%{
+      top: -80px;
+    }
+    75%, 83.33% {
+      top: -120px;
+    }
+    100% {
+      top: -160px;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+      .Iam {
+    letter-spacing: 1px;
+    padding: 0em 0em 0.5em 0em;
+    color: rgb(255, 255, 255);
+    width: 70%;
+    flex-direction: column;
+    text-align: center;
+    // backdrop-filter: blur(2px);
+    width: 100%;
+    margin: 0;
+    padding-top: 20vh;
+  }
+
+    .m-subhero {
+    display: none;
+  }
+
+    .Iam .innerIam {
+    width: 100vw;
+    text-align: center;
+    margin: auto;
   }
 }

@@ -14,31 +14,23 @@ function Home() {
       <Header>
         <Navbar></Navbar>
       </Header>
-      {/* <Content><div style={{backgroundImage: `url('../img/dndwp.jpg'`}}></div></Content> */}
       <Content>
         <div
           style={{
-            // filter: 'brightness(50%)',
             backgroundImage: `url(${background})`,
             height: '90vh',
             backgroundSize: "cover",
-            // display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             flexWrap: 'wrap',
             backgroundSize: '100% 100%',
-            // backdropFilter: 'blur(2px)',
           }}>
           <div style={{ height: '90vh', backdropFilter: 'blur(1px)' }}>
 
-
-            {/* <h1>StartPlaying.Games</h1>
-            <br></br> */}
             <div class="break"></div>
-            <div class="break"></div>
-            <div class="Iam" style={{ paddingLeft: 'none', display: 'flex', paddingTop: '30vh', width: '80vw', margin: 'auto' }}>
+            <div class="Iam" >
 
-              <p>StartPlaying.</p>
+              <p class="m-hero">StartPlaying.</p>
               <b>
                 <div class="innerIam">
                   Games<br />
@@ -47,21 +39,31 @@ function Home() {
                 and more<br />
                 Games
               </div>
+
+                <div class="m-innerIam">
+                  Games<br />
+                </div>
+
+                {/* <div class="innerIam">
+                  <Title style={{ margin: '0' }} level={2}>Games</Title>
+                  <Title style={{ margin: '0' }} level={2}>Dungeons & Dragons</Title>
+                  <Title style={{ margin: '0' }} level={2}>Games</Title>
+                  <Title style={{ margin: '0' }} level={2}>and more</Title>
+                  <Title style={{ margin: '0' }} level={2}>Games</Title>
+                </div> */}
               </b>
 
             </div>
-            {/* <div class="break"></div> */}
-            <div style={{ textAlign: 'left', width: '80vw', margin: 'auto', marginBottom: '10vh', backdropFilter: 'blur(2px)' }}>
-              <Title level={2}>Begin your tabletop adventure today</Title>
+            <div class="m-subhero" style={{ textAlign: 'left', width: '80vw', margin: 'auto', backdropFilter: 'blur(2px)' }}>
+              <Title class="m-subhero" level={2}>Begin your tabletop adventure today</Title>
             </div>
-            <div display="flex">
+            <div display="flex" style={{ marginTop: '10vh' }}>
               <Link to="/search">
                 <Button type='primary' size={'large'} style={{ justifyContent: 'center', width: '100px' }}>Explore</Button>
               </Link>
             </div>
           </div>
         </div>
-        {/* <div><Button type='primary'>Explore</Button></div> */}
       </Content>
     </Layout >
   );

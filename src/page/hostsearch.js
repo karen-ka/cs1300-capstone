@@ -33,7 +33,7 @@ export default class Search extends React.Component {
         </Header>
         <Content>
           <FilterBar page="Hosts" handleGameFilter={this.handleGameFilter} handlePriceFilter={this.handlePriceFilter} />
-          <div style={{ textAlign: 'left', width: '50%', margin: 'auto', padding: '5vh 0 5vh 0', minWidth: '400px' }}>
+          <div style={{ textAlign: 'left', width: '55%', margin: 'auto', padding: '5vh 0 5vh 0', minWidth: '400px' }}>
             <h1 style={{ float: 'left', paddingRight: '24px' }}>Find the best host for your needs.</h1> {this.getDisplayText()}
             <br />
             <br />
