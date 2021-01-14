@@ -189,6 +189,19 @@
    padding: 5vh 0 5vh 0;
  }
 
+ .m-contactmodal {
+   display: none;
+ }
+
+ .d-contactmodal {
+   display: flex;
+   padding-top: 3vh;
+ }
+
+  .show-on-ipad {
+   display: none;
+ }
+
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
   .m-content {
@@ -255,11 +268,37 @@
    padding: 5vh 0 5vh 0;
  }
 
+ .hide-on-ipad {
+   display: none;
+ }
+
+ .show-on-ipad {
+   display: unset;
+ }
+
 }
 
 
 // PHONES ONLY
-@media only screen and (max-width: 767px) { 
+@media only screen and (max-width: 767px) {
+
+  .checkoutmodal {
+    min-width: unset !important;
+  }
+   .m-contactmodal {
+  //  display: unset;
+  //  display: 'flex', flexDirection: 'vertical', paddingTop: '3vh', justifyContent: 'center'
+
+   display: flex;
+   flex-direction: vertical;
+   padding-top: 3vh;
+   justify-content: center;
+ }
+
+ .d-contactmodal {
+   display: none;
+ }
+
  .m-gamecard {
    display: unset;
  }

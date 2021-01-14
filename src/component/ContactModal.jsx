@@ -96,15 +96,15 @@ export default class ContactModal extends React.Component {
 
         return (
             <Modal
-                style={{ minWidth: '550px' }}
-                width={'50vw'}
-                height={'60vh'}
+                // style={{ minWidth: '550px' }}
+                // width={'50vw'}
+                // height={'60vh'}
                 title="Contact Host"
                 visible={this.state.visible}
                 onCancel={this.handleCancel}
                 footer={[]}
             >
-                <div className="steps-content" style={{ display: 'flex', paddingTop: '3vh' }}>
+                <div className="d-contactmodal" >
                     <br></br>
                     <div style={{ flex: 1.5 }}>
                         <>
@@ -129,6 +129,34 @@ export default class ContactModal extends React.Component {
                         <Rate disabled defaultValue={this.props.hd.rating} style={{ fontSize: 12, }} />
                         <Paragraph>{`${this.props.hd.numberOfGames} games hosted`}</Paragraph>
                     </div>
+                </div>
+
+                <div className="m-contactmodal" >
+                    {/* <div style={{ justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
+                        <><h3 >{this.props.hd.name}</h3></>
+                        <Avatar size={100} src={`${process.env.PUBLIC_URL}/${this.props.hd.pfp}`} />
+                        <Rate disabled defaultValue={this.props.hd.rating} style={{ fontSize: 12, }} />
+                        <Paragraph>{`${this.props.hd.numberOfGames} games hosted`}</Paragraph>
+                    </div> */}
+                    <br></br>
+                    <div>
+                        <>
+                            <Form {...layout} style={{ margin: 'auto', textAlign: 'center' }} name="nest-messages" onFinish={this.onFinish}>
+                                <Form.Item name="Subject" label="Subject" rules={[{ required: true, message: 'Subject cannot be empty' }]}>
+                                    <Input />
+                                </Form.Item>
+                                <Form.Item name="Message" label="Message" rules={[{ required: true, message: 'Message cannot be empty' }]}>
+                                    <Input.TextArea />
+                                </Form.Item>
+                                <Form.Item>
+                                    <Button type="primary" htmlType="submit" style={{ width: '100%' }} loading={this.state.loading}>
+                                        Submit
+                                    </Button>
+                                </Form.Item>
+                            </Form>
+                        </>
+                    </div>
+
                 </div>
             </Modal>
         );
