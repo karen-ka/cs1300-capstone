@@ -82,7 +82,7 @@ export default class Search extends React.Component {
 
   createCards = item => {
     return (
-      <Row gutter={[16, 48]} align='middle' width='100%' justify='center'>
+      <Row gutter={[0, 48]} align='middle' justify='center'>
         <Col>
           <GameCard gd={gameinfo[item]} hd={hostData[gameinfo[item].hostid]} loggedIn={this.loggedIn} onBook={game => this.startCheckout(game)} />
         </Col>
