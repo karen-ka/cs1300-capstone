@@ -143,7 +143,7 @@ export const hostData = {
     "rating": 5.0,
     "numrating": 8751,
     "intro": "Hey folks, I host many games. My specialty is transporting you out of this world for each one.",
-    "reviews": [1, 2, 6],
+    "reviews": [8, 9, 6],
     "about": "Hello, you may or may not know me. I love getting people into playing games and I guarantee an unforgettable experience. \n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     "numberOfGames": "9829",
     "gamesHosted": ["Dungeons & Dragons",],
@@ -157,7 +157,7 @@ export const hostData = {
     "rating": 5.0,
     "numrating": 1,
     "intro": "Hello! I'm Alex and I host DnD games. Looking forward to seeing you ingame!",
-    "reviews": [1, 2, 3],
+    "reviews": [1, 6, 8],
     "about": "Hey! I'm Alex. I first got into tabletop games back in the 90's, and now I try to share this experience with others on this platform. \n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     "numberOfGames": 56,
     "gamesHosted": ["Dungeons & Dragons"],
@@ -171,7 +171,7 @@ export const hostData = {
     "rating": 2.0,
     "numrating": 2,
     "intro": "I'm Brian, and I host DnD and Magic games. Join me for a jolly good time!",
-    "reviews": [1, 4, 5],
+    "reviews": [8, 3, 5],
     "about": "I'm Brian, and I come from the small town of Columbus, Ohio where I grew up playing tabletop games everyday. Now, I try to host games online to get more people into this field! \n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     "numberOfGames": 5,
     "gamesHosted": ["Magic"],
@@ -185,7 +185,7 @@ export const hostData = {
     "rating": 5.0,
     "numrating": 1000,
     "intro": "Magic and DnD are the games I host, and I'd love to meet you all ingame for a great time!",
-    "reviews": [4, 5, 2],
+    "reviews": [4, 5, 9],
     "about": "I'm Tanvir and I only recently got into tabletop games during the Corona pandemic. It's a great way to spend time with friends and family, and that's why I host games online to share the joy!",
     "numberOfGames": 23,
     "gamesHosted": ["Magic", "Pandemic"],
@@ -238,5 +238,13 @@ export const reviews = {
   7: {
     "name": "V",
     "review": "Did not have a good experience. The host was too self-centered and was not welcoming."
+  },
+  8: {
+    "name": "Bob",
+    "review": "AMAZING!! Would definitely book again."
+  },
+  9: {
+    "name": "May",
+    "review": "Had a blast :) thank you for the game!"
   }
 }
