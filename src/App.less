@@ -131,3 +131,35 @@
     transform: rotate(360deg);
   }
 }
+
+.m-content {
+  width: 80%;
+   margin: auto;
+   min-width: 900px;
+}
+
+.m-user-content {
+  float: center;
+  width: 60%;
+  margin-top: 10vh;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .m-content {
+    width: 90%;
+    min-width: unset;
+    margin: 0;
+  }
+
+  .m-user-content {
+  width: 95%;
+  margin-top: 10vh;
+  // margin-left: unset;
+  // margin-right: unset;
+  text-align: left;
+}
+}

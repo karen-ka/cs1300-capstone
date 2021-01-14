@@ -75,7 +75,7 @@ export default class Game extends React.Component {
         <Header>
           <Navbar />
         </Header>
-        <Content style={{ width: '80%', margin: 'auto', minWidth: '800px' }}>
+        <Content class="m-content">
           <Row gutter={24} justify="center" style={{ marginTop: 36 }}>
             <Col span={15}>
               <Card
