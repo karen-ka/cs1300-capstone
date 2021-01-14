@@ -7,6 +7,7 @@ import {
     ShareAltOutlined,
     MessageOutlined,
 } from '@ant-design/icons';
+import moment from 'moment';
 const { Meta } = Card;
 const { Paragraph, Title, Text } = Typography;
 
@@ -26,6 +27,18 @@ export default class GameCard extends React.Component {
 
     handleGameCardClick = () => {
         console.log('placeholder');
+    }
+
+    generateGcal = () => {
+        const hour = parseInt(this.props.gd.time) + 12;
+        const date = moment().day(`${this.props.gd.day}`).hour(hour).minute(0);
+        const dateUntil = moment().day(`${this.props.gd.day}`).hour(hour + 2).minute(0);
+        const dateUntilFormatted = dateUntil.format("YYYY MM DD [T] HH mm [Z");
+        const dateFormatted = date.format("YYYY MM DD [T] HH mm [Z]");
+        const name = this.props.gd.name.replace(/\s+/g, '+');
+        const details = `Booked+on+StartPlaying.Games+Capstone+Example`
+
+        return `https://calendar.google.com/calendar/r/eventedit?text=${name}&dates=${dateFormatted}/${dateUntilFormatted}&details=${details}&recur=RRULE:FREQ%3DWEEKLY&location=${this.props.gd.location}`.replace(/\s+/g, '');
     }
 
 
@@ -104,7 +117,7 @@ export default class GameCard extends React.Component {
                                                     <Statistic title="Day" value={this.props.gd.day} />
                                                 </Col>
                                                 <Col span={12}>
-                                                    <Statistic title="Time" value={this.props.gd.time} />
+                                                    <Statistic title="Time" value={`${this.props.gd.time}pm`} />
                                                 </Col>
                                             </Row>
 
@@ -121,7 +134,7 @@ export default class GameCard extends React.Component {
                                                 <Statistic title="Day" value={this.props.gd.day} />
                                             </Col>
                                             <Col span={12}>
-                                                <Statistic title="Time" value={this.props.gd.time} />
+                                                <Statistic title="Time" value={`${this.props.gd.time}pm`} />
                                             </Col>
                                         </Row>
                                         <Row>
@@ -136,7 +149,7 @@ export default class GameCard extends React.Component {
                                                     <Button shape="circle" icon={<MessageOutlined />} style={{ margin: "0 5px 0 5px" }} />
                                                 </Tooltip>
                                                 <Tooltip title="Add to calendar">
-                                                    <Button shape="circle" icon={<CalendarOutlined />} style={{ margin: "0 5px 0 5px" }} />
+                                                    <Button shape="circle" href={this.generateGcal()} icon={<CalendarOutlined />} style={{ margin: "0 5px 0 5px" }} />
                                                 </Tooltip>
                                                 <Tooltip title="Share">
                                                     <Button shape="circle" icon={<ShareAltOutlined />} style={{ margin: "0 5px 0 5px" }} />
@@ -249,7 +262,7 @@ export default class GameCard extends React.Component {
                                                 <Statistic title="Day" value={this.props.gd.day} />
                                             </Col>
                                             <Col span={12}>
-                                                <Statistic title="Time" value={this.props.gd.time} />
+                                                <Statistic title="Time" value={`${this.props.gd.time}pm`} />
                                             </Col>
                                         </Row>
                                     </div>
@@ -262,16 +275,16 @@ export default class GameCard extends React.Component {
                                                     <Button type='primary' onClick={this.handleLoggedInClick} style={{ justifyContent: 'center', width: '100%' }} disabled={disabled}>Already Booked</Button>
                                                 )
                                                 : <Button type='primary' onClick={this.handleLoggedInClick} style={{ justifyContent: 'center', width: '100%' }} disabled={disabled}>Book Now</Button>) :
-                                            (this.props.onUserPage && this.props.loggedIn ? (<Row style={{ width: '100%' }}>
-                                                <Col span={24} style={{ textAlign: "right" }}>
+                                            (this.props.onUserPage && this.props.loggedIn ? (<Row style={{ width: '100%', lineHeight: '40px', verticalAlign: 'center' }}>
+                                                <Col span={24} style={{ textAlign: "right", height: '40px', display: 'flex', verticalAlign: 'center' }}>
                                                     <Tooltip title="Message host">
-                                                        <Button shape="circle" size="large" icon={<MessageOutlined />} style={{ margin: "0 5px 0 5px" }} />
+                                                        <Button shape="circle" size="large" href={''} target="_blank" icon={<MessageOutlined />} style={{ lineHeight: '30px', margin: "0 5px 0 5px" }} />
                                                     </Tooltip>
                                                     <Tooltip title="Add to calendar">
-                                                        <Button shape="circle" size="large" icon={<CalendarOutlined />} style={{ margin: "0 5px 0 5px" }} />
+                                                        <Button shape="circle" size="large" href={this.generateGcal()} target="_blank" icon={<CalendarOutlined style={{ verticalAlign: '-0.125em' }} />} style={{ lineHeight: '30px', margin: "0 5px 0 5px" }} />
                                                     </Tooltip>
                                                     <Tooltip title="Share">
-                                                        <Button shape="circle" size="large" icon={<ShareAltOutlined />} style={{ margin: "0 5px 0 5px" }} />
+                                                        <Button shape="circle" size="large" href={''} target="_blank" icon={<ShareAltOutlined />} style={{ lineHeight: '30px', margin: "0 5px 0 5px" }} />
                                                     </Tooltip>
 
                                                 </Col>

@@ -110,7 +110,7 @@ export default class Game extends React.Component {
                   </Col>
                   <Col span={6}>
                     <Statistic title="Platform" value={gd.location} />
-                    <Statistic title="Time" value={gd.time} />
+                    <Statistic title="Time" value={`${gd.time}pm`} />
                   </Col>
                 </Row>
                 <br />
