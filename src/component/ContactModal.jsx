@@ -106,7 +106,7 @@ export default class ContactModal extends React.Component {
             >
                 <div className="d-contactmodal" >
                     <br></br>
-                    <div style={{ flex: 1.5 }}>
+                    <div style={{ flex: 1.5, }}>
                         <>
                             <Form {...layout} style={{ margin: 'auto' }} name="nest-messages" onFinish={this.onFinish}>
                                 <Form.Item name="Subject" label="Subject" rules={[{ required: true, message: 'Subject cannot be empty' }]}>

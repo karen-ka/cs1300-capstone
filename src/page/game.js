@@ -78,10 +78,10 @@ export default class Game extends React.Component {
         <div className="hide-on-ipad">
           <Content className="m-content">
             <Row gutter={24} justify="center" style={{ marginTop: 36 }}>
-              <Col span={15}>
+              <Col span={16}>
                 <Card
-                  style={{ minWidth: '400px' }}
-                  cover={<img src={gd.logo} width={600} />}>
+                  style={{ minWidth: '200px' }}
+                  cover={<img src={gd.logo} />}>
                   <Title style={{ textAlign: 'left', width: '80%', margin: 'auto' }} level={3}>{gd.name}</Title>
                   <br></br>
                   <Paragraph style={{ textAlign: 'left', width: '80%', margin: 'auto' }}>{gd.info.split("\n").map((item, i) => <p key={i}>{item}</p>)}</Paragraph>
@@ -91,7 +91,7 @@ export default class Game extends React.Component {
                 <br />
 
                 <Card
-                  style={{ minWidth: '400px' }}
+                  style={{ minWidth: '200px' }}
                 >
 
                   <div style={{ width: '80%', margin: 'auto' }}>
@@ -101,7 +101,7 @@ export default class Game extends React.Component {
 
                 </Card>
               </Col>
-              <Col span={7}>
+              <Col span={8}>
                 <Card style={{ marginBottom: 24, minWidth: '250px' }}>
                   <Title align="start" level={3}>Reserve Your Seat</Title>
                   <Row justify="space-around">

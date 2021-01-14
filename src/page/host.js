@@ -53,8 +53,8 @@ export default class Host extends React.Component {
               if (game.hostid === this.hostID) {
                 const nobook = ids.includes(game.gameID);
                 games.push(
-                  <Row gutter={[16, 48]}>
-                    <Col>
+                  <Row gutter={[16, 48]} style={{ justifyContent: 'center', alignItems: 'center' }}>
+                    <Col style={{ margin: 'auto' }}>
                       <GameCard onHostPage={true} gd={game} hd={this.hd} loggedIn={this.loggedIn} onBook={curr => this.startCheckout(curr)} nobook={nobook} />
                     </Col>
                   </Row>
@@ -72,8 +72,8 @@ export default class Host extends React.Component {
       for (const [_, game] of Object.entries(gameinfo)) {
         if (game.hostid === this.hostID) {
           games.push(
-            <Row gutter={[16, 48]}>
-              <Col>
+            <Row gutter={[16, 48]} style={{ justifyContent: 'center', alignItems: 'center' }}>
+              <Col style={{ alignSelf: 'center', width: '98%' }}>
                 <GameCard onHostPage={true} gd={game} hd={this.hd} loggedIn={this.loggedIn} onBook={curr => this.startCheckout(curr)} nobook={false} />
               </Col>
             </Row>
@@ -102,13 +102,13 @@ export default class Host extends React.Component {
         </Header>
         <div className="hide-on-ipad">
 
-          <Content style={{ width: '80%', margin: 'auto', minWidth: '900px' }}>
+          <Content className="m-user-content">
 
-            <Row gutter={24} justify="center" style={{ marginTop: 36 }}>
-              <Col span={7}>
+            <Row gutter={[16, 48]} justify="center" style={{ marginTop: 36 }}>
+              <Col span={8}>
                 <HostCard loggedIn={this.loggedIn} hd={this.hd} />
               </Col>
-              <Col span={15}>
+              <Col span={16}>
                 <Card>
                   <Title style={{ textAlign: "left" }} level={3}>About Me</Title>
                   <Paragraph align="start">

@@ -162,25 +162,26 @@ class Search extends React.Component {
         {this.loggedIn ?
           <>
             <Content className="m-user-content">
+              <div className="m-user-heading">
+                <Text style={{ fontSize: '2em', width: '90%', marginTop: '200px', marginBottom: '20vh' }}>Welcome back, <b>{this.username}</b>!</Text>
+              </div>
+              <br />
 
-              <Text style={{ fontSize: '2em', marginTop: '200px', marginBottom: '20vh' }}>Welcome back, <b>{this.username}</b>!</Text>
-              <br />
-              <br />
-              <br />
-              <br />
               {this.state.registeredGames.length > 0 ? (<>
-                <Text style={{ fontSize: '1.5em' }}>Your Upcoming Games</Text>
+                <div className="m-user-heading">
+                  <Text style={{ fontSize: '1.5em', }}>Your Upcoming Games</Text>
+                </div>
                 <br />
                 <br />
                 {this.state.registeredGames.map(this.createCards)} </>)
                 :
                 <></>}
               <br />
-              <br />
-              <br />
               <CheckoutModal ref={this.checkoutModal} game={this.state.currGame} hd={this.state.hd}></CheckoutModal>
               {this.state.suggestions.length > 0 ? (<>
-                <Text style={{ fontSize: '1.5em' }}>Suggested Games</Text>
+                <div className="m-user-heading">
+                  <Text style={{ fontSize: '1.5em' }}>Suggested Games</Text>
+                </div>
                 <br />
                 <br />
                 {this.state.suggestions.map(this.createSuggestions)} </>)

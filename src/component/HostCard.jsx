@@ -148,7 +148,7 @@ export default class HostCard extends React.Component {
               <Col>
                 <Link to={`/host/${this.props.hd.hostid}`}>
                   <div className="ant-hover-trigger" style={{ pointerEvents: "none" }}>
-                    <Avatar size={{ xs: 50, sm: 60, md: 80, lg: 120, xl: 160, xxl: 200 }} src={`${process.env.PUBLIC_URL}/${this.props.hd.pfp}`} />
+                    <Avatar size={150} src={`${process.env.PUBLIC_URL}/${this.props.hd.pfp}`} />
                     <Title level={3}>{this.props.hd.name}</Title>
 
                     <Title style={{ marginTop: '24px' }} level={4} align="start">Statistics</Title>
@@ -182,10 +182,10 @@ export default class HostCard extends React.Component {
             :
 
             // vertical game card on the host detail page
-            (< Card style={{ minWidth: '250px' }}>
+            (< Card style={{ minWidth: '200px' }}>
 
               <Col>
-                <Avatar size={{ xs: 50, sm: 60, md: 80, lg: 120, xl: 160, xxl: 200 }} src={`${process.env.PUBLIC_URL}/${this.props.hd.pfp}`} />
+                <Avatar size={150} src={`${process.env.PUBLIC_URL}/${this.props.hd.pfp}`} />
                 <Title level={3}>{this.props.hd.name}</Title>
                 <br />
                 <Button type="primary" onClick={this.handleClick} style={{ width: '100%' }}>Contact Host</Button>

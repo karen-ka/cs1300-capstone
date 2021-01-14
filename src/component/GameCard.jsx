@@ -57,7 +57,7 @@ export default class GameCard extends React.Component {
      */
     render() {
         const disabled = this.props.nobook ? true : false;
-        const currStyle = this.props.onHostPage ? { display: 'flex', width: '45vw', minWidth: '500px' } : { display: 'flex', width: '55vw', minWidth: '720px' };
+        const currStyle = this.props.onHostPage ? { display: 'flex', width: '100%', minWidth: '300px' } : { display: 'flex', width: '55vw', minWidth: '720px' };
         const simpleStyle = this.props.onCheckoutModal ? { display: 'flex', width: '40vw', minWidth: '600px' } : { display: 'flex', width: '55vw', minWidth: '720px' };
         const divId = this.props.onHostPage ? "left-ant-card" : "left-card";
         const leftCardStyle = this.props.onHostPage ? { margin: 'auto', height: '100%', padding: '48px 24px 48px 24px', display: 'flex', flexDirection: 'column', width: '100%' } : { padding: '24px', margin: 'auto', display: 'flex', flexDirection: 'column', height: '100%' };
@@ -192,7 +192,7 @@ export default class GameCard extends React.Component {
 
                                 </Link>
 
-                                <div style={{ display: 'flex', justifyContent: 'space-around', margin: 'auto', width: '80%', paddingBottom: '24px' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-around', margin: 'auto', width: '80%', paddingBottom: '24px', paddingTop: '1vh' }}>
                                     {this.props.loggedIn && !this.props.onUserPage ?
                                         (disabled ?
                                             (
@@ -200,7 +200,7 @@ export default class GameCard extends React.Component {
                                             )
                                             : <Button type='primary' onClick={this.handleLoggedInClick} style={{ justifyContent: 'center', width: '100%' }} disabled={disabled}>Book Now</Button>) :
                                         (this.props.onUserPage && this.props.loggedIn ? (<Row style={{ width: '100%', lineHeight: '40px', verticalAlign: 'center' }}>
-                                            <Col span={24} style={{ textAlign: "right", height: '40px', display: 'flex', verticalAlign: 'center' }}>
+                                            <Col span={16} style={{ justifyContent: 'space-between', alignItems: 'center', height: '40px', display: 'flex', verticalAlign: 'center', margin: 'auto' }}>
                                                 <Tooltip title="Message host">
                                                     <Button shape="circle" size="large" onClick={this.handleMessageClick} icon={<MessageOutlined />} style={{ lineHeight: '30px', margin: "0 5px 0 5px" }} />
                                                 </Tooltip>
@@ -322,7 +322,7 @@ export default class GameCard extends React.Component {
                                                         )
                                                         : <Button type='primary' onClick={this.handleLoggedInClick} style={{ justifyContent: 'center', width: '100%' }} disabled={disabled}>Book Now</Button>) :
                                                     (this.props.onUserPage && this.props.loggedIn ? (<Row style={{ width: '100%', lineHeight: '40px', verticalAlign: 'center' }}>
-                                                        <Col span={24} style={{ textAlign: "right", height: '40px', display: 'flex', verticalAlign: 'center' }}>
+                                                        <Col span={24} style={{ justifyContent: 'center', textAlign: "right", height: '40px', display: 'flex', verticalAlign: 'center' }}>
                                                             <Tooltip title="Message host">
                                                                 <Button shape="circle" size="large" onClick={this.handleMessageClick} icon={<MessageOutlined />} style={{ lineHeight: '30px', margin: "0 5px 0 5px" }} />
                                                             </Tooltip>

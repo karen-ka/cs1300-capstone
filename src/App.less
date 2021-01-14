@@ -133,15 +133,15 @@
 }
 
 .m-content {
-  width: 80%;
+  width: 60%;
    margin: auto;
-   min-width: 900px;
+   min-width: 600px;
 }
 
 .m-user-content {
   float: center;
   width: 60%;
-  margin-top: 10vh;
+  margin-top: 5vh;
   margin-left: auto;
   margin-right: auto;
   text-align: left;
@@ -182,6 +182,10 @@
    display: none;
  }
 
+ .m-user-heading {
+  margin-top: 10vh;
+}
+
  .search-hero {
    text-align: left;
    width: 55%;
@@ -202,8 +206,36 @@
    display: none;
  }
 
+ .show-on-mobile {
+   display: none;
+ }
+
+//  .m-user-content {
+//    width: 80%;
+//    margin: auto;
+//   //  min-width: 850px;
+//  }
+
+@media (max-width: 1300px) {
+  .m-user-content {
+    width: 80%;
+  }
+
+  .m-content {
+    width: 80%;
+    margin: auto;
+  }
+}
+
+
+  /* For iPad */
+
 @media only screen and (max-width: 768px) {
-  /* For mobile phones: */
+
+  .m-user-content {
+    width: 90%;
+    min-width: unset;
+  }
   .m-content {
     width: 90%;
     min-width: unset;
@@ -212,7 +244,7 @@
 
   .m-user-content {
     width: 95%;
-    margin-top: 10vh;
+    // margin-top: 10vh;
     // margin-left: unset;
     // margin-right: unset;
     text-align: left;
@@ -282,13 +314,20 @@
 // PHONES ONLY
 @media only screen and (max-width: 767px) {
 
+   .show-on-mobile {
+   display: unset;
+ }
+
+  .m-user-heading {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+
   .checkoutmodal {
     min-width: unset !important;
   }
    .m-contactmodal {
-  //  display: unset;
-  //  display: 'flex', flexDirection: 'vertical', paddingTop: '3vh', justifyContent: 'center'
-
    display: flex;
    flex-direction: vertical;
    padding-top: 3vh;
