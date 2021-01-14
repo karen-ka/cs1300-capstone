@@ -75,7 +75,7 @@ export default class Game extends React.Component {
         <Header>
           <Navbar />
         </Header>
-        <Content class="m-content">
+        <Content className="m-content">
           <Row gutter={24} justify="center" style={{ marginTop: 36 }}>
             <Col span={15}>
               <Card

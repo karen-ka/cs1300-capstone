@@ -27,12 +27,12 @@ function Home() {
           }}>
           <div style={{ height: '90vh', backdropFilter: 'blur(1px)' }}>
 
-            <div class="break"></div>
-            <div class="Iam" >
+            <div className="break"></div>
+            <div className="Iam" >
 
-              <p class="m-hero">StartPlaying.</p>
+              <p className="m-hero">StartPlaying.</p>
               <b>
-                <div class="innerIam">
+                <div className="innerIam">
                   Games<br />
                 Dungeons & Dragons<br />
                 Magic: The Gathering<br />
@@ -40,7 +40,7 @@ function Home() {
                 Games
               </div>
 
-                <div class="m-innerIam">
+                <div className="m-innerIam">
                   Games<br />
                 </div>
 
@@ -54,8 +54,8 @@ function Home() {
               </b>
 
             </div>
-            <div class="m-subhero" style={{ textAlign: 'left', width: '80vw', margin: 'auto', backdropFilter: 'blur(2px)' }}>
-              <Title class="m-subhero" level={2}>Begin your tabletop adventure today</Title>
+            <div className="m-subhero" style={{ textAlign: 'left', width: '80vw', margin: 'auto', backdropFilter: 'blur(2px)' }}>
+              <Title className="m-subhero" level={2}>Begin your tabletop adventure today</Title>
             </div>
             <div display="flex" style={{ marginTop: '10vh' }}>
               <Link to="/search">
