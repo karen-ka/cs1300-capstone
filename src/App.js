@@ -7,6 +7,7 @@ import User from './page/user.js';
 import Host from './page/host.js';
 import Game from './page/game.js';
 import RegisterModal from './component/registerModal.jsx';
+import ThemeSwitch from './component/ThemeSwitch.jsx'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import './App.less';
@@ -17,11 +18,13 @@ class App extends React.Component {
     // here for testing purposes
     // localStorage.clear("currentUser");
   };
+
   render() {
     return (
       <div>
         <BrowserRouter>
           <div className="App">
+            <ThemeSwitch></ThemeSwitch>
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/about" component={About} />
