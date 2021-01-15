@@ -22,11 +22,13 @@ class Search extends React.Component {
       suggestions: [],
       loading: false,
       profileRedirect: false,
+      modalText: <></>,
     };
     this.loggedIn = localStorage.getItem('currentUser') ? true : false;
     this.username = localStorage.getItem('currentUser');
     this.checkoutModal = React.createRef();
     this.loginModal = React.createRef();
+    this.loginForm = React.createRef();
   }
 
   componentDidMount() {
@@ -120,6 +122,7 @@ class Search extends React.Component {
         visible: true,
         loading: false
       });
+      this.loginForm.current.unsetLoading();
     }, 3000);
   };
 
@@ -130,6 +133,7 @@ class Search extends React.Component {
         visible: true,
         loading: false
       });
+      this.loginForm.current.unsetLoading();
     }, 2000);
     // redirect to user page after a few seconds
     setTimeout(() => {
@@ -157,26 +161,27 @@ class Search extends React.Component {
         </Header>
         {this.loggedIn ?
           <>
-            <Content style={{ float: 'center', width: '60%', marginTop: '10vh', marginLeft: 'auto', marginRight: 'auto', textAlign: 'left' }}>
+            <Content className="m-user-content">
+              <div className="m-user-heading">
+                <Text style={{ fontSize: '2em', width: '90%', marginTop: '200px', marginBottom: '20vh' }}>Welcome back, <b>{this.username}</b>!</Text>
+              </div>
+              <br />
 
-              <Text style={{ fontSize: '2em', marginTop: '200px', marginBottom: '20vh' }}>Welcome back, <b>{this.username}</b>!</Text>
-              <br />
-              <br />
-              <br />
-              <br />
               {this.state.registeredGames.length > 0 ? (<>
-                <Text style={{ fontSize: '1.5em' }}>Your Upcoming Games</Text>
+                <div className="m-user-heading">
+                  <Text style={{ fontSize: '1.5em', }}>Your Upcoming Games</Text>
+                </div>
                 <br />
                 <br />
                 {this.state.registeredGames.map(this.createCards)} </>)
                 :
                 <></>}
               <br />
-              <br />
-              <br />
               <CheckoutModal ref={this.checkoutModal} game={this.state.currGame} hd={this.state.hd}></CheckoutModal>
               {this.state.suggestions.length > 0 ? (<>
-                <Text style={{ fontSize: '1.5em' }}>Suggested Games</Text>
+                <div className="m-user-heading">
+                  <Text style={{ fontSize: '1.5em' }}>Suggested Games</Text>
+                </div>
                 <br />
                 <br />
                 {this.state.suggestions.map(this.createSuggestions)} </>)
@@ -188,14 +193,8 @@ class Search extends React.Component {
           :
           <>
             <Content style={{ float: 'center', minHeight: '55vh', width: '30%', marginTop: '30vh', marginLeft: 'auto', marginRight: 'auto', textAlign: 'left' }}>
-              <LoginForm id="submit-form" handleSuccess={this.handleSuccess} handleError={this.handleError}></LoginForm>
-
-
-              <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                <Button style={{ width: '70%' }} type="primary" form="loginForm" key="submit" htmlType="submit" onClick={this.handleOk} loading={this.state.loading}>
-                  Log In
-            </Button>
-              </div>
+              {this.state.modalText}
+              <LoginForm id="submit-form" ref={this.loginForm} handleOk={this.handleOk} handleSuccess={this.handleSuccess} handleError={this.handleError}></LoginForm>
             </Content>
           </>
         }

@@ -1,6 +1,7 @@
 /* @import '~antd/dist/antd.css'; */
 @import '~antd/dist/antd.dark.less';
 
+
 .ant-tag {
   pointer-events: none;
 }
@@ -8,7 +9,6 @@
 .ant-rate {
   pointer-events: none;
 }
-
 
 .ant-menu-item:hover {
   border-bottom: none;
@@ -90,7 +90,7 @@
 .ant-page-header {
   background-color: #1f1f1f;
   padding: 16px 0 16px 0;
-  min-width: 830px;
+  min-width: 760px;
 }
 .App {
   text-align: center;
@@ -130,4 +130,246 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.m-content {
+  width: 60%;
+   margin: auto;
+   min-width: 600px;
+}
+
+.m-user-content {
+  float: center;
+  width: 60%;
+  margin-top: 5vh;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.navbar-menu {
+  border: unset;
+  float: right;
+  height: 6vh;
+  align-content: middle;
+  display: flex;
+  line-height: 7vh;
+  background-color: transparent;
+}
+
+.m-navbar {
+  display: none;
+}
+
+.navbar-container {
+  height: 7vh;
+  width: 100%;
+  margin: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+  .m-filterbar {
+    display: none;
+  }
+
+
+  .m-hostcard {
+    display: none;
+  }
+
+   .m-gamecard {
+   display: none;
+ }
+
+ .m-user-heading {
+  margin-top: 10vh;
+}
+
+ .search-hero {
+   text-align: left;
+   width: 55%;
+   margin: auto;
+   padding: 5vh 0 5vh 0;
+ }
+
+ .m-contactmodal {
+   display: none;
+ }
+
+ .d-contactmodal {
+   display: flex;
+   padding-top: 3vh;
+ }
+
+  .show-on-ipad {
+   display: none;
+ }
+
+ .show-on-mobile {
+   display: none;
+ }
+
+//  .m-user-content {
+//    width: 80%;
+//    margin: auto;
+//   //  min-width: 850px;
+//  }
+
+@media (max-width: 1300px) {
+  .m-user-content {
+    width: 80%;
+  }
+
+  .m-content {
+    width: 80%;
+    margin: auto;
+  }
+}
+
+
+  /* For iPad */
+
+@media only screen and (max-width: 768px) {
+
+    .ant-card-hover {
+    box-shadow: -4px 6px 6px -4px rgb(80, 80, 80);
+  }
+  
+  .m-user-content {
+    width: 90%;
+    min-width: unset;
+  }
+  .m-content {
+    width: 90%;
+    min-width: unset;
+    margin: 0;
+  }
+
+  .m-user-content {
+    width: 95%;
+    // margin-top: 10vh;
+    // margin-left: unset;
+    // margin-right: unset;
+    text-align: left;
+  }
+
+  .d-navbar {
+    display: none;
+  }
+
+  .m-navbar {
+    display: unset;
+  }
+
+  .navbar-container {
+  height: 7vh;
+  width: 100vw;
+  margin: auto;
+}
+
+.ant-layout-header { 
+
+  min-width: unset;
+}
+
+  .ant-page-header {
+  min-width: unset;
+  }
+
+  .m-filterbar {
+    display: unset;
+  }
+
+  .d-filterbar {
+    display: none;
+  }
+
+  .ant-page-header-heading-left {
+    width: 100%;
+  }
+
+  .ant-page-header-heading-title {
+    width: 100%;
+  }
+
+.ant-card-body {
+  padding: 16px;
+}
+
+   .search-hero {
+   text-align: left;
+   width: 80%;
+   margin: auto;
+   padding: 5vh 0 5vh 0;
+ }
+
+ .hide-on-ipad {
+   display: none;
+ }
+
+ .show-on-ipad {
+   display: unset;
+ }
+
+}
+
+
+// PHONES ONLY
+@media only screen and (max-width: 767px) {
+
+  .ant-card-hover {
+    box-shadow: -4px 6px 6px -4px rgb(80, 80, 80);
+  }
+
+   .show-on-mobile {
+   display: unset;
+ }
+
+  .m-user-heading {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+
+  .checkoutmodal {
+    min-width: unset !important;
+  }
+   .m-contactmodal {
+   display: flex;
+   flex-direction: vertical;
+   padding-top: 3vh;
+   justify-content: center;
+ }
+
+ .d-contactmodal {
+   display: none;
+ }
+
+ .m-gamecard {
+   display: unset;
+ }
+
+ .d-gamecard {
+   display: none !important;
+ }
+
+   .m-hostcard {
+    display: unset;
+  }
+
+  .d-hostcard {
+    display: none;
+  }
+
+ .hide-on-mobile {
+   display: none;
+ }
+//  .ant-drawer-content-wrapper {
+//   width: 200px !important;
+//  }
+
+//  .ant-drawer-body {
+//    width: 100px;
+//  }
 }
