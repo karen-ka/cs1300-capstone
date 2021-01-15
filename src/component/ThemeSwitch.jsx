@@ -17,15 +17,15 @@ export default function ThemeSwitch() {
         setIsDarkMode(isChecked);
         switcher({ theme: isChecked ? themes.dark : themes.light });
         localStorage.setItem('theme', getOtherTheme());
-        console.log(localStorage.getItem('theme'))
+        console.log(localStorage)
     };
 
     const darkMode = () => {
-        return localStorage.getItem('theme') == 'dark';
+        return currentTheme === 'dark';
     }
 
     const getText = () => {
-        return localStorage.getItem('theme') == 'dark' ? 'Dark' : 'Light';
+        return currentTheme === 'dark' ? 'Dark' : 'Light';
     }
     // Avoid theme change flicker
     if (status === "loading") {
