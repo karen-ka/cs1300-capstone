@@ -7,10 +7,10 @@ export default function ThemeSwitch() {
     const { switcher, currentTheme, status, themes } = useThemeSwitcher();
 
     const getOtherTheme = () => {
-        if (currentTheme == "dark") {
-            return "light";
+        if (currentTheme == themes.dark) {
+            return themes.light;
         }
-        return "dark";
+        return themes.dark;
     }
 
     const toggleTheme = (isChecked) => {
@@ -21,11 +21,11 @@ export default function ThemeSwitch() {
     };
 
     const darkMode = () => {
-        return currentTheme === 'dark';
+        return currentTheme === themes.dark;
     }
 
     const getText = () => {
-        return currentTheme === 'dark' ? 'Dark' : 'Light';
+        return currentTheme === themes.dark ? 'Dark' : 'Light';
     }
     // Avoid theme change flicker
     if (status === "loading") {

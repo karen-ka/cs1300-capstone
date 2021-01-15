@@ -15,7 +15,7 @@ const getTheme = () => {
   if (localStorage.getItem('theme')) {
     return localStorage.getItem('theme');
   }
-  return "dark";
+  return themes.dark;
   // localStorage.setItem('currentUser', username);
 }
 
