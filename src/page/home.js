@@ -1,9 +1,10 @@
 import React from 'react';
 import Navbar from '../component/navbar.js';
 import { Layout, Button, Typography } from 'antd';
-import background from '../img/wp.jpg'
+import background from '../img/wp.jpg';
+import background2 from '../img/wp2.jpeg';
 import { Link } from 'react-router-dom';
-import '../App.less';
+// import '../App.less';
 import '../Title.less';
 const { Title } = Typography;
 const { Header, Footer, Sider, Content } = Layout;
@@ -11,21 +12,22 @@ const { Header, Footer, Sider, Content } = Layout;
 function Home() {
   return (
     <Layout>
-      <Header>
+      <Header style={{ color: 'transparent' }}>
         <Navbar></Navbar>
       </Header>
-      <Content>
+      <Content style={{ height: '100%' }}>
         <div
+          className="home-background"
           style={{
-            backgroundImage: `url(${background})`,
-            height: '90vh',
-            backgroundSize: "cover",
+            backgroundImage: `url(${background2})`,
+            height: '100%',
+            // backgroundSize: "cover",
             alignItems: 'center',
             justifyContent: 'center',
             flexWrap: 'wrap',
             backgroundSize: '100% 100%',
           }}>
-          <div style={{ height: '90vh', backdropFilter: 'blur(1px)' }}>
+          <div style={{ height: '92vh', backdropFilter: 'blur(1px)' }}>
 
             <div className="break"></div>
             <div className="Iam" >
@@ -54,8 +56,8 @@ function Home() {
               </b>
 
             </div>
-            <div className="m-subhero" style={{ textAlign: 'left', width: '80vw', margin: 'auto', backdropFilter: 'blur(2px)' }}>
-              <Title className="m-subhero" level={2}>Begin your tabletop adventure today</Title>
+            <div className="m-subhero-container">
+              <h2 className="m-subhero" style={{ color: 'white !important', fontSize: '30px' }}>Begin your tabletop adventure today</h2>
             </div>
             <div display="flex" style={{ marginTop: '10vh' }}>
               <Link to="/search">

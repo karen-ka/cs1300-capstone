@@ -11,9 +11,17 @@ const themes = {
   light: `${process.env.PUBLIC_URL}/light-theme.css`,
 };
 
+const getTheme = () => {
+  if (localStorage.getItem('theme')) {
+    return localStorage.getItem('theme');
+  }
+  return "dark";
+  // localStorage.setItem('currentUser', username);
+}
+
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeSwitcherProvider themeMap={themes} defaultTheme="dark">
+    <ThemeSwitcherProvider themeMap={themes} defaultTheme={getTheme()}>
       <App />
     </ThemeSwitcherProvider>
   </React.StrictMode>,

@@ -5,6 +5,7 @@ import Navbar from '../component/navbar.js';
 import GameCard from '../component/GameCard';
 import { gameinfo, hostData } from '../gameData.js'
 import CheckoutModal from '../component/CheckoutModal';
+import ThemeSwitch from '../component/ThemeSwitch';
 import LoginForm from '../component/LoginForm';
 import { withRouter } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
@@ -163,7 +164,12 @@ class Search extends React.Component {
           <>
             <Content className="m-user-content">
               <div className="m-user-heading">
-                <Text style={{ fontSize: '2em', width: '90%', marginTop: '200px', marginBottom: '20vh' }}>Welcome back, <b>{this.username}</b>!</Text>
+                <Text style={{ fontSize: '2em', marginTop: '200px', marginBottom: '20vh' }}>Welcome back, <b>{this.username}</b>!</Text>
+
+                <div className="hide-on-mobile" style={{ float: 'right', paddingTop: '1vh', }}>
+                  <ThemeSwitch></ThemeSwitch>
+
+                </div>
               </div>
               <br />
 

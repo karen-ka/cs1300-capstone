@@ -1,10 +1,11 @@
 import React from 'react';
 import { Menu, Avatar, Drawer } from 'antd';
-import LoginModal from './loginModal'
-import RegisterModal from './registerModal'
-import { Link } from 'react-router-dom'
-import logo from '../img/logo-transparent.png'
-import user from '../img/user_icon.jpg'
+import LoginModal from './loginModal';
+import RegisterModal from './registerModal';
+import ThemeSwitch from './ThemeSwitch';
+import { Link } from 'react-router-dom';
+import logo from '../img/logo.png';
+import user from '../img/user_icon.jpg';
 import { Redirect } from 'react-router-dom';
 import {
   UserOutlined,
@@ -110,7 +111,7 @@ export default class Navbar extends React.Component {
               Find Hosts
           </Menu.Item>
             {localStorage.getItem("currentUser") !== null ?
-              <SubMenu style={{ borderBottom: 'unset', }} onTitleClick={this.handleClick} key="userMenu" icon={<Avatar style={{ marginTop: '1vh' }} size="large" icon={<UserOutlined style={{ margin: 'auto', }} />} />} popupOffset={[-30, 0]}  >
+              <SubMenu style={{ borderBottom: 'unset', }} onTitleClick={this.handleClick} key="userMenu" icon={<Avatar style={{ fontSize: '18px' }} size={"large"} icon={<UserOutlined style={{ paddingBottom: '1vh', }} />} />} popupOffset={[-30, 0]}  >
                 <Menu.Item key="user" >Dashboard</Menu.Item>
                 <Menu.Divider></Menu.Divider>
                 <Menu.Item key="logout" >Logout</Menu.Item>
@@ -138,6 +139,7 @@ export default class Navbar extends React.Component {
             onClose={this.onClose}
             visible={this.state.drawerVisible}
             width={200}
+          // style={{ width: '30vw' }}
           >
             <Menu onClick={this.handleClick} selectedKeys={[current]} mode="vertical" style={{ border: 'unset', backgroundColor: 'transparent', marginTop: '5vh' }}>
               <Menu.Item key="game_search" style={{ borderBottom: 'unset' }}>
@@ -160,12 +162,16 @@ export default class Navbar extends React.Component {
                   <Menu.Item key="register">
                     Sign Up
                   </Menu.Item></>)}
+              <Menu.Divider></Menu.Divider>
+              <Menu.Item style={{ backgroundColor: 'unset' }}>
+                <ThemeSwitch></ThemeSwitch>
 
+              </Menu.Item>
             </Menu>
           </Drawer>
 
-          <Menu icon={<MenuOutlined />} className="navbar-menu" onClick={this.handleMobileClick}>
-            <Menu.Item key="host_search" icon={<MenuOutlined style={{ fontSize: '30px', marginTop: '1vh' }} />} style={{ color: 'white', backgroundColor: 'transparent' }}>
+          <Menu className="navbar-menu" onClick={this.handleMobileClick}>
+            <Menu.Item className="m-menu-icon" icon={<MenuOutlined style={{ fontSize: '30px', marginTop: '1vh', }} />} style={{ backgroundColor: 'transparent', }}>
 
             </Menu.Item>
           </Menu>

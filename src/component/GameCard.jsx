@@ -285,7 +285,7 @@ export default class GameCard extends React.Component {
                                                     <div style={{ display: 'flex', paddingTop: '1vh' }}>
 
                                                         <div>
-                                                            <Text type="secondary" style={{ float: "left" }}>Intro</Text>
+                                                            {/* <Text type="secondary" style={{ float: "left" }}>Intro</Text> */}
                                                             <br />
                                                             {<Paragraph style={{ textAlign: 'left', marginTop: '1vh' }} ellipsis={{ rows: 3 }}><> {this.props.hd.intro}</></Paragraph>}
                                                         </div>
@@ -322,7 +322,7 @@ export default class GameCard extends React.Component {
                                                         )
                                                         : <Button type='primary' onClick={this.handleLoggedInClick} style={{ justifyContent: 'center', width: '100%' }} disabled={disabled}>Book Now</Button>) :
                                                     (this.props.onUserPage && this.props.loggedIn ? (<Row style={{ width: '100%', lineHeight: '40px', verticalAlign: 'center' }}>
-                                                        <Col span={24} style={{ justifyContent: 'center', textAlign: "right", height: '40px', display: 'flex', verticalAlign: 'center' }}>
+                                                        <Col span={16} style={{ margin: 'auto', justifyContent: 'space-around', textAlign: "right", height: '40px', display: 'flex', verticalAlign: 'center' }}>
                                                             <Tooltip title="Message host">
                                                                 <Button shape="circle" size="large" onClick={this.handleMessageClick} icon={<MessageOutlined />} style={{ lineHeight: '30px', margin: "0 5px 0 5px" }} />
                                                             </Tooltip>

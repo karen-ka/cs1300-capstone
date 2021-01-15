@@ -2,13 +2,6 @@ import React from 'react'
 import { Row, Col, Carousel, Typography } from 'antd'
 import { LeftOutlined, RightOutlined } from '@ant-design/icons'
 const { Title } = Typography;
-const contentStyle = {
-    height: '160px',
-    color: '#fff',
-    lineHeight: '160px',
-    textAlign: 'center',
-    background: '#364d79'
-}
 
 export default class CarouselArrows extends React.Component {
     constructor (props) {
@@ -30,7 +23,7 @@ export default class CarouselArrows extends React.Component {
                     <Col>
                         <Title level={3} style={{ textAlign: 'left', margin: 'auto' }}>Gallery</Title>
                         <br />
-                        <Carousel autoplay dots={false} arrows nextArrow={<RightOutlined style={{ color: 'white', fontSize: '50px' }} />} prevArrow={<LeftOutlined style={{ color: 'white', fontSize: '50px' }} />}>
+                        <Carousel autoplay dots={false} arrows nextArrow={<RightOutlined className="carousel-arrows" />} prevArrow={<LeftOutlined className="carousel-arrows" />}>
 
 
                             {this.props.gallery.map((slide) =>

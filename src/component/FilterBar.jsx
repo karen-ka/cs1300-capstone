@@ -36,7 +36,7 @@ export default class FilterBar extends React.Component {
         <div style={{ width: '100%', paddingLeft: '30px', paddingRight: '30px' }}>
           <Space style={{ fontWeight: '400' }}>
             I'm looking for
-        <Select defaultValue={this.props.page} style={{ width: 120 }} onChange={this.handleSearchTypeFilter}>
+        <Select defaultValue={this.props.page} style={{ width: 110 }} onChange={this.handleSearchTypeFilter}>
               <Option value="Games">Games</Option>
               <Option value="Hosts">Hosts</Option>
             </Select>
@@ -47,7 +47,7 @@ export default class FilterBar extends React.Component {
               <Option value="Magic">Magic: the Gathering</Option>
               <Option value="Pandemic">Pandemic</Option>
             </Select>
-            <Select defaultValue="All Prices" style={{ width: 120 }} onChange={this.props.handlePriceFilter}>
+            <Select defaultValue="All Prices" style={{ width: 110 }} onChange={this.props.handlePriceFilter}>
               <Option value="All Prices">All Prices</Option>
               <Option value="20">&lt; $20</Option>
               <Option value="30">&lt; $30</Option>
@@ -109,7 +109,7 @@ export default class FilterBar extends React.Component {
     return (
       <div>
         <PageHeader
-          style={{ backgroundColor: '#1f1f1f', borderTop: '1px solid rgb(80,80,80)', }}
+          // style={{ borderTop: '1px solid rgb(80,80,80)', }}
           className="site-page-header"
           title={currTitle}
         />

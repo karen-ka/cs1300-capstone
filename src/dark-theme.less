@@ -1,8 +1,8 @@
 
-// @import '~antd/lib/style/color/colorPalette.less';
-// @import '~antd/dist/antd.less';
-// @import '~antd/lib/style/themes/dark.less';
-@import '~antd/dist/antd.dark.less';
+@import '~antd/lib/style/color/colorPalette.less';
+@import '~antd/dist/antd.less';
+@import '~antd/lib/style/themes/dark.less';
+// @import '~antd/dist/antd.dark.less';
 @primary-color: #08979c;
 // @border-radius-base: 4px;
 
@@ -18,4 +18,54 @@
 
 body {
     background-color: #000;
+}
+
+.ant-statistic-content {
+    font-size: unset;
+}
+
+.ant-page-header {
+    background-color: #1f1f1f;
+    border-top: 1px solid rgb(80,80,80);
+}
+
+.ant-avatar-icon {
+    font-size: unset;
+}
+
+.ant-avatar img {
+  border-radius: 300px;
+  border: 1px solid #303030;
+}
+
+.navbar-menu {
+    border: unset;
+    background-color: transparent;
+}
+
+.m-menu-icon:hover {
+    color: white !important;
+}
+
+.ant-carousel .slick-prev,
+.ant-carousel .slick-next {
+  color: white !important;
+  font-size: 20px;
+}
+
+.ant-carousel .slick-prev:hover,
+.ant-carousel .slick-next:hover,
+.ant-carousel .slick-prev:focus,
+.ant-carousel .slick-next:focus {
+  color: white !important;
+}
+
+@media only screen and (max-width: 767px) { 
+.ant-layout-header {
+    padding: unset;
+}
+
+.ant-page-header {
+    padding: unset;
+}
 }

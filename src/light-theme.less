@@ -9,14 +9,86 @@
 // @border-radius-base: 4px;
 
 
+.home-background {
+background-size: 100% 100%;
+background-image: url('./img/wp2.jpeg');
+// background-image: unset !important;
+}
+
+.m-subhero {
+    color: white !important;
+}
 
 
 .ant-card-hover:hover {
   // box-shadow: 0 3px 6px -4px rgb(110, 110, 110);
-  box-shadow: 0 2px 12px rgba(0,40,117,.06);
+  box-shadow: rgba(0, 40, 117, 0.1) 0px 2px 8px;
 }
 
 .ant-card-hover {
     box-shadow: 0 2px 12px rgba(0,40,117,.06);
     border-radius: 4px;
 }
+
+.ant-statistic-content {
+    font-size: unset;
+}
+
+.ant-layout-header {
+    background-color:rgba(255, 255, 255);
+}
+
+.ant-page-header {
+    background-color: rgba(255, 255, 255);
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.ant-avatar img {
+  border-radius: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.ant-typography {
+    color: rgba(0,0,0,.65) !important;
+}
+
+.ant-typography h2, .ant-typography h3, h2.ant-typography, h3.ant-typography {
+    color: rgba(0,0,0,.85) !important;
+}
+
+.ant-typography h4, .ant-typography h5, h4.ant-typography, h5.ant-typography {
+     color: rgba(0,0,0,.85) !important;
+}
+
+.navbar-menu {
+    border: unset;
+    background-color: transparent;
+}
+
+.m-menu-icon:hover {
+    color: black !important;
+}
+
+.ant-carousel .slick-prev,
+.ant-carousel .slick-next {
+  color: black !important;
+  font-size: 20px;
+}
+
+.ant-carousel .slick-prev:hover,
+.ant-carousel .slick-next:hover,
+.ant-carousel .slick-prev:focus,
+.ant-carousel .slick-next:focus {
+  color: black !important;
+}
+
+@media only screen and (max-width: 767px) { 
+.ant-layout-header {
+    padding: unset;
+}
+
+.ant-page-header {
+    padding: unset;
+}
+}
+
