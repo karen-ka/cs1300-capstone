@@ -116,7 +116,7 @@ export default class HostCard extends React.Component {
                               float: "left", whiteSpace: "pre-line"
                             }}>About</Text>
                             < br />
-                            <Paragraph style={{ textAlign: "left", marginTop: '1vh' }} ellipsis={{ rows: 7 }}>{this.props.hd.about.split("\n").map((item, i) => <p key={i}>{item}</p>)}</Paragraph>
+                            <Paragraph style={{ textAlign: "left", marginTop: '1vh' }} ellipsis={{ rows: 5 }}>{this.props.hd.about}</Paragraph>
                           </div>
                           <div >
                           </div>
